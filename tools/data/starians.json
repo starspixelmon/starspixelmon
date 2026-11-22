@@ -29,7 +29,7 @@
           "Inicial"
         ],
         [
-          "Família",
+          "Linha evolutiva",
           "Lumi, Luminix e Lumistar"
         ]
       ],
@@ -73,7 +73,7 @@
           "Inicial"
         ],
         [
-          "Família",
+          "Linha evolutiva",
           "Lumi, Luminix e Lumistar"
         ]
       ],
@@ -117,7 +117,7 @@
           "Inicial"
         ],
         [
-          "Família",
+          "Linha evolutiva",
           "Lumi, Luminix e Lumistar"
         ]
       ],
@@ -303,7 +303,7 @@
       ],
       "resumo": "Uma das espécies comuns do Stars.",
       "texto": "Veja de perto no Museu, no Spawn.",
-      "seo": "Verdragu é um Starian comum do Stars Pixelmon, servidor de Pixelmon com espécies originais. Veja sprites normal e shiny.",
+      "seo": "Verdragu é um Starian comum do Stars Pixelmon, servidor de Pixelmon com espécies originais. Veja sprites normal, shiny e selvagem.",
       "ficha": [
         [
           "Categoria",
@@ -318,6 +318,10 @@
         [
           "Shiny",
           "img/sprites/shiny/verdragu.webp"
+        ],
+        [
+          "Selvagem",
+          "img/sprites/shiny/verdragu-selvagem.webp"
         ]
       ]
     }

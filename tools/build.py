@@ -107,7 +107,7 @@ def starian_page(s, lista):
         itens = '\n'.join(mini(por_id[f], lista.index(por_id[f]) + 1, por_id[f] is s) for f in s['familia'])
         familia = f'''
     <section class="sd-block" aria-labelledby="familia-titulo">
-      <h2 class="subhead" id="familia-titulo">Família inicial</h2>
+      <h2 class="subhead" id="familia-titulo">Linha evolutiva</h2>
       <ol class="sd-family">
 {itens}
       </ol>
