@@ -196,6 +196,11 @@ for css in (SITE / 'css').glob('*.css'):
         if not u.startswith(('data:', 'http', '#')) and not (css.parent / u).exists():
             err(css.name, f'url() inexistente {u}')
 
+for f in sorted(SITE.glob('*.html')):   # dados obrigatórios (responsável, CNPJ, e-mail) ainda em branco
+    n = f.read_text(encoding='utf-8').count('A PREENCHER')
+    if n:
+        err(f.name, f'{n} campo(s) "A PREENCHER" sem o dado real')
+
 print(f'{len(pages)} páginas, {len(indexable)} indexáveis')
 print('\n'.join(problems) if problems else 'Nenhum problema encontrado.')
 sys.exit(1 if problems else 0)

@@ -8,7 +8,7 @@ window.STARS = {
   ip: 'starspixelmon.com.br',                            // A CONFIRMAR: endereço para entrar no servidor
 
   /* LOJA OFICIAL (parceira). Todo botão de compra do site leva para cá. */
-  loja: '',                                              // A CONFIRMAR: endereço da loja oficial
+  loja: 'https://starspixelmon.centralcart.ai',          // loja oficial (CentralCart)
   /* Opcional: link direto de cada item. Vazio = usa o endereço da loja acima. */
   lojaItens: {
     vips: '',
