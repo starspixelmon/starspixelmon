@@ -105,17 +105,30 @@ window.STARS = {
   });
 
   /* ══════════ MENU MOBILE ══════════ */
+  /* Tela cheia: o header continua por cima (o botão vira X), a página para de rolar (CSS, html:has)
+     e o resto da página fica inerte enquanto o menu está aberto. */
   const header = $('.site-header');
   const menuBtn = $('.menu-btn');
-  if (header && menuBtn) {
+  const mobileNav = $('#mobile-nav');
+  if (header && menuBtn && mobileNav) {
+    const behind = [$('main'), $('footer')].filter(Boolean);
+    const icon = $('use', menuBtn);
+    const isOpen = () => mobileNav.classList.contains('is-open');
     const setOpen = (open) => {
+      if (open === isOpen()) return;
+      mobileNav.classList.toggle('is-open', open);
       header.classList.toggle('is-open', open);
       menuBtn.setAttribute('aria-expanded', String(open));
       menuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      if (icon) icon.setAttribute('href', open ? '#i-x' : '#i-menu');
+      behind.forEach(el => { el.inert = open; });
+      if (open) { const first = $('a', mobileNav); if (first) first.focus({ preventScroll: true }); }
     };
-    menuBtn.addEventListener('click', () => setOpen(!header.classList.contains('is-open')));
-    $$('.mobile-nav a').forEach(a => a.addEventListener('click', () => setOpen(false)));
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+    menuBtn.addEventListener('click', () => setOpen(!isOpen()));
+    $$('a', mobileNav).forEach(a => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isOpen()) { setOpen(false); menuBtn.focus(); } });
+    /* virou desktop com o menu aberto: fecha, para não deixar a página travada */
+    matchMedia('(min-width: 1141px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
   }
 
   /* ══════════ MENU ACOMPANHA A ROLAGEM (scroll spy) ══════════

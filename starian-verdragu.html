@@ -24,9 +24,9 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="fonts/jersey-10-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts/fonts.css">
-<link rel="stylesheet" href="css/style.css?v=39">
+<link rel="stylesheet" href="css/style.css?v=40">
 <script>document.documentElement.classList.add('js');</script>
-<script src="js/transicoes.js?v=39"></script>
+<script src="js/transicoes.js?v=40"></script>
 <!-- /@head -->
 <script type="application/ld+json">
 {
@@ -66,6 +66,7 @@
     <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5z"/></symbol>
     <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></g></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
     <symbol id="i-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></symbol>
     <symbol id="i-cart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a2 2 0 0 0 2 1.6h8.3a2 2 0 0 0 2-1.5L21.5 8H6"/></g></symbol>
     <symbol id="i-download" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m-5-5 5 5 5-5M4 21h16"/></symbol>
@@ -123,19 +124,23 @@
       </button>
     </div>
   </nav>
-  <nav class="mobile-nav" id="mobile-nav" aria-label="Menu">
-    <ul>
-      <li><a href="index.html" data-nav="inicio"><img class="px" src="img/px/star-ball.webp" width="16" height="16" alt="">Início</a></li>
-      <li><a href="como-jogar.html" data-nav="como-jogar" data-spy="como-entrar"><img class="px" src="img/px/check.webp" width="16" height="16" alt="">Como jogar</a></li>
-      <li><a href="index.html#starians"><img class="px" src="img/sprites/lumi.webp" width="32" height="32" alt="">Starians</a></li>
-      <li><a href="index.html#loja"><img class="px" src="img/px/loja.webp" width="16" height="16" alt="">Loja</a></li>
-      <li><a href="index.html#vips"><img class="px" src="img/px/area-vip.webp" width="16" height="16" alt="">VIPs</a></li>
-      <li><a href="index.html#eventos"><img class="px" src="img/px/arena.webp" width="16" height="16" alt="">Eventos</a></li>
-      <li><a href="index.html#comunidade"><img class="px" src="img/px/clan.webp" width="16" height="16" alt="">Comunidade</a></li>
-      <li><a href="index.html#faq"><img class="px" src="img/px/mensagem.webp" width="16" height="16" alt="">FAQ</a></li>
-    </ul>
-  </nav>
 </header>
+<!-- Menu mobile em tela cheia (fora do header: o backdrop-filter dele prenderia o position: fixed) -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Menu">
+  <ul>
+    <li style="--i:1"><a href="index.html" data-nav="inicio"><img class="px" src="img/px/star-ball.webp" width="16" height="16" alt=""><span>Início</span><small>01</small></a></li>
+    <li style="--i:2"><a href="como-jogar.html" data-nav="como-jogar" data-spy="como-entrar"><img class="px" src="img/px/check.webp" width="16" height="16" alt=""><span>Como jogar</span><small>02</small></a></li>
+    <li style="--i:3"><a href="index.html#starians"><img class="px" src="img/sprites/lumi.webp" width="32" height="32" alt=""><span>Starians</span><small>03</small></a></li>
+    <li style="--i:4"><a href="index.html#loja"><img class="px" src="img/px/loja.webp" width="16" height="16" alt=""><span>Loja</span><small>04</small></a></li>
+    <li style="--i:5"><a href="index.html#vips"><img class="px" src="img/px/area-vip.webp" width="16" height="16" alt=""><span>VIPs</span><small>05</small></a></li>
+    <li style="--i:6"><a href="index.html#eventos"><img class="px" src="img/px/arena.webp" width="16" height="16" alt=""><span>Eventos</span><small>06</small></a></li>
+    <li style="--i:7"><a href="index.html#comunidade"><img class="px" src="img/px/clan.webp" width="16" height="16" alt=""><span>Comunidade</span><small>07</small></a></li>
+    <li style="--i:8"><a href="index.html#faq"><img class="px" src="img/px/mensagem.webp" width="16" height="16" alt=""><span>FAQ</span><small>08</small></a></li>
+  </ul>
+  <div class="mobile-nav__foot">
+    <a class="btn btn--play" href="como-jogar.html"><svg aria-hidden="true"><use href="#i-play"/></svg>Jogar agora</a>
+  </div>
+</nav>
 <!-- /@header -->
 
 <main id="conteudo" tabindex="-1">
@@ -275,8 +280,8 @@
 </footer>
 <!-- /@footer -->
 <!-- @scripts -->
-<script src="js/space.js?v=39" defer></script>
-<script src="js/main.js?v=39" defer></script>
+<script src="js/space.js?v=40" defer></script>
+<script src="js/main.js?v=40" defer></script>
 <!-- /@scripts -->
 </body>
 </html>
