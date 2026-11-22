@@ -1,0 +1,329 @@
+{
+  "_leia": "Fonte dos Starians. Cada item vira a página starian-<id>.html (na raiz) ao rodar tools/build.py. A ordem define o número na Dex. Só publique o que já foi anunciado.",
+  "starians": [
+    {
+      "id": "lumi",
+      "nome": "Lumi",
+      "cor": "gold",
+      "arte": {
+        "src": "img/starians/lumi.webp",
+        "w": 960,
+        "h": 960
+      },
+      "tags": [
+        [
+          "Mascote",
+          ""
+        ],
+        [
+          "Inicial",
+          "lilac"
+        ]
+      ],
+      "resumo": "O mascote do Stars.",
+      "texto": "Primeiro da família inicial, ao lado de Luminix e Lumistar.",
+      "seo": "Lumi é o mascote do Stars Pixelmon e o primeiro Starian da família inicial. Veja sprites normal e shiny.",
+      "ficha": [
+        [
+          "Categoria",
+          "Inicial"
+        ],
+        [
+          "Família",
+          "Lumi, Luminix e Lumistar"
+        ]
+      ],
+      "sprites": [
+        [
+          "Normal",
+          "img/sprites/lumi.webp"
+        ],
+        [
+          "Shiny",
+          "img/sprites/shiny/lumi.webp"
+        ]
+      ],
+      "familia": [
+        "lumi",
+        "luminix",
+        "lumistar"
+      ]
+    },
+    {
+      "id": "luminix",
+      "nome": "Luminix",
+      "cor": "gold",
+      "arte": {
+        "src": "img/starians/luminix.webp",
+        "w": 960,
+        "h": 960
+      },
+      "tags": [
+        [
+          "Inicial",
+          "lilac"
+        ]
+      ],
+      "resumo": "Da família do Lumi.",
+      "texto": "Membro da família inicial do Stars, entre o Lumi e o Lumistar.",
+      "seo": "Luminix é um Starian da família inicial do Stars Pixelmon. Veja sprites normal e shiny.",
+      "ficha": [
+        [
+          "Categoria",
+          "Inicial"
+        ],
+        [
+          "Família",
+          "Lumi, Luminix e Lumistar"
+        ]
+      ],
+      "sprites": [
+        [
+          "Normal",
+          "img/sprites/luminix.webp"
+        ],
+        [
+          "Shiny",
+          "img/sprites/shiny/luminix.webp"
+        ]
+      ],
+      "familia": [
+        "lumi",
+        "luminix",
+        "lumistar"
+      ]
+    },
+    {
+      "id": "lumistar",
+      "nome": "Lumistar",
+      "cor": "gold",
+      "arte": {
+        "src": "img/starians/lumistar.webp",
+        "w": 960,
+        "h": 960
+      },
+      "tags": [
+        [
+          "Inicial",
+          "lilac"
+        ]
+      ],
+      "resumo": "O brilho mais forte da família.",
+      "texto": "O membro mais brilhante da família inicial do Lumi.",
+      "seo": "Lumistar é o brilho mais forte da família inicial do Stars Pixelmon. Veja sprites normal e shiny.",
+      "ficha": [
+        [
+          "Categoria",
+          "Inicial"
+        ],
+        [
+          "Família",
+          "Lumi, Luminix e Lumistar"
+        ]
+      ],
+      "sprites": [
+        [
+          "Normal",
+          "img/sprites/lumistar.webp"
+        ],
+        [
+          "Shiny",
+          "img/sprites/shiny/lumistar.webp"
+        ]
+      ],
+      "familia": [
+        "lumi",
+        "luminix",
+        "lumistar"
+      ]
+    },
+    {
+      "id": "owlith",
+      "nome": "Owlith",
+      "cor": "violet",
+      "arte": {
+        "src": "img/starians/owlith.webp",
+        "w": 960,
+        "h": 960
+      },
+      "tags": [
+        [
+          "Premium",
+          "violet"
+        ],
+        [
+          "Sem spawn",
+          "ember"
+        ]
+      ],
+      "resumo": "Muito raro. Poderes únicos.",
+      "texto": "Stats elevados. Habilidade e ataque exclusivos. Não aparece na natureza: só na loja oficial.",
+      "seo": "Owlith, Starian Premium do Stars Pixelmon: stats elevados, habilidade e ataque exclusivos e 3 IVs perfeitos.",
+      "ficha": [
+        [
+          "Categoria",
+          "Premium"
+        ],
+        [
+          "Raridade",
+          "Muito raro"
+        ],
+        [
+          "IVs",
+          "3 IVs perfeitos"
+        ],
+        [
+          "Spawn",
+          "Não tem spawn"
+        ],
+        [
+          "Onde conseguir",
+          "Loja oficial"
+        ]
+      ],
+      "sprites": [
+        [
+          "Normal",
+          "img/sprites/owlith.webp"
+        ],
+        [
+          "Shiny",
+          "img/sprites/shiny/owlith.webp"
+        ]
+      ],
+      "compra": {
+        "rotulo": "Garantir o Owlith",
+        "loja": "owlith"
+      }
+    },
+    {
+      "id": "shirlaw",
+      "nome": "Shirlaw",
+      "cor": "green",
+      "arte": {
+        "src": "img/starians/shirlaw.webp",
+        "w": 960,
+        "h": 730
+      },
+      "tags": [
+        [
+          "Passe Premium",
+          "green"
+        ],
+        [
+          "Selvagem",
+          "ember"
+        ]
+      ],
+      "resumo": "A estrela da Temporada Selvagem.",
+      "texto": "Exclusivo do Passe Premium. Por tempo limitado, há a edição Selvagem: 6 IVs perfeitos, poucas unidades, sem troca.",
+      "seo": "Shirlaw é o Starian exclusivo do Passe Premium da Temporada Selvagem no Stars Pixelmon. Conheça a edição limitada.",
+      "ficha": [
+        [
+          "Categoria",
+          "Exclusivo do Passe"
+        ],
+        [
+          "Temporada",
+          "Selvagem"
+        ],
+        [
+          "Onde conseguir",
+          "Passe de Batalha Premium"
+        ],
+        [
+          "Edição limitada",
+          "Textura Selvagem, 6 IVs perfeitos, sem troca"
+        ]
+      ],
+      "sprites": [
+        [
+          "Normal",
+          "img/sprites/shirlaw.webp"
+        ],
+        [
+          "Shiny",
+          "img/sprites/shiny/shirlaw.webp"
+        ],
+        [
+          "Selvagem",
+          "img/sprites/shiny/shirlaw-selvagem.webp"
+        ]
+      ],
+      "compra": {
+        "rotulo": "Ver o Passe Premium",
+        "loja": "passe"
+      }
+    },
+    {
+      "id": "mouselitte",
+      "nome": "Mouselitte",
+      "cor": "sky",
+      "arte": {
+        "src": "img/starians/mouselitte.webp",
+        "w": 794,
+        "h": 794
+      },
+      "tags": [
+        [
+          "Comum",
+          "sky"
+        ]
+      ],
+      "resumo": "Uma das espécies comuns do Stars.",
+      "texto": "Veja de perto no Museu, no Spawn.",
+      "seo": "Mouselitte é um Starian comum do Stars Pixelmon, servidor de Pixelmon com espécies originais. Veja sprites normal e shiny.",
+      "ficha": [
+        [
+          "Categoria",
+          "Comum"
+        ]
+      ],
+      "sprites": [
+        [
+          "Normal",
+          "img/sprites/mouselitte.webp"
+        ],
+        [
+          "Shiny",
+          "img/sprites/shiny/mouselitte.webp"
+        ]
+      ]
+    },
+    {
+      "id": "verdragu",
+      "nome": "Verdragu",
+      "cor": "green",
+      "arte": {
+        "src": "img/starians/verdragu.webp",
+        "w": 960,
+        "h": 960
+      },
+      "tags": [
+        [
+          "Comum",
+          "sky"
+        ]
+      ],
+      "resumo": "Uma das espécies comuns do Stars.",
+      "texto": "Veja de perto no Museu, no Spawn.",
+      "seo": "Verdragu é um Starian comum do Stars Pixelmon, servidor de Pixelmon com espécies originais. Veja sprites normal e shiny.",
+      "ficha": [
+        [
+          "Categoria",
+          "Comum"
+        ]
+      ],
+      "sprites": [
+        [
+          "Normal",
+          "img/sprites/verdragu.webp"
+        ],
+        [
+          "Shiny",
+          "img/sprites/shiny/verdragu.webp"
+        ]
+      ]
+    }
+  ]
+}

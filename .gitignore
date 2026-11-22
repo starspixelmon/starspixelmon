@@ -1,0 +1,14 @@
+# ── Só local (o repositório é público) ──
+# Artes originais em alta, Starians ainda não lançados, preços internos, prints de referência
+assets/
+# Cópias de outros sites e design systems usados como referência
+bases/
+
+# ── Sistema e editores ──
+Thumbs.db
+desktop.ini
+.DS_Store
+__pycache__/
+*.pyc
+.vscode/
+.claude/

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<!--
+  Stars Pixelmon · site institucional (HTML estático; abre direto do arquivo, sem servidor)
+  Páginas .......... index (Dex, loja, VIPs, eventos, comunidade, FAQ), como-jogar, starian-<id>, starian (redireciona), 404
+  Blocos comuns .... cabeçalho, rodapé, head e scripts vêm de tools/layout/ (rode: python tools/build.py)
+  Configuração ..... IP, loja oficial e redes ficam no topo de js/main.js
+  Manutenção ....... instruções no topo de tools/build.py e tools/check.py
+  Regra de texto ... criaturas originais são "Starians"; para as criaturas do mod, use "Pixelmon".
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stars Pixelmon: servidor de Pixelmon com Starians originais</title>
+<meta name="description" content="Servidor brasileiro de Minecraft Pixelmon com Starians originais. VIPs com kits, Passe de Batalha, torneio com R$ 1.000 em prêmios. Copie o IP.">
+<link rel="canonical" href="https://starspixelmon.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Stars Pixelmon: servidor de Pixelmon com Starians originais">
+<meta property="og:description" content="Explore, batalhe e brilhe. Starians originais, Área Estelar, Passe de Batalha e torneios com prêmios.">
+<meta property="og:url" content="https://starspixelmon.com.br/">
+<meta property="og:image" content="https://starspixelmon.com.br/img/brand/og-image.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Stars Pixelmon: siga @starspixelmon">
+<!--
+  Google Search Console: o jeito recomendado é verificar o DOMÍNIO inteiro pelo DNS (registro TXT).
+  Se preferir verificar por meta tag, cole aqui a tag que o Search Console fornecer, por exemplo:
+  <meta name="google-site-verification" content="CODIGO-DO-SEARCH-CONSOLE">
+-->
+<!-- @head -->
+<meta name="theme-color" content="#0c0322">
+<meta property="og:site_name" content="Stars Pixelmon">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/brand/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="img/brand/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="img/brand/favicon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="fonts/jersey-10-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="css/style.css?v=39">
+<script>document.documentElement.classList.add('js');</script>
+<script src="js/transicoes.js?v=39"></script>
+<!-- /@head -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://starspixelmon.com.br/#organizacao",
+      "name": "Stars Pixelmon",
+      "url": "https://starspixelmon.com.br/",
+      "logo": "https://starspixelmon.com.br/img/brand/logo-stars.webp",
+      "description": "Servidor brasileiro de Minecraft com o mod Pixelmon e espécies originais, os Starians."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://starspixelmon.com.br/#site",
+      "name": "Stars Pixelmon",
+      "url": "https://starspixelmon.com.br/",
+      "inLanguage": "pt-BR",
+      "publisher": { "@id": "https://starspixelmon.com.br/#organizacao" }
+    },
+    {
+      "@type": "Event",
+      "name": "Torneio Beta Stars Pixelmon",
+      "description": "Torneio de Pixelmon no servidor Stars. R$ 1.000,00 para o vencedor e R$ 250,00 de bônus com um Starian no time.",
+      "startDate": "2026-12-04",
+      "endDate": "2026-12-18",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+      "location": { "@type": "VirtualLocation", "url": "https://starspixelmon.com.br/#eventos" },
+      "image": "https://starspixelmon.com.br/img/banners/torneio.webp",
+      "organizer": { "@type": "Organization", "name": "Stars Pixelmon", "url": "https://starspixelmon.com.br/" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Qual o IP do Stars Pixelmon?", "acceptedAnswer": { "@type": "Answer", "text": "starspixelmon.com.br. Entre pelo launcher oficial: baixe, faça login e clique em Jogar." } },
+        { "@type": "Question", "name": "Como entro na Área Estelar?", "acceptedAnswer": { "@type": "Answer", "text": "Com tickets de Entrada Área Estelar. O tempo acumula até 48h. Saia e volte à vontade." } },
+        { "@type": "Question", "name": "Como funciona o Passe de Batalha?", "acceptedAnswer": { "@type": "Answer", "text": "Missões dão XP e Star Coins e liberam níveis. O Premium soma texturas e Starians exclusivos." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body data-page="inicio">
+<!-- @header -->
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- Ícones de interface (formas baseadas em Lucide, ISC) e marcas sociais simplificadas -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5z"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></g></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a2 2 0 0 0 2 1.6h8.3a2 2 0 0 0 2-1.5L21.5 8H6"/></g></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m-5-5 5 5 5-5M4 21h16"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+    <symbol id="i-discord" viewBox="0 0 24 24"><path fill="currentColor" d="M19.6 5.3A17 17 0 0 0 15.4 4l-.5 1.1a15.6 15.6 0 0 0-5.8 0L8.6 4a17 17 0 0 0-4.2 1.3C1.7 9.3 1 13.2 1.3 17a17 17 0 0 0 5.2 2.6l1.1-1.8a11 11 0 0 1-1.7-.8l.4-.3a12.2 12.2 0 0 0 11.4 0l.4.3c-.5.3-1.1.6-1.7.8l1.1 1.8a17 17 0 0 0 5.2-2.6c.4-4.4-.7-8.3-3.1-11.7zM8.7 14.7c-1 0-1.9-.9-1.9-2.1s.8-2.1 1.9-2.1 1.9.9 1.9 2.1-.8 2.1-1.9 2.1zm6.6 0c-1 0-1.9-.9-1.9-2.1s.8-2.1 1.9-2.1 1.9.9 1.9 2.1-.8 2.1-1.9 2.1z"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" d="M22.5 7.2a2.8 2.8 0 0 0-2-2C18.8 4.8 12 4.8 12 4.8s-6.8 0-8.5.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1 12a29 29 0 0 0 .5 4.8 2.8 2.8 0 0 0 2 2c1.7.4 8.5.4 8.5.4s6.8 0 8.5-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 23 12a29 29 0 0 0-.5-4.8zM9.8 15.1V8.9l5.7 3.1-5.7 3.1z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></g></symbol>
+    <symbol id="i-tiktok" viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 3c.4 2.2 1.8 3.7 4 3.9v3.2a7.4 7.4 0 0 1-4-1.2v6.5c0 3.3-2.6 5.6-5.7 5.6A5.6 5.6 0 0 1 5.3 15c0-3.4 3-6 6.5-5.5v3.3c-1.6-.4-3.2.7-3.2 2.3 0 1.3 1 2.4 2.4 2.4 1.4 0 2.4-1 2.4-2.6V3h3.2z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 7 7"><path fill="#f9cb11" stroke="#030412" stroke-width=".55" paint-order="stroke" d="M3 0h1v2h1v1h2v1H5v1H4v2H3V5H2V4H0V3h2V2h1z"/></symbol>
+  </defs>
+</svg>
+
+<!-- Céu animado (fixo atrás de tudo; desenhado por js/space.js) -->
+<div class="space" aria-hidden="true">
+  <div class="space__nebula">
+    <div class="neb neb--1"></div>
+    <div class="neb neb--2"></div>
+    <div class="neb neb--3"></div>
+    <div class="neb neb--4"></div>
+    <div class="neb neb--5"></div>
+  </div>
+  <canvas class="space__stars"></canvas>
+  <div class="space__grid"></div>
+  <div class="space__sparkles"></div>
+  <div class="space__vignette"></div>
+</div>
+
+<header class="site-header">
+  <nav class="container nav" aria-label="Principal">
+    <a class="brand" href="index.html" aria-label="Stars Pixelmon: página inicial">
+      <img src="img/brand/logo-stars.webp" width="760" height="534" alt="Stars Pixelmon">
+    </a>
+    <!-- Mesma ordem das seções da home. data-spy: seção da home que acende este item ao rolar (js/main.js) -->
+    <ul class="nav__links">
+      <li><a href="como-jogar.html" data-nav="como-jogar" data-spy="como-entrar">Como jogar</a></li>
+      <li><a href="index.html#starians">Starians</a></li>
+      <li><a href="index.html#loja">Loja</a></li>
+      <li><a href="index.html#vips">VIPs</a></li>
+      <li><a href="index.html#eventos">Eventos</a></li>
+      <li><a href="index.html#comunidade">Comunidade</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a class="icon-btn" href="index.html#comunidade" data-link="discord" aria-label="Discord do Stars Pixelmon">
+        <svg aria-hidden="true"><use href="#i-discord"/></svg>
+      </a>
+      <a class="icon-btn" href="index.html#loja" data-loja="" aria-label="Loja oficial">
+        <svg aria-hidden="true"><use href="#i-cart"/></svg>
+      </a>
+      <a class="btn btn--play" href="como-jogar.html">
+        <svg aria-hidden="true"><use href="#i-play"/></svg>Jogar
+      </a>
+      <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu">
+        <svg aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </nav>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Menu">
+    <ul>
+      <li><a href="index.html" data-nav="inicio" aria-current="page"><img class="px" src="img/px/star-ball.webp" width="16" height="16" alt="">Início</a></li>
+      <li><a href="como-jogar.html" data-nav="como-jogar" data-spy="como-entrar"><img class="px" src="img/px/check.webp" width="16" height="16" alt="">Como jogar</a></li>
+      <li><a href="index.html#starians"><img class="px" src="img/sprites/lumi.webp" width="32" height="32" alt="">Starians</a></li>
+      <li><a href="index.html#loja"><img class="px" src="img/px/loja.webp" width="16" height="16" alt="">Loja</a></li>
+      <li><a href="index.html#vips"><img class="px" src="img/px/area-vip.webp" width="16" height="16" alt="">VIPs</a></li>
+      <li><a href="index.html#eventos"><img class="px" src="img/px/arena.webp" width="16" height="16" alt="">Eventos</a></li>
+      <li><a href="index.html#comunidade"><img class="px" src="img/px/clan.webp" width="16" height="16" alt="">Comunidade</a></li>
+      <li><a href="index.html#faq"><img class="px" src="img/px/mensagem.webp" width="16" height="16" alt="">FAQ</a></li>
+    </ul>
+  </nav>
+</header>
+<!-- /@header -->
+
+<main id="conteudo" tabindex="-1">
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="hero" aria-labelledby="hero-titulo">
+    <div class="container hero__grid">
+      <div>
+        <p class="hero__badge"><svg aria-hidden="true" style="width:14px;height:14px"><use href="#i-star"/></svg>Minecraft Java · Pixelmon</p>
+        <h1 class="pixel-title hero__title" id="hero-titulo">Stars Pixelmon</h1>
+        <p class="hero__sub">Servidor de Pixelmon com <span>Starians originais</span></p>
+        <p class="hero__tagline">Sistemas próprios. <b>Explore, batalhe e brilhe.</b></p>
+        <p class="btn-row">
+          <a class="btn btn--play" href="como-jogar.html"><svg aria-hidden="true"><use href="#i-play"/></svg>Jogar agora</a>
+          <a class="btn btn--ghost" href="#loja"><svg aria-hidden="true"><use href="#i-cart"/></svg>Ver a loja</a>
+        </p>
+        <p class="ip">
+          <span class="ip__label">IP do servidor:</span>
+          <span class="ip__box">
+            <code data-ip>starspixelmon.com.br</code>
+            <button class="copy" type="button" data-copy><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar</span></button>
+          </span>
+        </p>
+      </div>
+      <div class="hero__stage" aria-hidden="true">
+        <div class="hero__ring"></div>
+        <div class="hero__orbit"></div>
+        <div class="hero__orbit hero__orbit--2"></div>
+        <img class="hero__mascot" src="img/starians/lumi.webp" width="960" height="960" alt="" fetchpriority="high">
+        <span class="hero__chip hero__chip--a tile tile--gold"><img class="px" src="img/sprites/lumi.webp" width="32" height="32" alt="">Starians</span>
+        <span class="hero__chip hero__chip--b tile tile--sky"><img class="px" src="img/px/area-estelar.webp" width="16" height="16" alt="">Área Estelar</span>
+        <span class="hero__chip hero__chip--c tile tile--green"><img class="px" src="img/px/passe.webp" width="16" height="16" alt="">Passe Selvagem</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ STARIAN DEX (filtros em js/main.js) ══════════ -->
+  <section class="section section--band" id="starians" aria-labelledby="starians-titulo">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <div>
+          <p class="eyebrow"><img class="px" src="img/px/museu.webp" width="16" height="16" alt="">Starian Dex</p>
+          <h2 class="pixel-title section-head__title" id="starians-titulo"><svg class="star-ico" aria-hidden="true"><use href="#i-star"/></svg>Starians</h2>
+        </div>
+        <p class="section-head__lead">Espécies <b>originais</b>. Só no Stars. Monte um time que ninguém tem.</p>
+      </header>
+      <!-- Filtros: cada botão mostra os cards com o mesmo valor em data-group (js/main.js) -->
+      <div class="chips" role="group" aria-label="Filtrar Starians">
+        <button class="chip" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+        <button class="chip" type="button" data-filter="inicial" aria-pressed="false">Inicial</button>
+        <button class="chip" type="button" data-filter="premium" aria-pressed="false">Premium e exclusivos</button>
+        <button class="chip" type="button" data-filter="comum" aria-pressed="false">Comum</button>
+        <button class="chip" type="button" data-filter="embreve" aria-pressed="false">Em breve</button>
+        <output class="chip chip--count" id="dex-count" aria-live="polite"></output>
+      </div>
+
+      <!-- Starian novo: adicione em tools/data/starians.json, rode tools/build.py e copie um card abaixo -->
+      <ul class="dex" id="dex-grid">
+        <li class="starian tile tile--gold" data-group="inicial">
+          <div class="starian__art"><img src="img/starians/lumi.webp" srcset="img/starians/lumi-480.webp 480w, img/starians/lumi.webp 960w" sizes="(min-width: 1080px) 17rem, (min-width: 760px) 31vw, 46vw" width="960" height="960" alt="Lumi, o mascote do Stars" loading="lazy" decoding="async"><img class="starian__sprite px" src="img/sprites/lumi.webp" width="32" height="32" alt=""></div>
+          <div class="starian__body"><h3><a class="starian__link" href="starian-lumi.html">Lumi</a></h3><ul class="badges"><li class="badge">Mascote</li><li class="badge badge--lilac">Inicial</li></ul><p>Abre a família, com Luminix e Lumistar.</p></div>
+        </li>
+        <li class="starian tile tile--gold" data-group="inicial">
+          <div class="starian__art"><img src="img/starians/luminix.webp" srcset="img/starians/luminix-480.webp 480w, img/starians/luminix.webp 960w" sizes="(min-width: 1080px) 17rem, (min-width: 760px) 31vw, 46vw" width="960" height="960" alt="Luminix" loading="lazy" decoding="async"><img class="starian__sprite px" src="img/sprites/luminix.webp" width="32" height="34" alt=""></div>
+          <div class="starian__body"><h3><a class="starian__link" href="starian-luminix.html">Luminix</a></h3><ul class="badges"><li class="badge badge--lilac">Inicial</li></ul><p>Da família do Lumi.</p></div>
+        </li>
+        <li class="starian tile tile--gold" data-group="inicial">
+          <div class="starian__art"><img src="img/starians/lumistar.webp" srcset="img/starians/lumistar-480.webp 480w, img/starians/lumistar.webp 960w" sizes="(min-width: 1080px) 17rem, (min-width: 760px) 31vw, 46vw" width="960" height="960" alt="Lumistar" loading="lazy" decoding="async"><img class="starian__sprite px" src="img/sprites/lumistar.webp" width="32" height="32" alt=""></div>
+          <div class="starian__body"><h3><a class="starian__link" href="starian-lumistar.html">Lumistar</a></h3><ul class="badges"><li class="badge badge--lilac">Inicial</li></ul><p>O brilho mais forte da família.</p></div>
+        </li>
+        <li class="starian tile tile--violet" data-group="premium">
+          <div class="starian__art"><img src="img/starians/owlith.webp" srcset="img/starians/owlith-480.webp 480w, img/starians/owlith.webp 960w" sizes="(min-width: 1080px) 17rem, (min-width: 760px) 31vw, 46vw" width="960" height="960" alt="Owlith" loading="lazy" decoding="async"><img class="starian__sprite px" src="img/sprites/owlith.webp" width="32" height="32" alt=""></div>
+          <div class="starian__body"><h3><a class="starian__link" href="starian-owlith.html">Owlith</a></h3><ul class="badges"><li class="badge badge--violet">Premium</li></ul><p>Muito raro. 3 IVs perfeitos. Sem spawn.</p></div>
+        </li>
+        <li class="starian tile tile--green" data-group="premium">
+          <div class="starian__art"><img src="img/starians/shirlaw.webp" srcset="img/starians/shirlaw-480.webp 480w, img/starians/shirlaw.webp 960w" sizes="(min-width: 1080px) 17rem, (min-width: 760px) 31vw, 46vw" width="960" height="730" alt="Shirlaw" loading="lazy" decoding="async"><img class="starian__sprite px" src="img/sprites/shirlaw.webp" width="32" height="32" alt=""></div>
+          <div class="starian__body"><h3><a class="starian__link" href="starian-shirlaw.html">Shirlaw</a></h3><ul class="badges"><li class="badge badge--green">Passe Premium</li><li class="badge badge--ember">Selvagem</li></ul><p>A estrela da Temporada Selvagem.</p></div>
+        </li>
+        <li class="starian tile tile--sky" data-group="comum">
+          <div class="starian__art"><img src="img/starians/mouselitte.webp" srcset="img/starians/mouselitte-480.webp 480w, img/starians/mouselitte.webp 794w" sizes="(min-width: 1080px) 17rem, (min-width: 760px) 31vw, 46vw" width="794" height="794" alt="Mouselitte" loading="lazy" decoding="async"><img class="starian__sprite px" src="img/sprites/mouselitte.webp" width="32" height="32" alt=""></div>
+          <div class="starian__body"><h3><a class="starian__link" href="starian-mouselitte.html">Mouselitte</a></h3><ul class="badges"><li class="badge badge--sky">Comum</li></ul><p>Veja de perto no Museu, no Spawn.</p></div>
+        </li>
+        <li class="starian tile tile--green" data-group="comum">
+          <div class="starian__art"><img src="img/starians/verdragu.webp" srcset="img/starians/verdragu-480.webp 480w, img/starians/verdragu.webp 960w" sizes="(min-width: 1080px) 17rem, (min-width: 760px) 31vw, 46vw" width="960" height="960" alt="Verdragu" loading="lazy" decoding="async"><img class="starian__sprite px" src="img/sprites/verdragu.webp" width="32" height="32" alt=""></div>
+          <div class="starian__body"><h3><a class="starian__link" href="starian-verdragu.html">Verdragu</a></h3><ul class="badges"><li class="badge badge--sky">Comum</li></ul><p>Veja de perto no Museu, no Spawn.</p></div>
+        </li>
+        <!-- em breve: silhuetas sem nome, para não estragar as revelações -->
+        <li class="starian starian--soon tile tile--indigo" data-group="embreve"><div class="starian__art"><img src="img/starians/em-breve-1.webp" width="438" height="560" alt="Silhueta de um Starian ainda não revelado" loading="lazy" decoding="async"></div><div class="starian__body"><h3>???</h3><ul class="badges"><li class="badge badge--violet">Em breve</li></ul></div></li>
+        <li class="starian starian--soon tile tile--indigo" data-group="embreve"><div class="starian__art"><img src="img/starians/em-breve-2.webp" width="560" height="560" alt="Silhueta de um Starian ainda não revelado" loading="lazy" decoding="async"></div><div class="starian__body"><h3>???</h3><ul class="badges"><li class="badge badge--violet">Em breve</li></ul></div></li>
+        <li class="starian starian--soon tile tile--indigo" data-group="embreve"><div class="starian__art"><img src="img/starians/em-breve-3.webp" width="560" height="560" alt="Silhueta de um Starian ainda não revelado" loading="lazy" decoding="async"></div><div class="starian__body"><h3>???</h3><ul class="badges"><li class="badge badge--violet">Em breve</li></ul></div></li>
+        <li class="starian starian--soon tile tile--indigo" data-group="embreve"><div class="starian__art"><img src="img/starians/em-breve-4.webp" width="560" height="560" alt="Silhueta de um Starian ainda não revelado" loading="lazy" decoding="async"></div><div class="starian__body"><h3>???</h3><ul class="badges"><li class="badge badge--violet">Em breve</li></ul></div></li>
+        <li class="starian starian--soon tile tile--indigo" data-group="embreve"><div class="starian__art"><img src="img/starians/em-breve-5.webp" width="560" height="560" alt="Silhueta de um Starian ainda não revelado" loading="lazy" decoding="async"></div><div class="starian__body"><h3>???</h3><ul class="badges"><li class="badge badge--violet">Em breve</li></ul></div></li>
+      </ul>
+      <p class="dex-note">Toque em um Starian para ver arte, sprites e ficha.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ LOJA (vitrine: todo botão de compra leva à loja oficial; ver STARS.loja em js/main.js) ══════════ -->
+  <section class="section" id="loja" aria-labelledby="loja-titulo">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <div>
+          <p class="eyebrow"><img class="px" src="img/px/loja.webp" width="16" height="16" alt="">Loja oficial</p>
+          <h2 class="pixel-title section-head__title" id="loja-titulo"><svg class="star-ico" aria-hidden="true"><use href="#i-star"/></svg>Loja</h2>
+        </div>
+        <p class="section-head__lead">Escolha aqui. <b>Compre na loja oficial.</b> Receba no jogo, pelo Correio.</p>
+        <p class="btn-row">
+          <a class="btn btn--play" href="#loja" data-loja=""><svg aria-hidden="true"><use href="#i-cart"/></svg>Ir para a loja oficial<svg aria-hidden="true"><use href="#i-external"/></svg></a>
+        </p>
+      </header>
+      <ul class="featured">
+        <li class="offer tile tile--green" data-reveal>
+          <div class="offer__media"><img src="img/banners/passe.webp" srcset="img/banners/passe-800.webp 800w, img/banners/passe.webp 1600w" sizes="(min-width: 960px) 23rem, 92vw" width="1600" height="842" alt="Passe de Batalha Selvagem, com o Starian Shirlaw" loading="lazy" decoding="async"></div>
+          <div class="offer__body">
+            <p class="offer__kicker">Temporada Selvagem</p>
+            <h3>Passe de Batalha</h3>
+            <p>Grátis para todos. O Premium dá mais recompensas.</p>
+            <p class="offer__foot"><a class="btn btn--play btn--sm" href="#loja" data-loja="passe">Garantir o Passe Premium<svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+          </div>
+        </li>
+        <li class="offer tile tile--violet" data-reveal>
+          <div class="offer__media"><img src="img/banners/owlith.webp" srcset="img/banners/owlith-800.webp 800w, img/banners/owlith.webp 1600w" sizes="(min-width: 960px) 23rem, 92vw" width="1600" height="842" alt="Owlith, Starian Premium" loading="lazy" decoding="async"></div>
+          <div class="offer__body">
+            <p class="offer__kicker">Starian Premium</p>
+            <h3>Owlith</h3>
+            <p>Stats altos. Habilidade e ataque exclusivos.</p>
+            <p class="offer__foot"><a class="btn btn--play btn--sm" href="#loja" data-loja="owlith">Garantir o Owlith<svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+          </div>
+        </li>
+        <li class="offer tile tile--ember" data-reveal>
+          <div class="offer__media"><img src="img/banners/edicao-limitada.webp" srcset="img/banners/edicao-limitada-800.webp 800w, img/banners/edicao-limitada.webp 1600w" sizes="(min-width: 960px) 23rem, 92vw" width="1600" height="842" alt="Edição limitada: Shirlaw com textura Selvagem" loading="lazy" decoding="async"></div>
+          <div class="offer__body">
+            <p class="offer__kicker">Edição limitada</p>
+            <h3>Shirlaw Selvagem</h3>
+            <p>Textura rara. 6 IVs perfeitos. Poucas unidades.</p>
+            <p class="offer__foot"><a class="btn btn--play btn--sm" href="#loja" data-loja="shirlaw-selvagem">Garantir o Shirlaw<svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Chaves e moedas: banner das caixas + moedas ao lado; as chaves embaixo -->
+      <h3 class="subhead" id="chaves">Chaves e moedas</h3>
+      <div class="bento bento--banner" data-reveal>
+        <figure class="art bento__map bento__map--banner">
+          <img src="img/banners/caixas.webp" srcset="img/banners/caixas-800.webp 800w, img/banners/caixas.webp 1600w" sizes="(min-width: 1184px) 69rem, 92vw" width="1600" height="842" alt="Caixas do Stars: Treinador, Held Itens, Z-Moves, Mega Evoluções, Ultra Beasts, Paradoxos, Shiny, Texturas e Lendários" loading="lazy" decoding="async">
+        </figure>
+        <article class="info tile tile--gold bento__side coin-side" id="moedas">
+          <div class="info__head"><img src="img/loja/star-coins-5.webp" width="400" height="400" alt="" loading="lazy" decoding="async"><h4>Star Coins</h4></div>
+          <p>A moeda principal. Pacotes de <b>250 mil a 15 milhões</b>.</p>
+          <a class="link-more" href="#chaves" data-loja="coins">Comprar Star Coins<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+        <article class="info tile tile--sky bento__side coin-side">
+          <div class="info__head"><img src="img/loja/star-tokens-5.webp" width="400" height="318" alt="" loading="lazy" decoding="async"><h4>Star Tokens</h4></div>
+          <p>Use no Builder. Pacotes de <b>30 a 2.150</b> tokens.</p>
+          <a class="link-more" href="#chaves" data-loja="tokens">Comprar Star Tokens<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+      </div>
+      <ul class="products products--5 keys">
+        <li class="product tile tile--gold"><div class="product__art"><img class="px" src="img/px/chave-do-treinador.webp" width="16" height="16" alt=""></div><div class="product__body"><h4>Treinador</h4></div></li>
+        <li class="product tile tile--sky"><div class="product__art"><img class="px" src="img/px/chave-held-itens.webp" width="16" height="16" alt=""></div><div class="product__body"><h4>Held Itens</h4></div></li>
+        <li class="product tile tile--gold"><div class="product__art"><img class="px" src="img/px/chave-shiny.webp" width="16" height="16" alt=""></div><div class="product__body"><h4>Shiny</h4></div></li>
+        <li class="product tile tile--violet"><div class="product__art"><img class="px" src="img/px/chave-z-moves.webp" width="16" height="16" alt=""></div><div class="product__body"><h4>Z-Moves</h4></div></li>
+        <li class="product tile tile--green"><div class="product__art"><img class="px" src="img/px/chave-mega-evolucoes.webp" width="16" height="16" alt=""></div><div class="product__body"><h4>Mega Evoluções</h4></div></li>
+        <li class="product tile tile--ember"><div class="product__art"><img class="px" src="img/px/chave-paradoxos.webp" width="16" height="16" alt=""></div><div class="product__body"><h4>Paradoxos</h4></div></li>
+        <li class="product tile tile--indigo"><div class="product__art"><img class="px" src="img/px/chave-ultra-beasts.webp" width="16" height="16" alt=""></div><div class="product__body"><h4>Ultra Beasts</h4></div></li>
+        <li class="product tile tile--rose"><div class="product__art"><img class="px" src="img/px/chave-lendarios.webp" width="16" height="16" alt=""></div><div class="product__body"><h4>Lendários</h4></div></li>
+        <li class="product product--soon tile tile--green"><div class="product__art"><img class="px" src="img/px/chave-selvagem.webp" width="16" height="16" alt=""></div><div class="product__body"><h4>Texturas</h4><p class="price price--soon">Em breve</p></div></li>
+        <li class="product product--soon tile tile--violet"><div class="product__art"><img class="px" src="img/px/chave-galaxia.webp" width="16" height="16" alt=""></div><div class="product__body"><h4>Galáxia</h4><p class="price price--soon">Em breve</p></div></li>
+      </ul>
+      <p class="more-row"><a class="btn btn--play" href="#chaves" data-loja="chaves"><svg aria-hidden="true"><use href="#i-cart"/></svg>Comprar chaves</a></p>
+    </div>
+  </section>
+
+  <!-- ══════════ VIPS: comparação completa (toque num kit para ampliar) ══════════ -->
+  <section class="section section--band" id="vips" aria-labelledby="vips-titulo">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <div>
+          <p class="eyebrow"><img class="px" src="img/px/area-vip.webp" width="16" height="16" alt="">Planos VIP</p>
+          <h2 class="pixel-title section-head__title" id="vips-titulo"><svg class="star-ico" aria-hidden="true"><use href="#i-star"/></svg>Seja VIP</h2>
+        </div>
+        <p class="section-head__lead">Quanto maior o plano, <b>maiores os kits</b> e mais entradas na Área Estelar. Toque num kit para ampliar.</p>
+      </header>
+      <ul class="vips">
+        <li class="vip tile tile--sky">
+          <img class="vip__badge" src="img/vip/lunar.webp" width="400" height="400" alt="" loading="lazy" decoding="async">
+          <h3>Lunar</h3>
+          <p class="vip__period">Mensal</p>
+          <ul class="vip__perks">
+            <li><img class="px" src="img/px/chave-shiny.webp" width="16" height="16" alt="">Chave de Shiny no mensal</li>
+            <li><img class="px" src="img/px/entrada-area-estelar-24h.webp" width="16" height="16" alt="">1 Entrada Área Estelar (24h) por semana</li>
+            <li><img class="px" src="img/tags/vip-lunar.webp" width="16" height="16" alt="">Tag VIP Lunar</li>
+          </ul>
+          <div class="vip__kits">
+            <p class="vip__kits-title">Kits</p>
+            <button class="zoom" type="button" data-zoom aria-label="Ampliar: Kit diário Lunar"><img class="px" src="img/kits/lunar-diario.webp" width="528" height="234" alt="Kit diário Lunar" loading="lazy" decoding="async"></button>
+            <button class="zoom" type="button" data-zoom aria-label="Ampliar: Kit semanal Lunar"><img class="px" src="img/kits/lunar-semanal.webp" width="528" height="234" alt="Kit semanal Lunar" loading="lazy" decoding="async"></button>
+            <button class="zoom" type="button" data-zoom aria-label="Ampliar: Kit mensal Lunar"><img class="px" src="img/kits/lunar-mensal.webp" width="528" height="234" alt="Kit mensal Lunar" loading="lazy" decoding="async"></button>
+          </div>
+          <a class="btn btn--play btn--sm vip__cta" href="#vips" data-loja="vip-lunar">Garantir o Lunar</a>
+        </li>
+        <li class="vip tile tile--gold">
+          <img class="vip__badge" src="img/vip/solar.webp" width="400" height="400" alt="" loading="lazy" decoding="async">
+          <h3>Solar</h3>
+          <p class="vip__period">Mensal</p>
+          <ul class="vip__perks">
+            <li><img class="px" src="img/px/chave-shiny.webp" width="16" height="16" alt="">Beast Ball e Chave de Shiny no mensal</li>
+            <li><img class="px" src="img/px/entrada-area-estelar-24h.webp" width="16" height="16" alt="">2 Entradas Área Estelar (24h) por semana</li>
+            <li><img class="px" src="img/tags/vip-solar.webp" width="16" height="16" alt="">Tag VIP Solar</li>
+          </ul>
+          <div class="vip__kits">
+            <p class="vip__kits-title">Kits</p>
+            <button class="zoom" type="button" data-zoom aria-label="Ampliar: Kit diário Solar"><img class="px" src="img/kits/solar-diario.webp" width="528" height="234" alt="Kit diário Solar" loading="lazy" decoding="async"></button>
+            <button class="zoom" type="button" data-zoom aria-label="Ampliar: Kit semanal Solar"><img class="px" src="img/kits/solar-semanal.webp" width="528" height="234" alt="Kit semanal Solar" loading="lazy" decoding="async"></button>
+            <button class="zoom" type="button" data-zoom aria-label="Ampliar: Kit mensal Solar"><img class="px" src="img/kits/solar-mensal.webp" width="528" height="234" alt="Kit mensal Solar" loading="lazy" decoding="async"></button>
+          </div>
+          <a class="btn btn--play btn--sm vip__cta" href="#vips" data-loja="vip-solar">Garantir o Solar</a>
+        </li>
+        <li class="vip tile tile--green" style="--frame:#2fe0c4">
+          <img class="vip__badge" src="img/vip/astral.webp" width="400" height="400" alt="" loading="lazy" decoding="async">
+          <h3>Astral</h3>
+          <p class="vip__period">Mensal</p>
+          <ul class="vip__perks">
+            <li><img class="px" src="img/px/estrela-brilhante.webp" width="16" height="16" alt="">Master Ball e 30 Estrelas Brilhantes no mensal</li>
+            <li><img class="px" src="img/px/entrada-area-estelar-24h.webp" width="16" height="16" alt="">3 Entradas Área Estelar (24h) por semana</li>
+            <li><img class="px" src="img/tags/vip-astral.webp" width="16" height="16" alt="">Tag VIP Astral</li>
+          </ul>
+          <div class="vip__kits">
+            <p class="vip__kits-title">Kits</p>
+            <button class="zoom" type="button" data-zoom aria-label="Ampliar: Kit diário Astral"><img class="px" src="img/kits/astral-diario.webp" width="528" height="234" alt="Kit diário Astral" loading="lazy" decoding="async"></button>
+            <button class="zoom" type="button" data-zoom aria-label="Ampliar: Kit semanal Astral"><img class="px" src="img/kits/astral-semanal.webp" width="528" height="234" alt="Kit semanal Astral" loading="lazy" decoding="async"></button>
+            <button class="zoom" type="button" data-zoom aria-label="Ampliar: Kit mensal Astral"><img class="px" src="img/kits/astral-mensal.webp" width="528" height="234" alt="Kit mensal Astral" loading="lazy" decoding="async"></button>
+          </div>
+          <a class="btn btn--play btn--sm vip__cta" href="#vips" data-loja="vip-astral">Garantir o Astral</a>
+        </li>
+        <li class="vip tile tile--rose">
+          <img class="vip__badge" src="img/vip/cosmo.webp" width="400" height="400" alt="" loading="lazy" decoding="async">
+          <h3>Cosmo</h3>
+          <p class="vip__period">Mensal</p>
+          <ul class="vip__perks">
+            <li><img class="px" src="img/px/chave-lendarios.webp" width="16" height="16" alt="">2 Master Balls e Chave de Lendários no mensal</li>
+            <li><img class="px" src="img/px/entrada-area-estelar-24h.webp" width="16" height="16" alt="">4 Entradas Área Estelar por semana</li>
+            <li><img class="px" src="img/tags/vip-cosmo.webp" width="16" height="16" alt="">Tag VIP Cosmo</li>
+          </ul>
+          <div class="vip__kits">
+            <p class="vip__kits-title">Kits</p>
+            <button class="zoom" type="button" data-zoom aria-label="Ampliar: Kit diário Cosmo"><img class="px" src="img/kits/cosmo-diario.webp" width="528" height="234" alt="Kit diário Cosmo" loading="lazy" decoding="async"></button>
+            <button class="zoom" type="button" data-zoom aria-label="Ampliar: Kit semanal Cosmo"><img class="px" src="img/kits/cosmo-semanal.webp" width="528" height="234" alt="Kit semanal Cosmo" loading="lazy" decoding="async"></button>
+            <button class="zoom" type="button" data-zoom aria-label="Ampliar: Kit mensal Cosmo"><img class="px" src="img/kits/cosmo-mensal.webp" width="528" height="234" alt="Kit mensal Cosmo" loading="lazy" decoding="async"></button>
+          </div>
+          <a class="btn btn--play btn--sm vip__cta" href="#vips" data-loja="vip-cosmo">Garantir o Cosmo</a>
+        </li>
+        <li class="vip vip--top tile tile--rose" style="--frame:var(--gold)">
+          <p class="vip__ribbon">O maior</p>
+          <img class="vip__badge" src="img/vip/estelar.webp" width="400" height="400" alt="" loading="lazy" decoding="async">
+          <h3>Estelar</h3>
+          <p class="vip__period">Anual</p>
+          <ul class="vip__perks">
+            <li><img class="px" src="img/px/chave-lendarios.webp" width="16" height="16" alt="">3 Master Balls e Chave de Lendários no mensal</li>
+            <li><img class="px" src="img/px/entrada-area-estelar-24h.webp" width="16" height="16" alt="">5 Entradas Área Estelar por semana</li>
+            <li><img class="px" src="img/tags/vip-estelar.webp" width="16" height="16" alt="">Tag VIP Estelar</li>
+          </ul>
+          <div class="vip__kits">
+            <p class="vip__kits-title">Kits</p>
+            <button class="zoom" type="button" data-zoom aria-label="Ampliar: Kit diário Estelar"><img class="px" src="img/kits/estelar-diario.webp" width="528" height="234" alt="Kit diário Estelar" loading="lazy" decoding="async"></button>
+            <button class="zoom" type="button" data-zoom aria-label="Ampliar: Kit semanal Estelar"><img class="px" src="img/kits/estelar-semanal.webp" width="528" height="234" alt="Kit semanal Estelar" loading="lazy" decoding="async"></button>
+            <button class="zoom" type="button" data-zoom aria-label="Ampliar: Kit mensal Estelar"><img class="px" src="img/kits/estelar-mensal.webp" width="528" height="234" alt="Kit mensal Estelar" loading="lazy" decoding="async"></button>
+          </div>
+          <a class="btn btn--play btn--sm vip__cta" href="#vips" data-loja="vip-estelar">Garantir o Estelar</a>
+        </li>
+      </ul>
+
+      <h3 class="subhead">Todo VIP tem</h3>
+      <ul class="tiles tiles--4">
+        <li class="info tile tile--green"><div class="info__head"><img class="px" src="img/px/area-vip.webp" width="16" height="16" alt=""><h4>Área VIP</h4></div><p>Treino de nível e EVs grátis.</p></li>
+        <li class="info tile tile--ember"><div class="info__head"><img class="px" src="img/px/construcao.webp" width="16" height="16" alt=""><h4>Menos limites</h4></div><p>Mais homes, slots de Breed e Lures.</p></li>
+        <li class="info tile tile--indigo"><div class="info__head"><img class="px" src="img/px/relogio.webp" width="16" height="16" alt=""><h4>Comandos</h4></div><p>/voar, /pc, /curar e mais XP.</p></li>
+        <li class="info tile tile--rose"><div class="info__head"><img class="px" src="img/px/saldo.webp" width="16" height="16" alt=""><h4>Descontos</h4></div><p>Menos taxa no GTS. Desconto na Loja Geral.</p></li>
+      </ul>
+      <p class="more-row"><a class="btn btn--play" href="#vips" data-loja="vips"><svg aria-hidden="true"><use href="#i-cart"/></svg>Ver VIPs na loja oficial<svg aria-hidden="true"><use href="#i-external"/></svg></a></p>
+    </div>
+  </section>
+
+  <!-- ══════════ EVENTOS (um evento = um <article>; atualize também o JSON-LD "Event" no <head>) ══════════ -->
+  <section class="section" id="eventos" aria-labelledby="torneio-titulo">
+    <div class="container">
+      <article class="event-card" aria-labelledby="torneio-titulo">
+        <header class="section-head" data-reveal>
+          <div>
+            <p class="eyebrow"><img class="px" src="img/px/arena.webp" width="16" height="16" alt="">Evento em destaque</p>
+            <h2 class="pixel-title section-head__title" id="torneio-titulo"><svg class="star-ico" aria-hidden="true"><use href="#i-star"/></svg>Torneio Beta</h2>
+          </div>
+          <p class="section-head__lead">Monte seu melhor time e dispute <b>prêmios em dinheiro</b>.</p>
+          <p class="event__dates"><time datetime="2026-12-04">04/dez</time> a <time datetime="2026-12-18">18/dez</time></p>
+        </header>
+
+        <!-- Bento: banner inteiro (proporção original) + prêmios ao lado; regras e botão embaixo -->
+        <div class="bento" data-reveal>
+          <figure class="art bento__map">
+            <img src="img/banners/torneio.webp" srcset="img/banners/torneio-800.webp 800w, img/banners/torneio.webp 1600w" sizes="(min-width: 1024px) 46rem, 92vw" width="1600" height="842" alt="Torneio Beta do Stars Pixelmon, com o Starian Lumistar" loading="lazy" decoding="async">
+          </figure>
+          <div class="info tile tile--ember bento__side prize">
+            <h3>R$ 1.000,00</h3>
+            <p>Prêmio do vencedor.</p>
+          </div>
+          <div class="info tile tile--green bento__side prize">
+            <h3>+ R$ 250,00</h3>
+            <p>Bônus com um Starian no time.</p>
+          </div>
+        </div>
+        <ul class="bento-x">
+          <li class="info tile tile--sky" data-reveal>
+            <div class="info__head"><img class="px" src="img/px/arena.webp" width="16" height="16" alt=""><h3>Quem joga</h3></div>
+            <p>VIPs e o TOP 5 de Star Points.</p>
+          </li>
+          <li class="info tile tile--violet" data-reveal>
+            <div class="info__head"><img class="px" src="img/px/relogio.webp" width="16" height="16" alt=""><h3>Atenção</h3></div>
+            <p>O progresso zera após a final.</p>
+          </li>
+          <li class="tile tile--gold event__cta" data-reveal>
+            <p>Ainda não é VIP?</p>
+            <a class="btn btn--play btn--sm" href="#vips" data-loja="vips"><svg aria-hidden="true"><use href="#i-cart"/></svg>Virar VIP e participar</a>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══════════ COMUNIDADE ══════════ -->
+  <section class="section section--band" id="comunidade" aria-labelledby="comunidade-titulo">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <div>
+          <p class="eyebrow"><img class="px" src="img/px/clan.webp" width="16" height="16" alt="">Comunidade</p>
+          <h2 class="pixel-title section-head__title" id="comunidade-titulo"><svg class="star-ico" aria-hidden="true"><use href="#i-star"/></svg>Fique por dentro</h2>
+        </div>
+        <p class="section-head__lead">Novidades, Starians e eventos saem <b>primeiro aqui</b>.</p>
+      </header>
+      <div class="community">
+        <section class="panel community__card" aria-labelledby="redes-titulo" data-reveal>
+          <h3 class="community__title" id="redes-titulo">Redes sociais</h3>
+          <p>O mesmo @ em todas as redes.</p>
+          <p class="community__well community__handle"><img class="px" src="img/sprites/lumi.webp" width="32" height="32" alt="">@starspixelmon</p>
+          <ul class="socials socials--3">
+            <li><a class="social social--yt" href="#comunidade" data-link="youtube"><svg aria-hidden="true"><use href="#i-youtube"/></svg>YouTube</a></li>
+            <li><a class="social social--ig" href="#comunidade" data-link="instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg>Instagram</a></li>
+            <li><a class="social social--tt" href="#comunidade" data-link="tiktok"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>TikTok</a></li>
+          </ul>
+        </section>
+
+        <section class="panel community__card" aria-labelledby="booster-titulo" data-reveal>
+          <h3 class="community__title" id="booster-titulo">Discord Booster</h3>
+          <p>Dê boost: <b>tag exclusiva</b> e <b>Kit Booster</b> todo mês.</p>
+          <figure class="community__well">
+            <img class="px community__kit" src="img/kits/booster-mensal.webp" width="528" height="234" alt="Itens do Kit Booster mensal" loading="lazy" decoding="async">
+          </figure>
+          <a class="social social--dc community__action" href="#comunidade" data-link="discord"><svg aria-hidden="true"><use href="#i-discord"/></svg>Entrar no Discord</a>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ PERGUNTAS FREQUENTES (ao mudar uma resposta, mude também o JSON-LD "FAQPage" no <head>) ══════════ -->
+  <section class="section" id="faq" aria-labelledby="faq-titulo">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <div>
+          <p class="eyebrow"><img class="px" src="img/px/mensagem.webp" width="16" height="16" alt="">Ajuda</p>
+          <h2 class="pixel-title section-head__title" id="faq-titulo"><svg class="star-ico" aria-hidden="true"><use href="#i-star"/></svg>Perguntas frequentes</h2>
+        </div>
+        <p class="section-head__lead">Respostas rápidas para as dúvidas mais comuns.</p>
+      </header>
+      <div class="faq">
+        <aside class="bubble tile tile--violet" aria-labelledby="ajuda-titulo" data-reveal>
+          <img class="bubble__lumi" src="img/brand/lumi-face.webp" width="420" height="379" alt="" loading="lazy" decoding="async">
+          <h3 id="ajuda-titulo">Não achou a resposta?</h3>
+          <p>Fale com a equipe no Discord.</p>
+          <a class="btn btn--discord btn--sm" href="#comunidade" data-link="discord"><svg aria-hidden="true"><use href="#i-discord"/></svg>Entrar no Discord</a>
+        </aside>
+
+        <div class="qa">
+          <details class="tile tile--gold" data-reveal>
+            <summary><h3>Qual o IP do Stars Pixelmon?</h3><i><svg aria-hidden="true"><use href="#i-down"/></svg></i></summary>
+            <div><p><b data-ip>starspixelmon.com.br</b>. Entre pelo launcher oficial: baixe, faça login e clique em <b>Jogar</b>. <a class="link-more" href="como-jogar.html">Ver o passo a passo<svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p></div>
+          </details>
+          <details class="tile tile--sky" data-reveal>
+            <summary><h3>Como entro na Área Estelar?</h3><i><svg aria-hidden="true"><use href="#i-down"/></svg></i></summary>
+            <div><p>Com tickets de <b>Entrada Área Estelar</b>. O tempo acumula até 48h. Saia e volte à vontade. <a class="link-more" href="como-jogar.html#area-estelar">Conhecer a Área Estelar<svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p></div>
+          </details>
+          <details class="tile tile--green" data-reveal>
+            <summary><h3>Como funciona o Passe de Batalha?</h3><i><svg aria-hidden="true"><use href="#i-down"/></svg></i></summary>
+            <div><p>Missões dão XP e Star Coins e liberam níveis. O <b>Premium</b> soma texturas e Starians exclusivos.</p></div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- @footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="img/brand/logo-stars.webp" width="760" height="534" alt="Stars Pixelmon" loading="lazy" decoding="async">
+        <p class="ip">
+          <span class="ip__label">IP do servidor</span>
+          <span class="ip__box">
+            <code data-ip>starspixelmon.com.br</code>
+            <button class="copy" type="button" data-copy><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar</span></button>
+          </span>
+        </p>
+      </div>
+      <nav aria-labelledby="rodape-jogar">
+        <h2 id="rodape-jogar">Jogar</h2>
+        <ul>
+          <li><a href="como-jogar.html">Como entrar</a></li>
+          <li><a href="como-jogar.html#guia">Guia do servidor</a></li>
+          <li><a href="como-jogar.html#area-estelar">Área Estelar</a></li>
+          <li><a href="como-jogar.html#sistemas">Economia e sistemas</a></li>
+          <li><a href="index.html#starians">Starian Dex</a></li>
+          <li><a href="index.html#faq">Perguntas frequentes</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="rodape-loja">
+        <h2 id="rodape-loja">Loja</h2>
+        <ul>
+          <li><a href="index.html#vips">VIPs</a></li>
+          <li><a href="index.html#loja">Passe de Batalha</a></li>
+          <li><a href="index.html#chaves">Chaves de caixas</a></li>
+          <li><a href="index.html#moedas">Star Coins e Star Tokens</a></li>
+          <li><a href="index.html#loja" data-loja="">Loja oficial</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="rodape-comunidade">
+        <h2 id="rodape-comunidade">Comunidade</h2>
+        <ul>
+          <li><a href="index.html#comunidade" data-link="discord">Discord</a></li>
+          <li><a href="index.html#comunidade" data-link="youtube">YouTube</a></li>
+          <li><a href="index.html#comunidade" data-link="instagram">Instagram</a></li>
+          <li><a href="index.html#comunidade" data-link="tiktok">TikTok</a></li>
+          <li><a href="como-jogar.html#tags">Tags do servidor</a></li>
+          <li><a href="index.html#eventos">Eventos</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer__bar">
+      <p>© <span data-year>2026</span> Stars Pixelmon. Servidor independente de Minecraft com o mod Pixelmon. Os Starians são criações originais do Stars Pixelmon. Sem ligação com a Mojang Studios ou a Microsoft.</p>
+      <a href="#conteudo">Voltar ao topo ↑</a>
+    </div>
+  </div>
+</footer>
+<!-- /@footer -->
+<!-- Modal de imagem ampliada (kits dos VIPs); controlado por js/main.js -->
+<dialog class="lightbox" id="lightbox" aria-label="Imagem ampliada">
+  <figure class="lightbox__fig">
+    <img class="px lightbox__img" src="data:," alt="">
+    <figcaption class="lightbox__cap"></figcaption>
+  </figure>
+  <button class="lightbox__btn lightbox__close" type="button" data-lb="close" aria-label="Fechar">✕</button>
+  <button class="lightbox__btn lightbox__prev" type="button" data-lb="prev" aria-label="Imagem anterior"><svg aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></button>
+  <button class="lightbox__btn lightbox__next" type="button" data-lb="next" aria-label="Próxima imagem"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+</dialog>
+
+<!-- @scripts -->
+<script src="js/space.js?v=39" defer></script>
+<script src="js/main.js?v=39" defer></script>
+<!-- /@scripts -->
+</body>
+</html>
