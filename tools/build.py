@@ -4,8 +4,8 @@ Stars Pixelmon · manutenção do site (Python 3, sem dependências)
     python tools/build.py
 
 O que faz, nesta ordem:
-  1. Gera uma página por Starian (starian-<id>.html, na raiz) a partir de tools/data/starians.json.
-  2. Copia os blocos comuns de tools/layout/ para TODAS as páginas .html da raiz, entre os marcadores:
+  1. Gera uma página por Starian (starians/<id>/index.html, endereço /starians/<id>) a partir de tools/data/starians.json.
+  2. Copia os blocos comuns de tools/layout/ para TODAS as páginas do site (PAGES abaixo), entre os marcadores:
         <!-- @head --> ... <!-- /@head -->         (ícones, fontes, CSS)
         <!-- @header --> ... <!-- /@header -->     (céu, cabeçalho e menu)
         <!-- @footer --> ... <!-- /@footer -->     (rodapé)
@@ -13,7 +13,9 @@ O que faz, nesta ordem:
      O link do menu da página atual recebe aria-current="page" (vem de <body data-page="...">).
   3. Refaz sitemap.xml com todas as páginas que não têm "noindex".
 
-As páginas continuam HTML puro: abrem direto do arquivo, sem servidor. Rode o build depois de mudar
+URLs limpas (sem .html): cada página é uma pasta com index.html e todo caminho começa na raiz ("/css/...").
+Por isso o site precisa de um servidor para abrir (Live Server no VS Code, ou python -m http.server).
+O .htaccess redireciona os endereços antigos (.html) para os novos. Rode o build depois de mudar
 qualquer coisa em tools/layout/ ou tools/data/. Ao mudar CSS ou JS, suba VERSION para o navegador
 não usar a versão antiga do cache.
 """
@@ -24,7 +26,7 @@ import re
 from pathlib import Path
 
 SITE_URL = 'https://starspixelmon.com.br'   # domínio oficial (canonical, sitemap, Open Graph)
-VERSION = '48'                                # suba ao alterar css/style.css ou js/*.js
+VERSION = '50'                                # suba ao alterar css/style.css ou js/*.js
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT                                   # o site fica na raiz do projeto (pronto para GitHub Pages)
@@ -34,6 +36,7 @@ def write_if_changed(path, text):
     """grava só se o conteúdo mudou: preserva a data do arquivo, que vira o lastmod do sitemap"""
     if path.exists() and path.read_text(encoding='utf-8') == text:
         return False
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text, encoding='utf-8', newline='\n')
     return True
 
@@ -53,6 +56,14 @@ def size_attrs(src, default=(32, 32)):
     return f'width="{w}" height="{h}"'
 
 
+def site_pages():
+    """todas as páginas do site: as .html da raiz (home, 404, starian.html) + cada pasta com index.html"""
+    pages = list(SITE.glob('*.html'))
+    pages += [p for p in SITE.glob('*/index.html') if p.parent.name not in ('tools', 'assets', 'bases')]
+    pages += list(SITE.glob('starians/*/index.html'))
+    return sorted(pages)
+
+
 # ══════════════════════════════════════════════════════════════════════════
 # 1. Páginas dos Starians
 # ══════════════════════════════════════════════════════════════════════════
@@ -66,8 +77,8 @@ def mini(s, numero, atual=False):
     current = ' aria-current="page"' if atual else ''
     estado = ' is-current' if atual else ''
     return (
-        f'        <li><a class="sd-mini tile tile--{s["cor"]}{estado}" href="starian-{s["id"]}.html"{current}>'
-        f'<img class="px" src="{s["sprites"][0][1]}" {size_attrs(s["sprites"][0][1])} alt="">'
+        f'        <li><a class="sd-mini tile tile--{s["cor"]}{estado}" href="/starians/{s["id"]}"{current}>'
+        f'<img class="px" src="/{s["sprites"][0][1]}" {size_attrs(s["sprites"][0][1])} alt="">'
         f'<span><small>#{numero:03d}</small>{esc(s["nome"])}</span></a></li>'
     )
 
@@ -78,7 +89,7 @@ def starian_page(s, lista):
     por_id = {x['id']: x for x in lista}
     anterior = lista[pos - 1]
     proximo = lista[(pos + 1) % len(lista)]
-    url = f'{SITE_URL}/starian-{s["id"]}.html'
+    url = f'{SITE_URL}/starians/{s["id"]}'
     titulo = f'{s["nome"]}: Starian #{numero:03d} | Stars Pixelmon'
     arte_abs = f'{SITE_URL}/{s["arte"]["src"]}'
 
@@ -89,7 +100,7 @@ def starian_page(s, lista):
         return 'gold' if rotulo == 'Shiny' else (s['cor'] if rotulo == 'Normal' else 'ember')
     sprites = '\n'.join(
         f'        <li>\n          <figure class="sd-sprite tile tile--{cor_sprite(r)}">\n'
-        f'            <img class="px" src="{src}" {size_attrs(src)} alt="Sprite {esc(r.lower())} de {esc(s["nome"])}" loading="lazy" decoding="async">\n'
+        f'            <img class="px" src="/{src}" {size_attrs(src)} alt="Sprite {esc(r.lower())} de {esc(s["nome"])}" loading="lazy" decoding="async">\n'
         f'            <figcaption>{esc(r)}</figcaption>\n          </figure>\n        </li>'
         for r, src in s['sprites']
     )
@@ -98,7 +109,7 @@ def starian_page(s, lista):
         c = s['compra']
         compra = f'''
         <p class="btn-row">
-          <a class="btn btn--play" href="index.html#loja" data-loja="{c["loja"]}">
+          <a class="btn btn--play" href="/#loja" data-loja="{c["loja"]}">
             <svg aria-hidden="true"><use href="#i-cart"/></svg>{esc(c["rotulo"])}
           </a>
         </p>'''
@@ -154,8 +165,8 @@ def starian_page(s, lista):
     <div class="container">
       <nav class="crumbs" aria-label="Você está em">
         <ol>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="index.html#starians">Starians</a></li>
+          <li><a href="/">Início</a></li>
+          <li><a href="/#starians">Starians</a></li>
           <li aria-current="page">{esc(s["nome"])}</li>
         </ol>
       </nav>
@@ -163,12 +174,12 @@ def starian_page(s, lista):
       <div class="sd-hero">
         <figure class="sd-art tile tile--{s["cor"]}">
           <div class="starian__art">
-            <img src="{s["arte"]["src"]}" width="{s["arte"]["w"]}" height="{s["arte"]["h"]}" alt="Arte oficial do Starian {esc(s["nome"])}" fetchpriority="high" decoding="async">
+            <img src="/{s["arte"]["src"]}" width="{s["arte"]["w"]}" height="{s["arte"]["h"]}" alt="Arte oficial do Starian {esc(s["nome"])}" fetchpriority="high" decoding="async">
           </div>
         </figure>
 
         <div class="sd-info">
-          <p class="eyebrow"><img class="px" src="img/px/museu.webp" width="16" height="16" alt="">Starian Dex · #{numero:03d}</p>
+          <p class="eyebrow"><img class="px" src="/img/px/museu.webp" width="16" height="16" alt="">Starian Dex · #{numero:03d}</p>
           <h1 class="pixel-title sd-name" id="starian-nome">{esc(s["nome"])}</h1>
           <ul class="badges sd-badges" aria-label="Categorias">
 {badges(s["tags"])}
@@ -189,7 +200,7 @@ def starian_page(s, lista):
       </section>
 {familia}
       <aside class="highlight tile tile--indigo sd-soon">
-        <img class="px highlight__icon" src="img/px/cadeado-aberto.webp" width="16" height="16" alt="">
+        <img class="px highlight__icon" src="/img/px/cadeado-aberto.webp" width="16" height="16" alt="">
         <div>
           <h2>Ficha completa em breve</h2>
           <p>Tipo, habilidades, ataques e stats chegam com a Starian Dex completa.</p>
@@ -197,8 +208,8 @@ def starian_page(s, lista):
       </aside>
 
       <nav class="sd-pager" aria-label="Outros Starians">
-        <a class="btn btn--ghost btn--sm" href="starian-{anterior["id"]}.html" rel="prev"><svg aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg>{esc(anterior["nome"])}</a>
-        <a class="btn btn--ghost btn--sm" href="starian-{proximo["id"]}.html" rel="next">{esc(proximo["nome"])}<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn--ghost btn--sm" href="/starians/{anterior["id"]}" rel="prev"><svg aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg>{esc(anterior["nome"])}</a>
+        <a class="btn btn--ghost btn--sm" href="/starians/{proximo["id"]}" rel="next">{esc(proximo["nome"])}<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </nav>
 
       <section class="sd-block" aria-labelledby="todos-titulo">
@@ -224,7 +235,7 @@ def build_starians():
     dados = json.loads((TOOLS / 'data' / 'starians.json').read_text(encoding='utf-8'))
     lista = dados['starians']
     for s in lista:
-        write_if_changed(SITE / f'starian-{s["id"]}.html', starian_page(s, lista))
+        write_if_changed(SITE / 'starians' / s['id'] / 'index.html', starian_page(s, lista))
     print(f'  {len(lista)} páginas de Starian geradas')
 
 
@@ -281,7 +292,7 @@ if __name__ == '__main__':
     print('Stars Pixelmon · build')
     build_starians()
     blocks = load_blocks()
-    pages = sorted(SITE.glob('*.html'))
+    pages = site_pages()
     for p in pages:
         sync_page(p, blocks)
     print(f'  blocos comuns aplicados em {len(pages)} páginas')

@@ -132,9 +132,10 @@ window.STARS = {
   }
 
   /* ══════════ MENU ACOMPANHA A ROLAGEM (scroll spy) ══════════
-     Links do menu que apontam para uma seção DESTA página (ex.: index.html#faq na home) ficam destacados
+     Links do menu que apontam para uma seção DESTA página (ex.: /#faq na home) ficam destacados
      enquanto a seção está na tela. Fora delas, volta o destaque da própria página (aria-current="page"). */
-  const fileOf = (path) => (path.split('/').pop() || 'index.html');
+  /* página de um endereço, sem "index.html" nem barra final: "/", "/como-jogar", "/starians/owlith" */
+  const fileOf = (path) => path.replace(/index\.html$/, '').replace(/\/+$/, '') || '/';
   const here = fileOf(location.pathname);
   const navLinks = $$('.nav__links a, .mobile-nav a');
   const pageLinks = navLinks.filter(a => a.getAttribute('aria-current') === 'page');
@@ -154,6 +155,7 @@ window.STARS = {
       spyLinks.forEach(a => { if (!hits.includes(a)) a.removeAttribute('aria-current'); });
       hits.forEach(a => a.setAttribute('aria-current', 'location'));
       pageLinks.forEach(a => {
+        if (hits.includes(a)) return;   /* ex.: "Como jogar" na própria página: já acendeu pela seção */
         if (hits.length) a.removeAttribute('aria-current');
         else a.setAttribute('aria-current', 'page');
       });
@@ -174,6 +176,34 @@ window.STARS = {
     window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
     window.addEventListener('resize', update);
     update();
+  }
+
+  /* ══════════ URL LIMPA: âncoras não ficam na barra de endereço ══════════
+     Link para uma seção desta página (ex.: "/#loja" estando na home): rola até ela sem gravar "#loja" na URL.
+     Chegando de outra página com âncora (ex.: "/como-jogar#guia"): rola até a seção e tira o "#guia" da barra.
+     Sem JS, as âncoras funcionam do jeito normal do navegador. */
+  const cleanUrl = () => history.replaceState(history.state, '', location.pathname + location.search);
+  const goTo = (el) => {
+    el.scrollIntoView({ behavior: reduce ? 'instant' : 'smooth', block: 'start' });
+    if (el.tabIndex >= 0 || el.hasAttribute('tabindex')) el.focus({ preventScroll: true });   /* ex.: "Pular para o conteúdo" */
+  };
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href*="#"]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || a.target === '_blank') return;
+    if (a.origin !== location.origin || fileOf(a.pathname) !== here || !a.hash) return;
+    const el = document.getElementById(decodeURIComponent(a.hash.slice(1)));
+    if (!el) return;
+    e.preventDefault();
+    goTo(el);
+    if (location.hash) cleanUrl();
+  });
+  if (location.hash) {
+    const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    /* espera as imagens carregarem (a posição da seção só fica certa depois), rola e limpa a URL */
+    window.addEventListener('load', () => {
+      if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+      cleanUrl();
+    }, { once: true });
   }
 
   /* ══════════ FILTROS DA STARIAN DEX (seção #starians da home) ══════════ */

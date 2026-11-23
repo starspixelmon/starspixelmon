@@ -6,11 +6,11 @@
   'use strict';
   if (!('onpagereveal' in window)) return;
   const NAME = 'starian-art';
-  const slug = (url) => { const m = /starian-([a-z0-9-]+)\.html/.exec(url || ''); return m ? m[1] : null; };
+  const slug = (url) => { const m = /\/starians\/([a-z0-9-]+)\/?(?:[?#]|$)/.exec(url || ''); return m ? m[1] : null; };   /* /starians/<id> */
 
   /* arte do card da Dex que leva ao Starian (null se o card estiver escondido pelo filtro) */
   const cardArt = (s, onlyVisible) => {
-    const a = document.querySelector(`#dex-grid a[href="starian-${s}.html"]`);
+    const a = document.querySelector(`#dex-grid a[href="/starians/${s}"]`);
     const card = a && a.closest('.starian');
     if (!card || card.hidden) return null;
     const img = card.querySelector('.starian__art > img');

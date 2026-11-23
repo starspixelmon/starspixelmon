@@ -94,12 +94,24 @@ class Page(HTMLParser):
             self.title += data
 
 
-pages = sorted(SITE.glob('*.html'))
+import importlib.util
+_spec = importlib.util.spec_from_file_location('build', SITE / 'tools' / 'build.py')
+_build = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(_build)
+pages = _build.site_pages()          # mesma lista de páginas do build (raiz + pastas com index.html)
+rel = lambda p: p.relative_to(SITE).as_posix()
 parsed = {}
 for p in pages:
     pg = Page()
     pg.feed(p.read_text(encoding='utf-8'))
-    parsed[p.name] = pg
+    parsed[rel(p)] = pg
+
+
+def resolve(path):
+    """URL do site -> arquivo: '/' e pastas viram index.html; '/termos' -> termos/index.html"""
+    target = SITE / path.lstrip('/')
+    if target.is_dir() or (not target.exists() and not target.suffix):
+        target = target / 'index.html'
+    return target
 
 indexable = []
 for name, pg in parsed.items():
@@ -116,11 +128,13 @@ for name, pg in parsed.items():
         path = path.split('?')[0]
         if not path:
             continue
-        target = SITE / path.lstrip('/')
+        if not path.startswith('/') and not base_root:
+            err(name, f'caminho relativo {v} (use caminhos a partir da raiz: /...)')
+        target = resolve(path)
         if not target.exists():
             err(name, f'arquivo inexistente {v}')
             continue
-        if frag and target.suffix == '.html' and frag not in parsed[target.name].ids:
+        if frag and target.suffix == '.html' and rel(target) in parsed and frag not in parsed[rel(target)].ids:
             err(name, f'âncora inexistente em {v}')
         if target.suffix == '.png' and 'favicon' not in target.name:
             err(name, f'imagem PNG {v}')
@@ -128,7 +142,7 @@ for name, pg in parsed.items():
         src = img.get('src', '')
         if src.startswith('data:'):
             continue
-        f = SITE / src
+        f = SITE / src.lstrip('/')
         if not img.get('width') or not img.get('height'):
             err(name, f'img sem width/height {src}')
         elif Image and f.exists():
@@ -137,7 +151,7 @@ for name, pg in parsed.items():
                 err(name, f'proporção errada {src}: {img["width"]}x{img["height"]} vs {w}x{h}')
         for part in filter(None, (x.strip() for x in img.get('srcset', '').split(','))):
             url, _, desc = part.partition(' ')
-            g = SITE / url
+            g = SITE / url.lstrip('/')
             if not g.exists():
                 err(name, f'srcset inexistente {url}')
             elif Image and desc.endswith('w') and Image.open(g).size[0] != int(desc[:-1]):
@@ -176,14 +190,14 @@ for name, pg in parsed.items():
             err(name, 'og:image ausente ou relativo')
         for ld in pg.jsonld:
             for u in re.findall(r'"(https://starspixelmon\.com\.br/[^"#]+)"', ld):
-                if not (SITE / u.replace(DOMAIN + '/', '')).exists():
+                if not resolve(u.replace(DOMAIN, '')).exists():
                     err(name, f'JSON-LD aponta para arquivo inexistente {u}')
 
 sitemap = set(re.findall(r'<loc>([^<]+)</loc>', (SITE / 'sitemap.xml').read_text(encoding='utf-8')))
 if sitemap != set(indexable):
     err('sitemap.xml', f'diferença: {sorted(sitemap ^ set(indexable))}')
 for u in sitemap:
-    f = SITE / (u.replace(DOMAIN + '/', '') or 'index.html')
+    f = resolve(u.replace(DOMAIN, '') or '/')
     if not f.exists():
         err('sitemap.xml', f'URL sem arquivo {u}')
 
@@ -196,7 +210,7 @@ for css in (SITE / 'css').glob('*.css'):
         if not u.startswith(('data:', 'http', '#')) and not (css.parent / u).exists():
             err(css.name, f'url() inexistente {u}')
 
-for f in sorted(SITE.glob('*.html')):   # dados obrigatórios (responsável, CNPJ, e-mail) ainda em branco
+for f in pages:   # dados obrigatórios (responsável, CNPJ, e-mail) ainda em branco
     n = f.read_text(encoding='utf-8').count('A PREENCHER')
     if n:
         err(f.name, f'{n} campo(s) "A PREENCHER" sem o dado real')

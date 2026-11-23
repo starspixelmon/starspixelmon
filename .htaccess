@@ -12,6 +12,37 @@ RewriteRule ^ https://starspixelmon.com.br%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# ── URLs limpas (sem .html) ──────────────────────────────────────────────────────────────
+# Cada página é uma pasta com index.html: /como-jogar, /termos, /starians/<id>.
+# As regras valem só para o domínio principal (o launcher.starspixelmon.com.br passa por este arquivo também).
+# Os 301 olham THE_REQUEST (o que o visitante pediu), para não brigar com a regra interna do passo 4.
+DirectorySlash Off
+
+# 3. endereços antigos -> novos (301)
+RewriteCond %{HTTP_HOST} ^starspixelmon\.com\.br$ [NC]
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?]
+RewriteRule ^index\.html$ / [L,R=301]
+
+RewriteCond %{HTTP_HOST} ^starspixelmon\.com\.br$ [NC]
+RewriteCond %{THE_REQUEST} \s/+(como-jogar|termos)(\.html|/index\.html|/)[\s?]
+RewriteRule ^(como-jogar|termos)(\.html|/index\.html|/)$ /$1 [L,R=301]
+
+RewriteCond %{HTTP_HOST} ^starspixelmon\.com\.br$ [NC]
+RewriteCond %{THE_REQUEST} \s/+starian-[a-z0-9-]+\.html[\s?]
+RewriteRule ^starian-([a-z0-9-]+)\.html$ /starians/$1 [L,R=301]
+
+RewriteCond %{HTTP_HOST} ^starspixelmon\.com\.br$ [NC]
+RewriteCond %{THE_REQUEST} \s/+starians/[a-z0-9-]+(/|/index\.html)[\s?]
+RewriteRule ^starians/([a-z0-9-]+)(/|/index\.html)$ /starians/$1 [L,R=301]
+
+# /starians sem nome -> Starian Dex na home
+RewriteCond %{HTTP_HOST} ^starspixelmon\.com\.br$ [NC]
+RewriteRule ^starians/?$ /#starians [L,R=301,NE]
+
+# 4. URL limpa -> arquivo (interno, a barra de endereço não muda)
+RewriteCond %{HTTP_HOST} ^starspixelmon\.com\.br$ [NC]
+RewriteRule ^(como-jogar|termos|starians/[a-z0-9-]+)$ $1/index.html [L]
+
 # Página de erro
 ErrorDocument 404 /404.html
 
