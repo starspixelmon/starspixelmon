@@ -196,6 +196,54 @@ window.STARS = {
     apply('todos');
   }
 
+  /* ══════════ CARROSSÉIS NO CELULAR: pontinhos de posição ══════════
+     O carrossel em si é só CSS ([data-carousel] em style.css). Aqui: um ponto por parada de encaixe,
+     o ponto da posição atual acende e tocar num ponto leva até ela. Fora do celular os pontos ficam escondidos. */
+  const carousels = $$('[data-carousel]');
+  const syncDots = [];
+  carousels.forEach(list => {
+    const dots = document.createElement('div');
+    dots.className = 'carousel-dots';
+    dots.setAttribute('aria-label', `Posição: ${list.getAttribute('aria-label') || 'lista'}`);
+    list.after(dots);
+    let stops = [];
+    /* parada atual = a última cuja borda esquerda já passou do início da área visível (+ meio card de folga) */
+    const current = () => {
+      const start = list.getBoundingClientRect().left + (parseFloat(getComputedStyle(list).scrollPaddingLeft) || 0);
+      let i = 0;
+      stops.forEach((el, k) => { if (el.getBoundingClientRect().left <= start + el.offsetWidth / 2) i = k; });
+      if (list.scrollLeft + list.clientWidth >= list.scrollWidth - 2) i = stops.length - 1;   /* chegou ao fim */
+      return i;
+    };
+    const paint = () => {
+      const i = current();
+      $$('button', dots).forEach((b, k) => b.setAttribute('aria-current', String(k === i)));
+    };
+    const build = () => {
+      stops = Array.from(list.children).filter(el => !el.hidden && getComputedStyle(el).scrollSnapAlign.includes('start'));
+      dots.replaceChildren(...stops.map((el, k) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', `Ir para o item ${k + 1} de ${stops.length}`);
+        b.addEventListener('click', () => {
+          const pad = parseFloat(getComputedStyle(list).scrollPaddingLeft) || 0;
+          const left = el.getBoundingClientRect().left - list.getBoundingClientRect().left + list.scrollLeft - pad;
+          list.scrollTo({ left, behavior: reduce ? 'auto' : 'smooth' });
+        });
+        return b;
+      }));
+      dots.hidden = stops.length < 2;
+      paint();
+    };
+    let raf = 0;
+    list.addEventListener('scroll', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(paint); }, { passive: true });
+    syncDots.push(() => { list.scrollLeft = 0; build(); });
+    build();
+  });
+  window.matchMedia('(max-width: 759px)').addEventListener('change', () => syncDots.forEach(fn => fn()));
+  /* a Dex muda de tamanho com os filtros: refaz os pontos */
+  $$('[data-filter]').forEach(ch => ch.addEventListener('click', () => syncDots.forEach(fn => fn())));
+
   /* ══════════ MODAL DE IMAGEM (kits dos VIPs na seção #vips da home): setas trocam, Esc fecha ══════════ */
   const lb = $('#lightbox');
   const zooms = $$('[data-zoom]');

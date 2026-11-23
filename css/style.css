@@ -1192,6 +1192,17 @@ main { view-transition-name: page; }
    alinhada com os vizinhos, não importa o tamanho do conteúdo acima. */
 .vip__perks { margin-bottom: var(--s-3); }
 .vip__cta { align-self: stretch; justify-content: center; margin-top: auto; }
+/* Botões de compra dos cards (destaques da loja e VIPs): sempre numa linha só. O texto acompanha a largura
+   do card (container query): no card largo fica no tamanho normal, no estreito (carrossel, 5 VIPs lado a lado) diminui. */
+.offer, .vip { container-type: inline-size; }
+.offer__foot .btn, .vip__cta {
+  max-width: 100%;
+  white-space: nowrap;
+  padding-inline: .75rem;
+  letter-spacing: .02em;
+  font-size: clamp(.72rem, 6.2cqi, .95rem);
+}
+.vip__cta { font-size: clamp(.72rem, 8.4cqi, .95rem); }   /* rótulo do VIP não tem seta: cabe letra maior */
 .vip__kits + .vip__cta { margin-top: var(--s-2); }   /* na Loja os kits já descem para o rodapé */
 .community__card > .btn:last-child { margin-top: auto; }
 
@@ -1257,6 +1268,51 @@ main { view-transition-name: page; }
 .keys .product__body { padding: .5rem 1rem 1rem; }
 .keys h4 { font-family: var(--pixel); font-weight: 700; font-size: 1.25rem; color: var(--white); line-height: 1.1; text-transform: uppercase; }
 .section-head .btn-row { margin-top: var(--s-1); }
+
+/* ══════════ CARROSSÉIS NO CELULAR (Starians, destaques da loja, VIPs e chaves) ══════════
+   Até 759px as três listas viram uma faixa que rola de lado e encaixa card a card (scroll-snap, sem biblioteca).
+   A faixa vai até as bordas da tela; o respiro lateral é o mesmo --gutter do container.
+   · Starians e VIPs: 1 card inteiro + metade do próximo, para mostrar que dá para arrastar
+   · Chaves: páginas de 4 (2 colunas × 2 linhas) + metade da coluna seguinte; só a 1ª chave de cada página é ponto de encaixe
+   Os pontinhos abaixo de cada faixa (.carousel-dots) são criados por js/main.js. */
+.carousel-dots { display: none; }
+@media (max-width: 759px) {
+  [data-carousel] {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    justify-content: start;                     /* .vips e .products centralizam: num carrossel isso esconderia o 1º card */
+    gap: var(--grid-x);
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 12px var(--gutter) 21px;          /* moldura de 6px e sombra dura de 9px dos tiles não são cortadas */
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+  [data-carousel]::-webkit-scrollbar { display: none; }
+  [data-carousel] > * { scroll-snap-align: start; min-width: 0; }
+
+  .dex, .vips { grid-auto-columns: 64%; }
+  /* destaques da loja: 1 card + metade do próximo, como os Starians; texto e botão mais compactos para caber */
+  .featured { grid-auto-columns: 66%; }
+  .featured .offer__body { padding: 1rem; }
+  .featured .offer h3 { font-size: 1.5rem; }
+  .featured .offer__foot .btn { width: 100%; }   /* botão da largura do card */
+  .vips { padding-top: 3.75rem; margin-top: 1rem; }   /* o selo do VIP sobe 48px para fora do card */
+  .vips > * { flex: none; }
+
+  /* 2 colunas inteiras + metade da próxima (2,5 colunas na área visível) */
+  .keys { grid-template-rows: repeat(2, auto); grid-auto-columns: calc((100% - 2 * var(--grid-x)) / 2.5); row-gap: var(--grid-y); }
+  .keys > * { flex: none; scroll-snap-align: none; }
+  .keys > :nth-child(4n + 1) { scroll-snap-align: start; }
+
+  .carousel-dots { display: flex; justify-content: center; flex-wrap: wrap; gap: .25rem; margin-top: var(--s-1); }
+  .carousel-dots button { display: grid; place-items: center; width: 24px; height: 24px; }   /* alvo de toque de 24px */
+  .carousel-dots button::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--indigo); box-shadow: 0 0 0 2px var(--ink); transition: background-color .2s, transform .2s; }
+  .carousel-dots button[aria-current="true"]::before { background: var(--gold); transform: scale(1.25); }
+}
 
 /* ══════════ TERMOS E CONDIÇÕES (termos.html): sumário fixo ao lado + texto longo num tile ══════════ */
 .legal { display: grid; gap: var(--s-5); align-items: start; }

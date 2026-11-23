@@ -43,9 +43,9 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="fonts/jersey-10-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts/fonts.css">
-<link rel="stylesheet" href="css/style.css?v=43">
+<link rel="stylesheet" href="css/style.css?v=45">
 <script>document.documentElement.classList.add('js');</script>
-<script src="js/transicoes.js?v=43"></script>
+<script src="js/transicoes.js?v=45"></script>
 <!-- /@head -->
     <script type="application/ld+json">
 {
@@ -252,7 +252,7 @@
           </div>
 
           <!-- Starian novo: adicione em tools/data/starians.json, rode tools/build.py e copie um card abaixo -->
-          <ul class="dex" id="dex-grid">
+          <ul class="dex" id="dex-grid" data-carousel aria-label="Starians">
             <li class="starian tile tile--gold" data-group="inicial">
               <div class="starian__art"><img src="img/starians/lumi.webp"
                   srcset="img/starians/lumi-480.webp 480w, img/starians/lumi.webp 960w"
@@ -427,7 +427,7 @@
                 </svg></a>
             </p>
           </header>
-          <ul class="featured">
+          <ul class="featured" data-carousel aria-label="Destaques da loja">
             <li class="offer tile tile--green" data-reveal>
               <div class="offer__media"><img src="img/banners/passe.webp"
                   srcset="img/banners/passe-800.webp 800w, img/banners/passe.webp 1600w"
@@ -437,8 +437,7 @@
                 <p class="offer__kicker">Temporada Selvagem</p>
                 <h3>Passe de Batalha</h3>
                 <p>Grátis para todos. O Premium dá mais recompensas.</p>
-                <p class="offer__foot"><a class="btn btn--play btn--sm" href="#loja" data-loja="passe">Garantir o Passe
-                    Premium<svg aria-hidden="true">
+                <p class="offer__foot"><a class="btn btn--play btn--sm" href="#loja" data-loja="passe">Garantir o Passe<svg aria-hidden="true">
                       <use href="#i-arrow" />
                     </svg></a></p>
               </div>
@@ -506,7 +505,7 @@
                 </svg></a>
             </article>
           </div>
-          <ul class="products products--5 keys">
+          <ul class="products products--5 keys" data-carousel aria-label="Chaves de caixas">
             <li class="product tile tile--gold">
               <div class="product__art"><img class="px" src="img/px/chave-do-treinador.webp" width="16" height="16"
                   alt=""></div>
@@ -599,7 +598,7 @@
             <p class="section-head__lead">Quanto maior o plano, <b>maiores os kits</b> e mais entradas na Área Estelar.
               Toque num kit para ampliar.</p>
           </header>
-          <ul class="vips">
+          <ul class="vips" data-carousel aria-label="Planos VIP">
             <li class="vip tile tile--sky">
               <img class="vip__badge" src="img/vip/lunar.webp" width="400" height="400" alt="" loading="lazy"
                 decoding="async">
@@ -1020,8 +1019,8 @@
     </dialog>
 
     <!-- @scripts -->
-<script src="js/space.js?v=43" defer></script>
-<script src="js/main.js?v=43" defer></script>
+<script src="js/space.js?v=45" defer></script>
+<script src="js/main.js?v=45" defer></script>
 <!-- /@scripts -->
   </body>
 
