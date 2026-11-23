@@ -233,6 +233,10 @@ window.STARS = {
         return b;
       }));
       dots.hidden = stops.length < 2;
+      /* acessibilidade: faixa que rola de lado precisa ser alcançável pelo teclado (Tab + setas),
+         mesmo quando os cards não têm link (chaves). Fora do carrossel, sai da ordem de Tab. */
+      const rola = list.scrollWidth > list.clientWidth + 1;
+      if (rola) list.tabIndex = 0; else list.removeAttribute('tabindex');
       paint();
     };
     let raf = 0;

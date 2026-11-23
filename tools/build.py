@@ -24,7 +24,7 @@ import re
 from pathlib import Path
 
 SITE_URL = 'https://starspixelmon.com.br'   # domínio oficial (canonical, sitemap, Open Graph)
-VERSION = '45'                                # suba ao alterar css/style.css ou js/*.js
+VERSION = '48'                                # suba ao alterar css/style.css ou js/*.js
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT                                   # o site fica na raiz do projeto (pronto para GitHub Pages)

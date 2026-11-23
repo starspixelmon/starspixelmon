@@ -398,7 +398,7 @@ a.tile:hover, button.tile:hover { transform: translateY(-4px); }
   transition: opacity .45s var(--ease), transform .45s var(--ease);
 }
 .mobile-nav.is-open li { opacity: 1; transform: none; transition-delay: calc(var(--i, 0) * 45ms + 60ms); }
-.mobile-nav a {
+.mobile-nav li > a {   /* só os links da lista: o botão "Jogar agora" do rodapé do menu mantém o estilo de botão */
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -412,10 +412,10 @@ a.tile:hover, button.tile:hover { transform: translateY(-4px); }
   color: var(--white);
   transition: color .2s;
 }
-.mobile-nav a span { flex: 1; }
-.mobile-nav a small { font-size: 1rem; letter-spacing: .1em; color: var(--lilac); }
-.mobile-nav a img { width: 28px; height: 28px; flex: none; }
-.mobile-nav a:hover, .mobile-nav a:focus-visible { color: var(--gold); }
+.mobile-nav li > a span { flex: 1; }
+.mobile-nav li > a small { font-size: 1rem; letter-spacing: .1em; color: var(--lilac); }
+.mobile-nav li > a img { width: 28px; height: 28px; flex: none; }
+.mobile-nav li > a:hover, .mobile-nav li > a:focus-visible { color: var(--gold); }
 .mobile-nav__foot {
   display: flex;
   align-items: center;
@@ -427,12 +427,12 @@ a.tile:hover, button.tile:hover { transform: translateY(-4px); }
   transition: opacity .45s var(--ease) .1s;
 }
 .mobile-nav.is-open .mobile-nav__foot { opacity: 1; transition-delay: .45s; }
-.mobile-nav__foot .btn--play { flex: 1; }
+.mobile-nav__foot .btn--play { flex: 1; min-height: 3.6rem; font-size: clamp(1.3rem, 6vw, 1.7rem); }   /* CTA grande do menu, com as cores normais do botão */
 /* celulares baixos (ex.: 360×640): itens mais compactos para o CTA caber sem rolar */
 @media (max-height: 700px) {
   .mobile-nav { padding-top: calc(5rem + 3px + var(--s-2)); }
-  .mobile-nav a { padding: .5rem 0; font-size: clamp(1.6rem, 7.5vw, 2rem); }
-  .mobile-nav a img { width: 24px; height: 24px; }
+  .mobile-nav li > a { padding: .5rem 0; font-size: clamp(1.6rem, 7.5vw, 2rem); }
+  .mobile-nav li > a img { width: 24px; height: 24px; }
   .mobile-nav__foot { margin-top: var(--s-3); }
 }
 @media (max-width: 1140px) { html:has(.mobile-nav.is-open) { overflow: hidden; } }  /* no html: é ele que rola */
@@ -1110,7 +1110,7 @@ body:has(.lightbox[open]) { overflow: hidden; }
 .sd-missing { text-align: center; display: grid; gap: 1rem; justify-items: center; }
 .sd-missing h1 { font-size: clamp(2rem, 5vw, 3rem); }
 
-.mobile-nav a[aria-current] { color: var(--gold); }
+.mobile-nav li > a[aria-current] { color: var(--gold); }
 
 /* ══════════ VÁRIAS PÁGINAS: trilha, atalhos, próximo passo, chamada final ══════════ */
 .crumbs { margin-bottom: 1.5rem; font-family: var(--pixel); font-size: 1.1rem; text-transform: uppercase; color: var(--meta); }
@@ -1292,6 +1292,7 @@ main { view-transition-name: page; }
     scrollbar-width: none;
   }
   [data-carousel]::-webkit-scrollbar { display: none; }
+  [data-carousel]:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; border-radius: var(--r); }
   [data-carousel] > * { scroll-snap-align: start; min-width: 0; }
 
   .dex, .vips { grid-auto-columns: 64%; }
@@ -1363,7 +1364,7 @@ mark.todo { padding: 0 .25rem; border-radius: 4px; background: #e65330; color: #
 .footer__grid { display: grid; gap: 2.5rem; }
 @media (min-width: 900px) { .footer__grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; } }
 .footer__brand img { height: 4.5rem; width: auto; }
-.footer__brand .ip { margin-top: 1rem; }
+.footer__brand .ip { flex-direction: column; align-items: flex-start; margin-top: 1rem; }   /* no rodapé: rótulo em cima, IP embaixo */
 .footer h2 { font-family: var(--pixel); font-weight: 700; font-size: 1.2rem; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; }
 .footer li + li { margin-top: .5rem; }
 .footer li a { color: var(--muted); transition: color .2s; }

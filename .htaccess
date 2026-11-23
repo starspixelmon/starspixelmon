@@ -9,6 +9,11 @@ RewriteRule ^ https://starspixelmon.com.br%{REQUEST_URI} [L,R=301]
 # Página de erro
 ErrorDocument 404 /404.html
 
+# Tipos e charset corretos (o manifest saía como text/plain)
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js .xml .txt .webmanifest
+AddType application/manifest+json .webmanifest
+
 # Pastas de manutenção nunca ficam públicas (o pacote de deploy não as envia, isto é só uma garantia)
 RedirectMatch 404 ^/(tools|assets|bases|\.git)(/|$)
 
@@ -27,4 +32,6 @@ RedirectMatch 404 ^/(tools|assets|bases|\.git)(/|$)
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # o site só existe em HTTPS: o navegador passa a nunca tentar HTTP (1 ano)
+  Header always set Strict-Transport-Security "max-age=31536000"
 </IfModule>
