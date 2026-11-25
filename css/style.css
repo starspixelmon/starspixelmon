@@ -930,7 +930,9 @@ body:has(.lightbox[open]) { overflow: hidden; }
     repeating-conic-gradient(from 0deg at 50% 60%, rgb(var(--tint) / .16) 0deg 10deg, transparent 10deg 20deg),
     radial-gradient(circle at 50% 60%, rgb(var(--tint) / .45), rgba(29, 7, 80, .9) 70%);
 }
-.beta-reward__art img { height: 94%; width: auto; filter: drop-shadow(0 8px 0 rgba(3, 4, 18, .45)); transition: transform .5s var(--ease); }
+/* posição absoluta: a altura em % passa a valer a do fundo, e o Starian nunca sai dele (no celular ele vazava) */
+.beta-reward__art { overflow: hidden; margin: 0; }
+.beta-reward__art img { position: absolute; inset: auto 0 0; margin-inline: auto; height: 94%; width: auto; max-width: 100%; object-fit: contain; object-position: bottom; filter: drop-shadow(0 8px 0 rgba(3, 4, 18, .45)); transition: transform .5s var(--ease); }
 .beta-reward:hover .beta-reward__art img { transform: scale(1.04) rotate(-2deg); }
 @media (min-width: 760px) { .beta-reward__art { height: 100%; min-height: 17rem; } }
 .beta-reward__kicker { font-family: var(--pixel); font-size: 1rem; letter-spacing: .06em; text-transform: uppercase; color: var(--accent, var(--frame)); }
