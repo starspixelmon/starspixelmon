@@ -1103,8 +1103,14 @@ body:has(.lightbox[open]) { overflow: hidden; }
 .product--soon .product__art img { opacity: .75; }
 
 /* ══════════ PÁGINA DO STARIAN (starian.html) ══════════ */
-.sd-hero { display: grid; gap: 2.5rem; align-items: start; }
-@media (min-width: 900px) { .sd-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 3.5rem; } }
+/* celular: nome/resumo → arte → ficha; computador: arte à esquerda (2 linhas), nome/resumo e ficha à direita */
+.sd-hero { display: grid; grid-template-areas: "intro" "art" "info"; gap: 1.5rem; align-items: start; }
+.sd-intro { grid-area: intro; }
+.sd-art { grid-area: art; }
+.sd-info { grid-area: info; }
+@media (min-width: 900px) {
+  .sd-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); grid-template-rows: auto 1fr; grid-template-areas: "art intro" "art info"; gap: 0 3.5rem; }
+}
 .sd-art { padding-bottom: 0; overflow: hidden; }
 .sd-art .starian__art img { width: 86%; }
 .sd-name { font-size: clamp(2.8rem, 7vw, 4.5rem); line-height: .95; }
@@ -1481,6 +1487,11 @@ main { view-transition-name: page; }
   .keys { grid-template-rows: repeat(2, auto); grid-auto-columns: calc((100% - 2 * var(--grid-x)) / 2.5); row-gap: var(--grid-y); }
   .keys > * { flex: none; scroll-snap-align: none; }
   .keys > :nth-child(4n + 1) { scroll-snap-align: start; }
+
+  /* "Todos os Starians" na página de cada Starian: 2 cards + metade do próximo */
+  .sd-strip { grid-auto-columns: calc((100% - 2 * var(--grid-x)) / 2.5); }
+  .sd-strip .sd-mini { display: flex; height: 100%; padding-right: .75rem; font-size: 1.05rem; }
+  .sd-strip .sd-mini img { width: 36px; height: 36px; }
 
   .carousel-dots { display: flex; justify-content: center; flex-wrap: wrap; gap: .25rem; margin-top: var(--s-1); }
   .carousel-dots button { display: grid; place-items: center; width: 24px; height: 24px; }   /* alvo de toque de 24px */

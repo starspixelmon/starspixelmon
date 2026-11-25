@@ -26,7 +26,7 @@ import re
 from pathlib import Path
 
 SITE_URL = 'https://starspixelmon.com.br'   # domínio oficial (canonical, sitemap, Open Graph)
-VERSION = '74'                                # suba ao alterar css/style.css ou js/*.js
+VERSION = '77'                                # suba ao alterar css/style.css ou js/*.js
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT                                   # o site fica na raiz do projeto (pronto para GitHub Pages)
@@ -354,7 +354,8 @@ def starian_page(s, lista, fichas=None):
           </section>
         </div>
 
-        <div class="sd-info">
+        <!-- nome e resumo: no celular vêm antes da arte (logo abaixo do breadcrumb); no computador, à direita dela -->
+        <div class="sd-intro">
           <p class="eyebrow"><img class="px" src="/img/px/museu.webp" width="16" height="16" alt="">Starian Dex · #{numero:03d}</p>
           <h1 class="pixel-title sd-name" id="starian-nome">{esc(s["nome"])}</h1>
           <ul class="badges sd-badges" aria-label="Categorias">
@@ -362,6 +363,9 @@ def starian_page(s, lista, fichas=None):
           </ul>
           <p class="sd-lead">{esc(s["resumo"])}</p>
           <p class="sd-text">{esc(s["texto"])}</p>
+        </div>
+
+        <div class="sd-info">
           <dl class="sd-facts tile tile--{s["cor"]}">
 {tipo_fato}{ficha}
           </dl>{compra}
@@ -376,7 +380,7 @@ def starian_page(s, lista, fichas=None):
 
       <section class="sd-block" aria-labelledby="todos-titulo">
         <h2 class="subhead" id="todos-titulo">Todos os Starians</h2>
-        <ul class="sd-strip">
+        <ul class="sd-strip" data-carousel aria-label="Todos os Starians">
 {todos}
         </ul>
       </section>

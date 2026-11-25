@@ -297,7 +297,15 @@ window.STARS = {
     };
     let raf = 0;
     list.addEventListener('scroll', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(paint); }, { passive: true });
-    syncDots.push(() => { list.scrollLeft = 0; build(); });
+    /* página de um Starian: a faixa "Todos os Starians" já abre mostrando o Starian atual */
+    const toCurrent = () => {
+      const cur = $('.is-current', list);
+      if (!cur || list.scrollWidth <= list.clientWidth) return;
+      const pad = parseFloat(getComputedStyle(list).scrollPaddingLeft) || 0;
+      list.scrollLeft += cur.getBoundingClientRect().left - list.getBoundingClientRect().left - pad;
+    };
+    syncDots.push(() => { list.scrollLeft = 0; toCurrent(); build(); });
+    toCurrent();
     build();
   });
   window.matchMedia('(max-width: 759px)').addEventListener('change', () => syncDots.forEach(fn => fn()));

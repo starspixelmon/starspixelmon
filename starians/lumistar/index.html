@@ -25,9 +25,9 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/jersey-10-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/style.css?v=74">
+<link rel="stylesheet" href="/css/style.css?v=77">
 <script>document.documentElement.classList.add('js');</script>
-<script src="/js/transicoes.js?v=74"></script>
+<script src="/js/transicoes.js?v=77"></script>
 <!-- /@head -->
 <script type="application/ld+json">
 {
@@ -170,7 +170,8 @@
           </section>
         </div>
 
-        <div class="sd-info">
+        <!-- nome e resumo: no celular vêm antes da arte (logo abaixo do breadcrumb); no computador, à direita dela -->
+        <div class="sd-intro">
           <p class="eyebrow"><img class="px" src="/img/px/museu.webp" width="16" height="16" alt="">Starian Dex · #003</p>
           <h1 class="pixel-title sd-name" id="starian-nome">Lumistar</h1>
           <ul class="badges sd-badges" aria-label="Categorias">
@@ -178,6 +179,9 @@
           </ul>
           <p class="sd-lead">O brilho mais forte da família.</p>
           <p class="sd-text">O membro mais brilhante da família inicial do Lumi.</p>
+        </div>
+
+        <div class="sd-info">
           <dl class="sd-facts tile tile--gold">
           <div>
             <dt>Tipo</dt>
@@ -316,7 +320,7 @@ Modest / Timid Nature
 
       <section class="sd-block" aria-labelledby="todos-titulo">
         <h2 class="subhead" id="todos-titulo">Todos os Starians</h2>
-        <ul class="sd-strip">
+        <ul class="sd-strip" data-carousel aria-label="Todos os Starians">
         <li><a class="sd-mini tile tile--gold" href="/starians/lumi"><img class="px" src="/img/sprites/lumi.webp" width="32" height="32" alt=""><span><small>#001</small>Lumi</span></a></li>
         <li><a class="sd-mini tile tile--gold" href="/starians/luminix"><img class="px" src="/img/sprites/luminix.webp" width="32" height="34" alt=""><span><small>#002</small>Luminix</span></a></li>
         <li><a class="sd-mini tile tile--gold is-current" href="/starians/lumistar" aria-current="page"><img class="px" src="/img/sprites/lumistar.webp" width="32" height="32" alt=""><span><small>#003</small>Lumistar</span></a></li>
@@ -387,8 +391,8 @@ Modest / Timid Nature
 </footer>
 <!-- /@footer -->
 <!-- @scripts -->
-<script src="/js/space.js?v=74" defer></script>
-<script src="/js/main.js?v=74" defer></script>
+<script src="/js/space.js?v=77" defer></script>
+<script src="/js/main.js?v=77" defer></script>
 <!-- /@scripts -->
 </body>
 </html>
