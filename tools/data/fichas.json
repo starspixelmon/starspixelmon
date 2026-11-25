@@ -1,0 +1,2362 @@
+{
+  "shirlaw": {
+    "pokedex": "Extremamente raro e mortal, dizem que suas listras são a última visão de suas vítimas. Pouquíssimos treinadores tiveram o privilégio de encontrar a garra branca.",
+    "categoria": "Garra Branca",
+    "tipos": [
+      {
+        "nome": "Normal",
+        "id": "normal"
+      }
+    ],
+    "atributos": [
+      {
+        "nome": "HP",
+        "valor": 92
+      },
+      {
+        "nome": "Atk",
+        "valor": 110
+      },
+      {
+        "nome": "Def",
+        "valor": 99
+      },
+      {
+        "nome": "SpA",
+        "valor": 65
+      },
+      {
+        "nome": "SpD",
+        "valor": 55
+      },
+      {
+        "nome": "Spe",
+        "valor": 119
+      }
+    ],
+    "total": 540,
+    "fraquezas": [
+      {
+        "rotulo": "Fraco (2×)",
+        "tipos": [
+          {
+            "nome": "Lutador",
+            "id": "fighting"
+          }
+        ]
+      },
+      {
+        "rotulo": "Imune (0×)",
+        "tipos": [
+          {
+            "nome": "Fantasma",
+            "id": "ghost"
+          }
+        ]
+      }
+    ],
+    "habilidades": [
+      {
+        "nome": "Intimidate",
+        "propria": false,
+        "efeito": "Ao entrar em batalha, reduz o Ataque dos oponentes.",
+        "slot": "Habilidade"
+      },
+      {
+        "nome": "Strong Jaw",
+        "propria": false,
+        "efeito": "Fortalece golpes de mordida.",
+        "slot": "Oculta"
+      }
+    ],
+    "golpe_exclusivo": {
+      "nome": "Tiger Tax",
+      "tipo": "Normal",
+      "tipo_id": "normal",
+      "categoria": "Físico",
+      "poder": 100,
+      "precisao": "100%",
+      "pp": 10,
+      "descricao": "Shirlaw avança ferozmente com suas garras, se curando em metade de todo o dano causado."
+    },
+    "evolui_para": [],
+    "spawns": [],
+    "dados": [
+      [
+        "Altura",
+        "1,35 m"
+      ],
+      [
+        "Peso",
+        "150,0 kg"
+      ],
+      [
+        "Taxa de captura",
+        "3"
+      ],
+      [
+        "Crescimento",
+        "Médio-rápido"
+      ],
+      [
+        "EVs ao derrotar",
+        "3 Atk"
+      ],
+      [
+        "Gênero",
+        "100% macho"
+      ],
+      [
+        "Grupo de ovo",
+        "Não cruza"
+      ],
+      [
+        "Ciclos de ovo",
+        "20"
+      ]
+    ],
+    "golpes_nivel": [
+      {
+        "nivel": "1",
+        "golpes": [
+          "Tail Whip",
+          "Howl",
+          "Fake Out",
+          "Leer",
+          "Tackle"
+        ]
+      },
+      {
+        "nivel": "6",
+        "golpes": [
+          "Quick Attack"
+        ]
+      },
+      {
+        "nivel": "9",
+        "golpes": [
+          "Encore"
+        ]
+      },
+      {
+        "nivel": "15",
+        "golpes": [
+          "Bite"
+        ]
+      },
+      {
+        "nivel": "20",
+        "golpes": [
+          "Roar"
+        ]
+      },
+      {
+        "nivel": "24",
+        "golpes": [
+          "Shadow Claw"
+        ]
+      },
+      {
+        "nivel": "29",
+        "golpes": [
+          "Crunch"
+        ]
+      },
+      {
+        "nivel": "34",
+        "golpes": [
+          "Hyper Voice"
+        ]
+      },
+      {
+        "nivel": "40",
+        "golpes": [
+          "Swords Dance"
+        ]
+      },
+      {
+        "nivel": "45",
+        "golpes": [
+          "Play Rough"
+        ]
+      },
+      {
+        "nivel": "50",
+        "golpes": [
+          "Tiger Tax"
+        ]
+      },
+      {
+        "nivel": "55",
+        "golpes": [
+          "Hyper Fang"
+        ]
+      },
+      {
+        "nivel": "67",
+        "golpes": [
+          "Extreme Speed"
+        ]
+      },
+      {
+        "nivel": "75",
+        "golpes": [
+          "Close Combat"
+        ]
+      }
+    ],
+    "golpes_ovo": [],
+    "golpes_tutor": [],
+    "golpes_tm": [
+      "Agility",
+      "Body Slam",
+      "Close Combat",
+      "Crunch",
+      "Double-Edge",
+      "Earthquake",
+      "Encore",
+      "Endure",
+      "Facade",
+      "False Swipe",
+      "Giga Impact",
+      "Hyper Beam",
+      "Hyper Voice",
+      "Ice Fang",
+      "Iron Head",
+      "Lash Out",
+      "Outrage",
+      "Play Rough",
+      "Protect",
+      "Psychic Fangs",
+      "Rest",
+      "Roar",
+      "Scary Face",
+      "Shadow Claw",
+      "Sleep Talk",
+      "Stomping Tantrum",
+      "Stone Edge",
+      "Substitute",
+      "Swift",
+      "Swords Dance",
+      "Take Down",
+      "Taunt",
+      "Tera Blast",
+      "Throat Chop",
+      "Thunder Fang",
+      "Toxic",
+      "Trailblaze",
+      "Trick",
+      "U-turn",
+      "Wild Charge"
+    ],
+    "builds": [
+      {
+        "titulo": "Tiger Killer",
+        "item": "Life Orb / Silk Scarf",
+        "habilidade": "Strong Jaw / Intimidate",
+        "natureza": "Adamant (+Atk −SpA)",
+        "evs": "252 Atk / 252 Spe",
+        "ivs": "",
+        "golpes": [
+          "Tiger Tax / Close Combat",
+          "Swords Dance",
+          "Crunch / Close Combat",
+          "Extreme Speed"
+        ],
+        "texto": "Shirlaw @ Life Orb / Silk Scarf\nAbility: Strong Jaw / Intimidate\nEVs: 252 Atk / 252 Spe\nTera Type: Normal\nAdamant Nature\n- Tiger Tax / Close Combat\n- Swords Dance\n- Crunch / Close Combat\n- Extreme Speed"
+      }
+    ]
+  },
+  "lumi": {
+    "pokedex": "Sua cabeça estrelada irradia um calor acolhedor. Dizem que abraçar este pequeno leão é como segurar uma estrela cadente.",
+    "categoria": "Estrela",
+    "tipos": [
+      {
+        "nome": "Fogo",
+        "id": "fire"
+      },
+      {
+        "nome": "Fada",
+        "id": "fairy"
+      }
+    ],
+    "atributos": [
+      {
+        "nome": "HP",
+        "valor": 47
+      },
+      {
+        "nome": "Atk",
+        "valor": 40
+      },
+      {
+        "nome": "Def",
+        "valor": 50
+      },
+      {
+        "nome": "SpA",
+        "valor": 68
+      },
+      {
+        "nome": "SpD",
+        "valor": 55
+      },
+      {
+        "nome": "Spe",
+        "valor": 50
+      }
+    ],
+    "total": 310,
+    "fraquezas": [
+      {
+        "rotulo": "Fraco (2×)",
+        "tipos": [
+          {
+            "nome": "Água",
+            "id": "water"
+          },
+          {
+            "nome": "Venenoso",
+            "id": "poison"
+          },
+          {
+            "nome": "Terrestre",
+            "id": "ground"
+          },
+          {
+            "nome": "Pedra",
+            "id": "rock"
+          }
+        ]
+      },
+      {
+        "rotulo": "Resiste (½×)",
+        "tipos": [
+          {
+            "nome": "Fogo",
+            "id": "fire"
+          },
+          {
+            "nome": "Planta",
+            "id": "grass"
+          },
+          {
+            "nome": "Gelo",
+            "id": "ice"
+          },
+          {
+            "nome": "Lutador",
+            "id": "fighting"
+          },
+          {
+            "nome": "Sombrio",
+            "id": "dark"
+          },
+          {
+            "nome": "Fada",
+            "id": "fairy"
+          }
+        ]
+      },
+      {
+        "rotulo": "Resiste muito (¼×)",
+        "tipos": [
+          {
+            "nome": "Inseto",
+            "id": "bug"
+          }
+        ]
+      },
+      {
+        "rotulo": "Imune (0×)",
+        "tipos": [
+          {
+            "nome": "Dragão",
+            "id": "dragon"
+          }
+        ]
+      }
+    ],
+    "habilidades": [
+      {
+        "nome": "Blaze",
+        "propria": false,
+        "efeito": "Com pouca vida, fortalece os golpes do tipo Fogo.",
+        "slot": "Habilidade"
+      },
+      {
+        "nome": "Radiant Mane",
+        "propria": true,
+        "efeito": "Uma juba estrelada que garante proteção contra o primeiro golpe especial e que regenera no sol.",
+        "slot": "Oculta"
+      }
+    ],
+    "golpe_exclusivo": null,
+    "evolui_para": [
+      {
+        "nome": "Luminix",
+        "como": "Nível 16"
+      }
+    ],
+    "spawns": [
+      {
+        "onde": "No chão, em Biomas Floridos e em Biomas de Mesas, de dia, com tempo limpo",
+        "niveis": "5 a 15"
+      }
+    ],
+    "dados": [
+      [
+        "Altura",
+        "0,81 m"
+      ],
+      [
+        "Peso",
+        "9,6 kg"
+      ],
+      [
+        "Taxa de captura",
+        "45"
+      ],
+      [
+        "Crescimento",
+        "Médio-lento"
+      ],
+      [
+        "EVs ao derrotar",
+        "1 SpA, 1 SpD"
+      ],
+      [
+        "Gênero",
+        "87,5% macho"
+      ],
+      [
+        "Grupo de ovo",
+        "Fada e Monstro"
+      ],
+      [
+        "Ciclos de ovo",
+        "25"
+      ]
+    ],
+    "golpes_nivel": [
+      {
+        "nivel": "1",
+        "golpes": [
+          "Tackle",
+          "Tail Whip"
+        ]
+      },
+      {
+        "nivel": "3",
+        "golpes": [
+          "Ember"
+        ]
+      },
+      {
+        "nivel": "6",
+        "golpes": [
+          "Lick"
+        ]
+      },
+      {
+        "nivel": "9",
+        "golpes": [
+          "Disarming Voice"
+        ]
+      },
+      {
+        "nivel": "13",
+        "golpes": [
+          "Fire Fang"
+        ]
+      },
+      {
+        "nivel": "15",
+        "golpes": [
+          "Fire Spin"
+        ]
+      },
+      {
+        "nivel": "20",
+        "golpes": [
+          "Draining Kiss"
+        ]
+      },
+      {
+        "nivel": "24",
+        "golpes": [
+          "Flamethrower"
+        ]
+      },
+      {
+        "nivel": "30",
+        "golpes": [
+          "Will-O-Wisp"
+        ]
+      },
+      {
+        "nivel": "34",
+        "golpes": [
+          "Psychic"
+        ]
+      },
+      {
+        "nivel": "40",
+        "golpes": [
+          "Flare Blitz"
+        ]
+      },
+      {
+        "nivel": "45",
+        "golpes": [
+          "Moonblast"
+        ]
+      },
+      {
+        "nivel": "49",
+        "golpes": [
+          "Fire Blast"
+        ]
+      }
+    ],
+    "golpes_ovo": [
+      "Aromatherapy",
+      "Cosmic Power",
+      "Hypnosis",
+      "Magic Coat",
+      "Moonlight"
+    ],
+    "golpes_tutor": [],
+    "golpes_tm": [
+      "Acrobatics",
+      "Aerial Ace",
+      "Body Slam",
+      "Charm",
+      "Dazzling Gleam",
+      "Disarming Voice",
+      "Double-Edge",
+      "Draining Kiss",
+      "Endure",
+      "Facade",
+      "Fake Tears",
+      "Fire Blast",
+      "Fire Fang",
+      "Fire Pledge",
+      "Fire Spin",
+      "Flame Charge",
+      "Flamethrower",
+      "Flare Blitz",
+      "Helping Hand",
+      "Magical Leaf",
+      "Protect",
+      "Psychic",
+      "Rest",
+      "Roar",
+      "Scary Face",
+      "Sleep Talk",
+      "Snarl",
+      "Substitute",
+      "Sunny Day",
+      "Swift",
+      "Take Down",
+      "Tera Blast",
+      "Toxic",
+      "Trailblaze",
+      "Will-O-Wisp"
+    ],
+    "builds": []
+  },
+  "luminix": {
+    "pokedex": "Suas três caudas se mexem como uma constelação, irradiando um calor intenso. Seu brilho pode iluminar até a noite mais escura.",
+    "categoria": "Estrela",
+    "tipos": [
+      {
+        "nome": "Fogo",
+        "id": "fire"
+      },
+      {
+        "nome": "Fada",
+        "id": "fairy"
+      }
+    ],
+    "atributos": [
+      {
+        "nome": "HP",
+        "valor": 65
+      },
+      {
+        "nome": "Atk",
+        "valor": 55
+      },
+      {
+        "nome": "Def",
+        "valor": 65
+      },
+      {
+        "nome": "SpA",
+        "valor": 87
+      },
+      {
+        "nome": "SpD",
+        "valor": 75
+      },
+      {
+        "nome": "Spe",
+        "valor": 63
+      }
+    ],
+    "total": 410,
+    "fraquezas": [
+      {
+        "rotulo": "Fraco (2×)",
+        "tipos": [
+          {
+            "nome": "Água",
+            "id": "water"
+          },
+          {
+            "nome": "Venenoso",
+            "id": "poison"
+          },
+          {
+            "nome": "Terrestre",
+            "id": "ground"
+          },
+          {
+            "nome": "Pedra",
+            "id": "rock"
+          }
+        ]
+      },
+      {
+        "rotulo": "Resiste (½×)",
+        "tipos": [
+          {
+            "nome": "Fogo",
+            "id": "fire"
+          },
+          {
+            "nome": "Planta",
+            "id": "grass"
+          },
+          {
+            "nome": "Gelo",
+            "id": "ice"
+          },
+          {
+            "nome": "Lutador",
+            "id": "fighting"
+          },
+          {
+            "nome": "Sombrio",
+            "id": "dark"
+          },
+          {
+            "nome": "Fada",
+            "id": "fairy"
+          }
+        ]
+      },
+      {
+        "rotulo": "Resiste muito (¼×)",
+        "tipos": [
+          {
+            "nome": "Inseto",
+            "id": "bug"
+          }
+        ]
+      },
+      {
+        "rotulo": "Imune (0×)",
+        "tipos": [
+          {
+            "nome": "Dragão",
+            "id": "dragon"
+          }
+        ]
+      }
+    ],
+    "habilidades": [
+      {
+        "nome": "Blaze",
+        "propria": false,
+        "efeito": "Com pouca vida, fortalece os golpes do tipo Fogo.",
+        "slot": "Habilidade"
+      },
+      {
+        "nome": "Radiant Mane",
+        "propria": true,
+        "efeito": "Uma juba estrelada que garante proteção contra o primeiro golpe especial e que regenera no sol.",
+        "slot": "Oculta"
+      }
+    ],
+    "golpe_exclusivo": null,
+    "evolui_para": [
+      {
+        "nome": "Lumistar",
+        "como": "Nível 36"
+      }
+    ],
+    "spawns": [
+      {
+        "onde": "No chão, em Biomas Floridos e em Biomas de Mesas, de dia, com tempo limpo",
+        "niveis": "17 a 35"
+      }
+    ],
+    "dados": [
+      [
+        "Altura",
+        "1,26 m"
+      ],
+      [
+        "Peso",
+        "21,0 kg"
+      ],
+      [
+        "Taxa de captura",
+        "45"
+      ],
+      [
+        "Crescimento",
+        "Médio-lento"
+      ],
+      [
+        "EVs ao derrotar",
+        "1 SpA, 1 SpD"
+      ],
+      [
+        "Gênero",
+        "87,5% macho"
+      ],
+      [
+        "Grupo de ovo",
+        "Fada e Monstro"
+      ],
+      [
+        "Ciclos de ovo",
+        "25"
+      ]
+    ],
+    "golpes_nivel": [
+      {
+        "nivel": "1",
+        "golpes": [
+          "Tackle",
+          "Tail Whip"
+        ]
+      },
+      {
+        "nivel": "3",
+        "golpes": [
+          "Ember"
+        ]
+      },
+      {
+        "nivel": "6",
+        "golpes": [
+          "Lick"
+        ]
+      },
+      {
+        "nivel": "9",
+        "golpes": [
+          "Disarming Voice"
+        ]
+      },
+      {
+        "nivel": "13",
+        "golpes": [
+          "Fire Fang"
+        ]
+      },
+      {
+        "nivel": "15",
+        "golpes": [
+          "Fire Spin"
+        ]
+      },
+      {
+        "nivel": "20",
+        "golpes": [
+          "Draining Kiss"
+        ]
+      },
+      {
+        "nivel": "23",
+        "golpes": [
+          "Flamethrower"
+        ]
+      },
+      {
+        "nivel": "26",
+        "golpes": [
+          "Will-O-Wisp"
+        ]
+      },
+      {
+        "nivel": "30",
+        "golpes": [
+          "Psychic"
+        ]
+      },
+      {
+        "nivel": "33",
+        "golpes": [
+          "Wish"
+        ]
+      },
+      {
+        "nivel": "35",
+        "golpes": [
+          "Alluring Voice"
+        ]
+      },
+      {
+        "nivel": "40",
+        "golpes": [
+          "Flare Blitz"
+        ]
+      },
+      {
+        "nivel": "45",
+        "golpes": [
+          "Moonblast"
+        ]
+      },
+      {
+        "nivel": "49",
+        "golpes": [
+          "Fire Blast"
+        ]
+      }
+    ],
+    "golpes_ovo": [
+      "Aromatherapy",
+      "Cosmic Power",
+      "Hypnosis",
+      "Magic Coat",
+      "Moonlight"
+    ],
+    "golpes_tutor": [],
+    "golpes_tm": [
+      "Acrobatics",
+      "Aerial Ace",
+      "Body Slam",
+      "Charm",
+      "Dazzling Gleam",
+      "Disarming Voice",
+      "Double-Edge",
+      "Draining Kiss",
+      "Endure",
+      "Facade",
+      "Fake Tears",
+      "Fire Blast",
+      "Fire Fang",
+      "Fire Pledge",
+      "Fire Spin",
+      "Flame Charge",
+      "Flamethrower",
+      "Flare Blitz",
+      "Helping Hand",
+      "Magical Leaf",
+      "Protect",
+      "Psychic",
+      "Rest",
+      "Roar",
+      "Scary Face",
+      "Sleep Talk",
+      "Snarl",
+      "Substitute",
+      "Sunny Day",
+      "Swift",
+      "Take Down",
+      "Tera Blast",
+      "Toxic",
+      "Trailblaze",
+      "Will-O-Wisp"
+    ],
+    "builds": []
+  },
+  "lumistar": {
+    "pokedex": "Suas cinco caudas estreladas podem iluminar uma ilha inteira. Uma sensação indescritível de calor e esperança envolve aqueles que presenciam seu brilho.",
+    "categoria": "Estrela",
+    "tipos": [
+      {
+        "nome": "Fogo",
+        "id": "fire"
+      },
+      {
+        "nome": "Fada",
+        "id": "fairy"
+      }
+    ],
+    "atributos": [
+      {
+        "nome": "HP",
+        "valor": 90
+      },
+      {
+        "nome": "Atk",
+        "valor": 70
+      },
+      {
+        "nome": "Def",
+        "valor": 80
+      },
+      {
+        "nome": "SpA",
+        "valor": 115
+      },
+      {
+        "nome": "SpD",
+        "valor": 103
+      },
+      {
+        "nome": "Spe",
+        "valor": 72
+      }
+    ],
+    "total": 530,
+    "fraquezas": [
+      {
+        "rotulo": "Fraco (2×)",
+        "tipos": [
+          {
+            "nome": "Água",
+            "id": "water"
+          },
+          {
+            "nome": "Venenoso",
+            "id": "poison"
+          },
+          {
+            "nome": "Terrestre",
+            "id": "ground"
+          },
+          {
+            "nome": "Pedra",
+            "id": "rock"
+          }
+        ]
+      },
+      {
+        "rotulo": "Resiste (½×)",
+        "tipos": [
+          {
+            "nome": "Fogo",
+            "id": "fire"
+          },
+          {
+            "nome": "Planta",
+            "id": "grass"
+          },
+          {
+            "nome": "Gelo",
+            "id": "ice"
+          },
+          {
+            "nome": "Lutador",
+            "id": "fighting"
+          },
+          {
+            "nome": "Sombrio",
+            "id": "dark"
+          },
+          {
+            "nome": "Fada",
+            "id": "fairy"
+          }
+        ]
+      },
+      {
+        "rotulo": "Resiste muito (¼×)",
+        "tipos": [
+          {
+            "nome": "Inseto",
+            "id": "bug"
+          }
+        ]
+      },
+      {
+        "rotulo": "Imune (0×)",
+        "tipos": [
+          {
+            "nome": "Dragão",
+            "id": "dragon"
+          }
+        ]
+      }
+    ],
+    "habilidades": [
+      {
+        "nome": "Blaze",
+        "propria": false,
+        "efeito": "Com pouca vida, fortalece os golpes do tipo Fogo.",
+        "slot": "Habilidade"
+      },
+      {
+        "nome": "Radiant Mane",
+        "propria": true,
+        "efeito": "Uma juba estrelada que garante proteção contra o primeiro golpe especial e que regenera no sol.",
+        "slot": "Oculta"
+      }
+    ],
+    "golpe_exclusivo": {
+      "nome": "Startail Strike",
+      "tipo": "Fada",
+      "tipo_id": "fairy",
+      "categoria": "Especial",
+      "poder": 110,
+      "precisao": "90%",
+      "pp": 5,
+      "descricao": "Usando o calor intenso das estrelas em sua cauda, desfere uma chicotada caudal com 50% de chance de causar queimaduras."
+    },
+    "evolui_para": [],
+    "spawns": [
+      {
+        "onde": "No chão, em Biomas Floridos e em Biomas de Mesas, de dia, com tempo limpo",
+        "niveis": "37 a 50"
+      }
+    ],
+    "dados": [
+      [
+        "Altura",
+        "1,50 m"
+      ],
+      [
+        "Peso",
+        "75,0 kg"
+      ],
+      [
+        "Taxa de captura",
+        "45"
+      ],
+      [
+        "Crescimento",
+        "Médio-lento"
+      ],
+      [
+        "EVs ao derrotar",
+        "2 SpA, 1 SpD"
+      ],
+      [
+        "Gênero",
+        "87,5% macho"
+      ],
+      [
+        "Grupo de ovo",
+        "Fada e Monstro"
+      ],
+      [
+        "Ciclos de ovo",
+        "25"
+      ]
+    ],
+    "golpes_nivel": [
+      {
+        "nivel": "1",
+        "golpes": [
+          "Tackle",
+          "Tail Whip"
+        ]
+      },
+      {
+        "nivel": "3",
+        "golpes": [
+          "Ember"
+        ]
+      },
+      {
+        "nivel": "6",
+        "golpes": [
+          "Lick"
+        ]
+      },
+      {
+        "nivel": "9",
+        "golpes": [
+          "Disarming Voice"
+        ]
+      },
+      {
+        "nivel": "13",
+        "golpes": [
+          "Fire Fang"
+        ]
+      },
+      {
+        "nivel": "15",
+        "golpes": [
+          "Fire Spin"
+        ]
+      },
+      {
+        "nivel": "20",
+        "golpes": [
+          "Draining Kiss"
+        ]
+      },
+      {
+        "nivel": "23",
+        "golpes": [
+          "Flamethrower"
+        ]
+      },
+      {
+        "nivel": "26",
+        "golpes": [
+          "Will-O-Wisp"
+        ]
+      },
+      {
+        "nivel": "30",
+        "golpes": [
+          "Psychic"
+        ]
+      },
+      {
+        "nivel": "32",
+        "golpes": [
+          "Wish"
+        ]
+      },
+      {
+        "nivel": "34",
+        "golpes": [
+          "Alluring Voice"
+        ]
+      },
+      {
+        "nivel": "40",
+        "golpes": [
+          "Flare Blitz"
+        ]
+      },
+      {
+        "nivel": "44",
+        "golpes": [
+          "Knock Off"
+        ]
+      },
+      {
+        "nivel": "49",
+        "golpes": [
+          "Fire Blast"
+        ]
+      },
+      {
+        "nivel": "53",
+        "golpes": [
+          "Moonblast"
+        ]
+      },
+      {
+        "nivel": "60",
+        "golpes": [
+          "Meteor Beam"
+        ]
+      },
+      {
+        "nivel": "63",
+        "golpes": [
+          "Overheat"
+        ]
+      },
+      {
+        "nivel": "67",
+        "golpes": [
+          "Startail Strike"
+        ]
+      }
+    ],
+    "golpes_ovo": [
+      "Aromatherapy",
+      "Belly Drum",
+      "Cosmic Power",
+      "Hypnosis",
+      "Magic Coat",
+      "Moonlight"
+    ],
+    "golpes_tutor": [],
+    "golpes_tm": [
+      "Acrobatics",
+      "Aerial Ace",
+      "Aura Sphere",
+      "Body Slam",
+      "Burning Jealousy",
+      "Charm",
+      "Close Combat",
+      "Dazzling Gleam",
+      "Disarming Voice",
+      "Double-Edge",
+      "Drain Punch",
+      "Draining Kiss",
+      "Earthquake",
+      "Endure",
+      "Energy Ball",
+      "Facade",
+      "Fake Tears",
+      "Fire Blast",
+      "Fire Fang",
+      "Fire Pledge",
+      "Fire Punch",
+      "Fire Spin",
+      "Flame Charge",
+      "Flamethrower",
+      "Flare Blitz",
+      "Focus Blast",
+      "Giga Impact",
+      "Heat Wave",
+      "Helping Hand",
+      "Hyper Beam",
+      "Knock Off",
+      "Light Screen",
+      "Meteor Beam",
+      "Metronome",
+      "Misty Terrain",
+      "Overheat",
+      "Play Rough",
+      "Poison Tail",
+      "Power Gem",
+      "Protect",
+      "Psychic",
+      "Psychic Fangs",
+      "Psychic Terrain",
+      "Psyshock",
+      "Reflect",
+      "Rest",
+      "Roar",
+      "Scald",
+      "Scary Face",
+      "Shadow Ball",
+      "Shadow Claw",
+      "Sleep Talk",
+      "Snarl",
+      "Solar Beam",
+      "Solar Blade",
+      "Stored Power",
+      "Substitute",
+      "Sunny Day",
+      "Swift",
+      "Tailwind",
+      "Take Down",
+      "Tera Blast",
+      "Thunder Punch",
+      "Toxic",
+      "Trailblaze",
+      "Trick",
+      "U-turn",
+      "Will-O-Wisp",
+      "Zen Headbutt"
+    ],
+    "builds": [
+      {
+        "titulo": "Defensive Star",
+        "item": "Air Balloon / Leftovers",
+        "habilidade": "Radiant Mane",
+        "natureza": "Calm (+SpD −Atk)",
+        "evs": "252 HP / 4 Def / 252 SpD",
+        "ivs": "",
+        "golpes": [
+          "Startail Strike",
+          "Cosmic Power",
+          "Moonlight",
+          "Knock Off / Flamethrower / Toxic"
+        ],
+        "texto": "Lumistar @ Air Balloon / Leftovers\nAbility: Radiant Mane\nEVs: 252 HP / 4 Def / 252 SpD\nTera Type: Grass\nCalm Nature\n- Startail Strike\n- Cosmic Power\n- Moonlight\n- Knock Off / Flamethrower / Toxic"
+      },
+      {
+        "titulo": "Sun Wallbreaker",
+        "item": "Choice Specs / Life Orb",
+        "habilidade": "Radiant Mane",
+        "natureza": "Modest (+SpA −Atk) / Timid (+Spe −Atk)",
+        "evs": "4 HP / 252 SpA / 252 Spe",
+        "ivs": "",
+        "golpes": [
+          "Startail Strike",
+          "Flamethrower",
+          "Focus Blast",
+          "Psychic / Psyshock"
+        ],
+        "texto": "Lumistar @ Choice Specs / Life Orb\nAbility: Radiant Mane\nEVs: 4 HP / 252 SpA / 252 Spe\nTera Type: Fire\nModest / Timid Nature\n- Startail Strike\n- Flamethrower\n- Focus Blast\n- Psychic / Psyshock"
+      }
+    ]
+  },
+  "mouselitte": {
+    "pokedex": "Com movimentos imprevisíveis e uma antena inquieta, essa rara criatura manipula eletricidade e metal, surpreendendo até os treinadores mais experientes.",
+    "categoria": "Rato Travesso",
+    "tipos": [
+      {
+        "nome": "Aço",
+        "id": "steel"
+      },
+      {
+        "nome": "Elétrico",
+        "id": "electric"
+      }
+    ],
+    "atributos": [
+      {
+        "nome": "HP",
+        "valor": 70
+      },
+      {
+        "nome": "Atk",
+        "valor": 67
+      },
+      {
+        "nome": "Def",
+        "valor": 110
+      },
+      {
+        "nome": "SpA",
+        "valor": 115
+      },
+      {
+        "nome": "SpD",
+        "valor": 77
+      },
+      {
+        "nome": "Spe",
+        "valor": 99
+      }
+    ],
+    "total": 538,
+    "fraquezas": [
+      {
+        "rotulo": "Muito fraco (4×)",
+        "tipos": [
+          {
+            "nome": "Terrestre",
+            "id": "ground"
+          }
+        ]
+      },
+      {
+        "rotulo": "Fraco (2×)",
+        "tipos": [
+          {
+            "nome": "Fogo",
+            "id": "fire"
+          },
+          {
+            "nome": "Lutador",
+            "id": "fighting"
+          }
+        ]
+      },
+      {
+        "rotulo": "Resiste (½×)",
+        "tipos": [
+          {
+            "nome": "Normal",
+            "id": "normal"
+          },
+          {
+            "nome": "Elétrico",
+            "id": "electric"
+          },
+          {
+            "nome": "Planta",
+            "id": "grass"
+          },
+          {
+            "nome": "Gelo",
+            "id": "ice"
+          },
+          {
+            "nome": "Psíquico",
+            "id": "psychic"
+          },
+          {
+            "nome": "Inseto",
+            "id": "bug"
+          },
+          {
+            "nome": "Pedra",
+            "id": "rock"
+          },
+          {
+            "nome": "Dragão",
+            "id": "dragon"
+          },
+          {
+            "nome": "Fada",
+            "id": "fairy"
+          }
+        ]
+      },
+      {
+        "rotulo": "Resiste muito (¼×)",
+        "tipos": [
+          {
+            "nome": "Voador",
+            "id": "flying"
+          },
+          {
+            "nome": "Aço",
+            "id": "steel"
+          }
+        ]
+      },
+      {
+        "rotulo": "Imune (0×)",
+        "tipos": [
+          {
+            "nome": "Venenoso",
+            "id": "poison"
+          }
+        ]
+      }
+    ],
+    "habilidades": [
+      {
+        "nome": "Levitate",
+        "propria": false,
+        "efeito": "Flutua: fica imune a golpes do tipo Terrestre.",
+        "slot": "Habilidade"
+      },
+      {
+        "nome": "Magnet Pull",
+        "propria": false,
+        "efeito": "Impede que oponentes do tipo Aço fujam ou sejam trocados.",
+        "slot": "Habilidade"
+      },
+      {
+        "nome": "Lightning Rod",
+        "propria": false,
+        "efeito": "Atrai golpes elétricos, fica imune a eles e aumenta o SpA.",
+        "slot": "Oculta"
+      }
+    ],
+    "golpe_exclusivo": null,
+    "evolui_para": [],
+    "spawns": [
+      {
+        "onde": "Em construções, altura Y 60 a 80",
+        "niveis": "10 a 35"
+      }
+    ],
+    "dados": [
+      [
+        "Altura",
+        "0,91 m"
+      ],
+      [
+        "Peso",
+        "55,0 kg"
+      ],
+      [
+        "Taxa de captura",
+        "60"
+      ],
+      [
+        "Crescimento",
+        "Médio-rápido"
+      ],
+      [
+        "EVs ao derrotar",
+        "1 Def, 2 Spe"
+      ],
+      [
+        "Gênero",
+        "87,5% macho"
+      ],
+      [
+        "Grupo de ovo",
+        "Amorfo"
+      ],
+      [
+        "Ciclos de ovo",
+        "30"
+      ]
+    ],
+    "golpes_nivel": [
+      {
+        "nivel": "1",
+        "golpes": [
+          "Taunt",
+          "Supersonic",
+          "Thunder Shock",
+          "Tackle"
+        ]
+      },
+      {
+        "nivel": "4",
+        "golpes": [
+          "Nuzzle"
+        ]
+      },
+      {
+        "nivel": "10",
+        "golpes": [
+          "Mud Shot"
+        ]
+      },
+      {
+        "nivel": "13",
+        "golpes": [
+          "Charge Beam"
+        ]
+      },
+      {
+        "nivel": "16",
+        "golpes": [
+          "Thunder Wave"
+        ]
+      },
+      {
+        "nivel": "21",
+        "golpes": [
+          "Tri Attack"
+        ]
+      },
+      {
+        "nivel": "26",
+        "golpes": [
+          "Iron Head"
+        ]
+      },
+      {
+        "nivel": "33",
+        "golpes": [
+          "Nasty Plot"
+        ]
+      },
+      {
+        "nivel": "40",
+        "golpes": [
+          "Thunderbolt"
+        ]
+      },
+      {
+        "nivel": "48",
+        "golpes": [
+          "Trick"
+        ]
+      },
+      {
+        "nivel": "55",
+        "golpes": [
+          "Volt Switch"
+        ]
+      },
+      {
+        "nivel": "60",
+        "golpes": [
+          "Shadow Ball"
+        ]
+      },
+      {
+        "nivel": "63",
+        "golpes": [
+          "Self-Destruct"
+        ]
+      },
+      {
+        "nivel": "67",
+        "golpes": [
+          "Flash Cannon"
+        ]
+      },
+      {
+        "nivel": "75",
+        "golpes": [
+          "Wild Charge"
+        ]
+      },
+      {
+        "nivel": "81",
+        "golpes": [
+          "Overheat"
+        ]
+      }
+    ],
+    "golpes_ovo": [
+      "Curse",
+      "Dazzling Gleam",
+      "Meteor Beam",
+      "Power Gem",
+      "Rapid Spin",
+      "Spikes"
+    ],
+    "golpes_tutor": [],
+    "golpes_tm": [
+      "Agility",
+      "Aura Sphere",
+      "Charge",
+      "Charge Beam",
+      "Double-Edge",
+      "Eerie Impulse",
+      "Electric Terrain",
+      "Electro Ball",
+      "Electroweb",
+      "Endure",
+      "Facade",
+      "Flash Cannon",
+      "Helping Hand",
+      "Iron Defense",
+      "Iron Head",
+      "Light Screen",
+      "Metal Claw",
+      "Metal Sound",
+      "Nasty Plot",
+      "Overheat",
+      "Protect",
+      "Reflect",
+      "Rest",
+      "Scary Face",
+      "Sleep Talk",
+      "Smart Strike",
+      "Stealth Rock",
+      "Steel Beam",
+      "Substitute",
+      "Sunny Day",
+      "Super Fang",
+      "Swift",
+      "Take Down",
+      "Tera Blast",
+      "Thunder",
+      "Thunder Fang",
+      "Thunder Wave",
+      "Thunderbolt",
+      "Toxic",
+      "Trailblaze",
+      "U-turn",
+      "Volt Switch",
+      "Wild Charge"
+    ],
+    "builds": [
+      {
+        "titulo": "Utility Scarf",
+        "item": "Leftovers",
+        "habilidade": "Levitate",
+        "natureza": "",
+        "evs": "248 HP / 104 SpA / 156 Spe",
+        "ivs": "",
+        "golpes": [
+          "Volt Switch",
+          "Thunderbolt",
+          "Overheat",
+          "Flash Cannon / Rapid Spin"
+        ],
+        "texto": "Mouselitte @ Leftovers\nAbility: Levitate\nEVs: 248 HP / 104 SpA / 156 Spe\nTera Type: Fairy\n- Volt Switch\n- Thunderbolt\n- Overheat\n- Flash Cannon / Rapid Spin"
+      },
+      {
+        "titulo": "Trapper Utility",
+        "item": "Air Balloon",
+        "habilidade": "",
+        "natureza": "",
+        "evs": "92 HP / 192 SpA / 224 Spe",
+        "ivs": "",
+        "golpes": [
+          "Overheat",
+          "Volt Switch",
+          "Rapid Spin",
+          "Taunt / Stealth Rock / Spikes"
+        ],
+        "texto": "Mouselitte @ Air Balloon\nEVs: 92 HP / 192 SpA / 224 Spe\nTera Type: Grass\n- Overheat\n- Volt Switch\n- Rapid Spin\n- Taunt / Stealth Rock / Spikes"
+      }
+    ]
+  },
+  "verdragu": {
+    "pokedex": "Conhecido como o amigo da floresta, este dragão verdejante protege a natureza e vive em harmonia com todas as criaturas que habitam nela.",
+    "categoria": "Amigo da Floresta",
+    "tipos": [
+      {
+        "nome": "Dragão",
+        "id": "dragon"
+      },
+      {
+        "nome": "Planta",
+        "id": "grass"
+      }
+    ],
+    "atributos": [
+      {
+        "nome": "HP",
+        "valor": 130
+      },
+      {
+        "nome": "Atk",
+        "valor": 65
+      },
+      {
+        "nome": "Def",
+        "valor": 125
+      },
+      {
+        "nome": "SpA",
+        "valor": 70
+      },
+      {
+        "nome": "SpD",
+        "valor": 80
+      },
+      {
+        "nome": "Spe",
+        "valor": 30
+      }
+    ],
+    "total": 500,
+    "fraquezas": [
+      {
+        "rotulo": "Muito fraco (4×)",
+        "tipos": [
+          {
+            "nome": "Gelo",
+            "id": "ice"
+          }
+        ]
+      },
+      {
+        "rotulo": "Fraco (2×)",
+        "tipos": [
+          {
+            "nome": "Venenoso",
+            "id": "poison"
+          },
+          {
+            "nome": "Voador",
+            "id": "flying"
+          },
+          {
+            "nome": "Inseto",
+            "id": "bug"
+          },
+          {
+            "nome": "Dragão",
+            "id": "dragon"
+          },
+          {
+            "nome": "Fada",
+            "id": "fairy"
+          }
+        ]
+      },
+      {
+        "rotulo": "Resiste (½×)",
+        "tipos": [
+          {
+            "nome": "Terrestre",
+            "id": "ground"
+          }
+        ]
+      },
+      {
+        "rotulo": "Resiste muito (¼×)",
+        "tipos": [
+          {
+            "nome": "Água",
+            "id": "water"
+          },
+          {
+            "nome": "Elétrico",
+            "id": "electric"
+          },
+          {
+            "nome": "Planta",
+            "id": "grass"
+          }
+        ]
+      }
+    ],
+    "habilidades": [
+      {
+        "nome": "Strong Soil",
+        "propria": true,
+        "efeito": "Ao ser atingido por golpes do tipo terra, um adubo é criado, garantindo imunidade e aumentando a defesa em 1 estágio.",
+        "slot": "Habilidade"
+      },
+      {
+        "nome": "Harvest",
+        "propria": false,
+        "efeito": "Pode recuperar a berry usada ao fim de cada turno.",
+        "slot": "Habilidade"
+      },
+      {
+        "nome": "Natural Cure",
+        "propria": false,
+        "efeito": "Cura problemas de status ao sair da batalha.",
+        "slot": "Oculta"
+      }
+    ],
+    "golpe_exclusivo": null,
+    "evolui_para": [],
+    "spawns": [
+      {
+        "onde": "No chão, em Biomas de Florestas, de dia, com tempo limpo",
+        "niveis": "30 a 50"
+      }
+    ],
+    "dados": [
+      [
+        "Altura",
+        "4,60 m"
+      ],
+      [
+        "Peso",
+        "530,0 kg"
+      ],
+      [
+        "Taxa de captura",
+        "25"
+      ],
+      [
+        "Crescimento",
+        "Lento"
+      ],
+      [
+        "EVs ao derrotar",
+        "3 HP"
+      ],
+      [
+        "Gênero",
+        "75% macho"
+      ],
+      [
+        "Grupo de ovo",
+        "Planta e Dragão"
+      ],
+      [
+        "Ciclos de ovo",
+        "40"
+      ]
+    ],
+    "golpes_nivel": [
+      {
+        "nivel": "1",
+        "golpes": [
+          "Grassy Terrain",
+          "Spite",
+          "Absorb",
+          "Stomp"
+        ]
+      },
+      {
+        "nivel": "4",
+        "golpes": [
+          "Leech Seed"
+        ]
+      },
+      {
+        "nivel": "8",
+        "golpes": [
+          "Mega Drain"
+        ]
+      },
+      {
+        "nivel": "14",
+        "golpes": [
+          "Rest"
+        ]
+      },
+      {
+        "nivel": "17",
+        "golpes": [
+          "Bullet Seed"
+        ]
+      },
+      {
+        "nivel": "21",
+        "golpes": [
+          "Dragon Dance"
+        ]
+      },
+      {
+        "nivel": "27",
+        "golpes": [
+          "Double Hit"
+        ]
+      },
+      {
+        "nivel": "32",
+        "golpes": [
+          "Seed Bomb"
+        ]
+      },
+      {
+        "nivel": "39",
+        "golpes": [
+          "Dragon Hammer"
+        ]
+      },
+      {
+        "nivel": "44",
+        "golpes": [
+          "Earth Power"
+        ]
+      },
+      {
+        "nivel": "51",
+        "golpes": [
+          "Megahorn"
+        ]
+      },
+      {
+        "nivel": "55",
+        "golpes": [
+          "Giga Drain"
+        ]
+      },
+      {
+        "nivel": "60",
+        "golpes": [
+          "Dragon Pulse"
+        ]
+      },
+      {
+        "nivel": "69",
+        "golpes": [
+          "Explosion"
+        ]
+      },
+      {
+        "nivel": "75",
+        "golpes": [
+          "Heavy Slam"
+        ]
+      },
+      {
+        "nivel": "88",
+        "golpes": [
+          "Head Smash"
+        ]
+      },
+      {
+        "nivel": "100",
+        "golpes": [
+          "Outrage"
+        ]
+      }
+    ],
+    "golpes_ovo": [
+      "Dragon Tail",
+      "Growth",
+      "Knock Off",
+      "Toxic Spikes"
+    ],
+    "golpes_tutor": [],
+    "golpes_tm": [
+      "Body Slam",
+      "Breaking Swipe",
+      "Bulldoze",
+      "Bullet Seed",
+      "Close Combat",
+      "Dazzling Gleam",
+      "Double-Edge",
+      "Draco Meteor",
+      "Dragon Claw",
+      "Dragon Dance",
+      "Dragon Pulse",
+      "Earth Power",
+      "Earthquake",
+      "Endure",
+      "Energy Ball",
+      "Facade",
+      "Giga Drain",
+      "Giga Impact",
+      "Grassy Terrain",
+      "Heavy Slam",
+      "Helping Hand",
+      "Hyper Beam",
+      "Leaf Storm",
+      "Light Screen",
+      "Outrage",
+      "Petal Blizzard",
+      "Protect",
+      "Rain Dance",
+      "Reflect",
+      "Rest",
+      "Roar",
+      "Rock Slide",
+      "Scary Face",
+      "Seed Bomb",
+      "Sleep Talk",
+      "Solar Beam",
+      "Solar Blade",
+      "Stomping Tantrum",
+      "Stone Edge",
+      "Substitute",
+      "Sunny Day",
+      "Swift",
+      "Take Down",
+      "Tera Blast",
+      "Toxic",
+      "Trailblaze"
+    ],
+    "builds": [
+      {
+        "titulo": "Tree Wall",
+        "item": "Leftovers / Rocky Helmet",
+        "habilidade": "Natural Cure / Strong Soil",
+        "natureza": "Relaxed (+Def −Spe)",
+        "evs": "252 HP / 252 Def",
+        "ivs": "",
+        "golpes": [
+          "Knock Off",
+          "Leech Seed",
+          "Giga Drain",
+          "Toxic Spikes / Protect"
+        ],
+        "texto": "Verdragu @ Leftovers / Rocky Helmet\nAbility: Natural Cure / Strong Soil\nEVs: 252 HP / 252 Def\nTera Type: Steel\nRelaxed Nature\n- Knock Off\n- Leech Seed\n- Giga Drain\n- Toxic Spikes / Protect"
+      }
+    ]
+  },
+  "owlith": {
+    "pokedex": "Abençoada pelas estrelas, esta coruja guarda poderes além da compreensão. Seu olhar místico é capaz de transformar sonhos em realidade.",
+    "categoria": "Olhos da Noite",
+    "tipos": [
+      {
+        "nome": "Psíquico",
+        "id": "psychic"
+      },
+      {
+        "nome": "Voador",
+        "id": "flying"
+      }
+    ],
+    "atributos": [
+      {
+        "nome": "HP",
+        "valor": 101
+      },
+      {
+        "nome": "Atk",
+        "valor": 50
+      },
+      {
+        "nome": "Def",
+        "valor": 85
+      },
+      {
+        "nome": "SpA",
+        "valor": 121
+      },
+      {
+        "nome": "SpD",
+        "valor": 123
+      },
+      {
+        "nome": "Spe",
+        "valor": 112
+      }
+    ],
+    "total": 592,
+    "fraquezas": [
+      {
+        "rotulo": "Fraco (2×)",
+        "tipos": [
+          {
+            "nome": "Elétrico",
+            "id": "electric"
+          },
+          {
+            "nome": "Gelo",
+            "id": "ice"
+          },
+          {
+            "nome": "Pedra",
+            "id": "rock"
+          },
+          {
+            "nome": "Fantasma",
+            "id": "ghost"
+          },
+          {
+            "nome": "Sombrio",
+            "id": "dark"
+          }
+        ]
+      },
+      {
+        "rotulo": "Resiste (½×)",
+        "tipos": [
+          {
+            "nome": "Planta",
+            "id": "grass"
+          },
+          {
+            "nome": "Psíquico",
+            "id": "psychic"
+          }
+        ]
+      },
+      {
+        "rotulo": "Resiste muito (¼×)",
+        "tipos": [
+          {
+            "nome": "Lutador",
+            "id": "fighting"
+          }
+        ]
+      },
+      {
+        "rotulo": "Imune (0×)",
+        "tipos": [
+          {
+            "nome": "Terrestre",
+            "id": "ground"
+          }
+        ]
+      }
+    ],
+    "habilidades": [
+      {
+        "nome": "Magic Guard",
+        "propria": false,
+        "efeito": "Só recebe dano de golpes diretos.",
+        "slot": "Habilidade"
+      },
+      {
+        "nome": "Night Guardian",
+        "propria": true,
+        "efeito": "Usa o poder da noite para ser imune ao tipo sombrio e se curar desses golpes.",
+        "slot": "Oculta"
+      }
+    ],
+    "golpe_exclusivo": {
+      "nome": "Owl Eyes",
+      "tipo": "Voador",
+      "tipo_id": "flying",
+      "categoria": "Especial",
+      "poder": 90,
+      "precisao": "100%",
+      "pp": 5,
+      "descricao": "Owlith utiliza seus olhos para enganar o alvo, causando dano físico ao atacar."
+    },
+    "evolui_para": [],
+    "spawns": [],
+    "dados": [
+      [
+        "Altura",
+        "1,69 m"
+      ],
+      [
+        "Peso",
+        "64,8 kg"
+      ],
+      [
+        "Taxa de captura",
+        "15"
+      ],
+      [
+        "Crescimento",
+        "Médio-lento"
+      ],
+      [
+        "EVs ao derrotar",
+        "3 SpA"
+      ],
+      [
+        "Gênero",
+        "12% macho"
+      ],
+      [
+        "Grupo de ovo",
+        "Não cruza"
+      ],
+      [
+        "Ciclos de ovo",
+        "40"
+      ]
+    ],
+    "golpes_nivel": [
+      {
+        "nivel": "1",
+        "golpes": [
+          "Leer",
+          "Charm",
+          "Life Dew",
+          "Tackle",
+          "Baton Pass",
+          "Echoed Voice"
+        ]
+      },
+      {
+        "nivel": "5",
+        "golpes": [
+          "Peck"
+        ]
+      },
+      {
+        "nivel": "10",
+        "golpes": [
+          "Confusion"
+        ]
+      },
+      {
+        "nivel": "14",
+        "golpes": [
+          "Tailwind"
+        ]
+      },
+      {
+        "nivel": "20",
+        "golpes": [
+          "Calm Mind"
+        ]
+      },
+      {
+        "nivel": "24",
+        "golpes": [
+          "Heal Bell"
+        ]
+      },
+      {
+        "nivel": "30",
+        "golpes": [
+          "Air Slash"
+        ]
+      },
+      {
+        "nivel": "33",
+        "golpes": [
+          "Hypnosis"
+        ]
+      },
+      {
+        "nivel": "40",
+        "golpes": [
+          "Stored Power"
+        ]
+      },
+      {
+        "nivel": "46",
+        "golpes": [
+          "Defog"
+        ]
+      },
+      {
+        "nivel": "50",
+        "golpes": [
+          "Moonblast"
+        ]
+      },
+      {
+        "nivel": "53",
+        "golpes": [
+          "Aurora Beam"
+        ]
+      },
+      {
+        "nivel": "60",
+        "golpes": [
+          "Psychic"
+        ]
+      },
+      {
+        "nivel": "67",
+        "golpes": [
+          "Roost"
+        ]
+      },
+      {
+        "nivel": "70",
+        "golpes": [
+          "Owl Eyes"
+        ]
+      },
+      {
+        "nivel": "71",
+        "golpes": [
+          "Dark Pulse"
+        ]
+      },
+      {
+        "nivel": "80",
+        "golpes": [
+          "Sky Attack"
+        ]
+      },
+      {
+        "nivel": "82",
+        "golpes": [
+          "Hurricane"
+        ]
+      },
+      {
+        "nivel": "90",
+        "golpes": [
+          "Focus Blast"
+        ]
+      },
+      {
+        "nivel": "100",
+        "golpes": [
+          "Future Sight"
+        ]
+      }
+    ],
+    "golpes_ovo": [],
+    "golpes_tutor": [],
+    "golpes_tm": [
+      "Agility",
+      "Air Cutter",
+      "Air Slash",
+      "Amnesia",
+      "Aura Sphere",
+      "Calm Mind",
+      "Confuse Ray",
+      "Dark Pulse",
+      "Dazzling Gleam",
+      "Disarming Voice",
+      "Double-Edge",
+      "Endure",
+      "Energy Ball",
+      "Expanding Force",
+      "Facade",
+      "Focus Blast",
+      "Future Sight",
+      "Heat Wave",
+      "Helping Hand",
+      "Hex",
+      "Hurricane",
+      "Ice Beam",
+      "Icy Wind",
+      "Imprison",
+      "Light Screen",
+      "Meteor Beam",
+      "Power Gem",
+      "Protect",
+      "Psybeam",
+      "Psych Up",
+      "Psychic",
+      "Psychic Terrain",
+      "Psyshock",
+      "Reflect",
+      "Rest",
+      "Shadow Ball",
+      "Skill Swap",
+      "Sleep Talk",
+      "Stored Power",
+      "Substitute",
+      "Swift",
+      "Take Down",
+      "Tera Blast",
+      "Thunder Wave",
+      "Thunderbolt",
+      "Toxic",
+      "Trick",
+      "Trick Room",
+      "Will-O-Wisp"
+    ],
+    "builds": [
+      {
+        "titulo": "Calm Mind Sweeper",
+        "item": "Leftovers / Heavy-Duty Boots",
+        "habilidade": "Night Guardian",
+        "natureza": "Timid (+Spe −Atk) / Bold (+Def −Atk)",
+        "evs": "252 HP / 140 Def / 112 Spe",
+        "ivs": "",
+        "golpes": [
+          "Calm Mind",
+          "Stored Power",
+          "Owl Eyes",
+          "Roost / Substitute"
+        ],
+        "texto": "Owlith @ Leftovers / Heavy-Duty Boots\nAbility: Night Guardian\nEVs: 252 HP / 140 Def / 112 Spe\nTera Type: Steel\nTimid / Bold Nature\n- Calm Mind\n- Stored Power\n- Owl Eyes\n- Roost / Substitute"
+      }
+    ]
+  }
+}

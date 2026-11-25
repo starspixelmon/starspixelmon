@@ -25,9 +25,9 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/jersey-10-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/style.css?v=50">
+<link rel="stylesheet" href="/css/style.css?v=74">
 <script>document.documentElement.classList.add('js');</script>
-<script src="/js/transicoes.js?v=50"></script>
+<script src="/js/transicoes.js?v=74"></script>
 <!-- /@head -->
 <script type="application/ld+json">
 {
@@ -156,11 +156,19 @@
       </nav>
 
       <div class="sd-hero">
-        <figure class="sd-art tile tile--sky">
-          <div class="starian__art">
+        <div class="sd-art tile tile--sky">
+          <figure class="starian__art">
             <img src="/img/starians/mouselitte.webp" width="794" height="794" alt="Arte oficial do Starian Mouselitte" fetchpriority="high" decoding="async">
-          </div>
-        </figure>
+          </figure>
+          <!-- sprites do jogo: faixa compacta no rodapé do card da arte -->
+          <section class="sd-art__sprites" aria-labelledby="sprites-titulo">
+            <p class="sd-art__label" id="sprites-titulo">Sprites no jogo</p>
+            <ul class="sd-sprites">
+            <li><figure class="sd-sprite"><img class="px" src="/img/sprites/mouselitte.webp" width="32" height="32" alt="Sprite normal de Mouselitte" loading="lazy" decoding="async"><figcaption>Normal</figcaption></figure></li>
+            <li><figure class="sd-sprite"><img class="px" src="/img/sprites/shiny/mouselitte.webp" width="32" height="32" alt="Sprite shiny de Mouselitte" loading="lazy" decoding="async"><figcaption>Shiny</figcaption></figure></li>
+            </ul>
+          </section>
+        </div>
 
         <div class="sd-info">
           <p class="eyebrow"><img class="px" src="/img/px/museu.webp" width="16" height="16" alt="">Starian Dex · #006</p>
@@ -172,38 +180,118 @@
           <p class="sd-text">Veja de perto no Museu, no Spawn.</p>
           <dl class="sd-facts tile tile--sky">
           <div>
-            <dt>Categoria</dt>
+            <dt>Tipo</dt>
+            <dd><ul class="types types--sm"><li class="type type--steel">Aço</li><li class="type type--electric">Elétrico</li></ul></dd>
+          </div>
+          <div>
+            <dt>Grupo</dt>
             <dd>Comum</dd>
           </div>
+          <div>
+            <dt>Categoria</dt>
+            <dd>Rato Travesso</dd>
+          </div>
+          <div class="sd-facts__long">
+            <dt>Descrição</dt>
+            <dd>Com movimentos imprevisíveis e uma antena inquieta, essa rara criatura manipula eletricidade e metal, surpreendendo até os treinadores mais experientes.</dd>
+          </div>
           </dl>
+
         </div>
       </div>
 
-      <section class="sd-block" aria-labelledby="sprites-titulo">
-        <h2 class="subhead" id="sprites-titulo">Sprites no jogo</h2>
-        <ul class="sd-sprites">
-        <li>
-          <figure class="sd-sprite tile tile--sky">
-            <img class="px" src="/img/sprites/mouselitte.webp" width="32" height="32" alt="Sprite normal de Mouselitte" loading="lazy" decoding="async">
-            <figcaption>Normal</figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure class="sd-sprite tile tile--gold">
-            <img class="px" src="/img/sprites/shiny/mouselitte.webp" width="32" height="32" alt="Sprite shiny de Mouselitte" loading="lazy" decoding="async">
-            <figcaption>Shiny</figcaption>
-          </figure>
-        </li>
-        </ul>
+      <section class="sd-block" aria-labelledby="batalha-titulo">
+        <h2 class="subhead" id="batalha-titulo">Em batalha</h2>
+        <div class="sd-grid">
+        <article class="tile tile--sky sd-card">
+          <h3 class="sd-card__title">Tipo e atributos base</h3>
+          <ul class="types"><li class="type type--steel">Aço</li><li class="type type--electric">Elétrico</li></ul>
+          <dl class="stats"><div class="stats__row stats__row--mid"><dt>HP</dt><dd><span class="stats__num">70</span><span class="stats__bar" style="--v:70" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--mid"><dt>Atk</dt><dd><span class="stats__num">67</span><span class="stats__bar" style="--v:67" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--high"><dt>Def</dt><dd><span class="stats__num">110</span><span class="stats__bar" style="--v:110" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--high"><dt>SpA</dt><dd><span class="stats__num">115</span><span class="stats__bar" style="--v:115" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--mid"><dt>SpD</dt><dd><span class="stats__num">77</span><span class="stats__bar" style="--v:77" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--high"><dt>Spe</dt><dd><span class="stats__num">99</span><span class="stats__bar" style="--v:99" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--total"><dt>Total</dt><dd><span class="stats__num">538</span></dd></div></dl>
+        </article>
+        <div class="sd-stack">
+        <article class="tile tile--sky sd-card">
+          <h3 class="sd-card__title">Fraquezas e resistências</h3>
+          <dl class="sd-weak"><div><dt>Muito fraco (4×)</dt><dd><ul class="types types--sm"><li class="type type--ground">Terrestre</li></ul></dd></div><div><dt>Fraco (2×)</dt><dd><ul class="types types--sm"><li class="type type--fire">Fogo</li><li class="type type--fighting">Lutador</li></ul></dd></div><div><dt>Resiste (½×)</dt><dd><ul class="types types--sm"><li class="type type--normal">Normal</li><li class="type type--electric">Elétrico</li><li class="type type--grass">Planta</li><li class="type type--ice">Gelo</li><li class="type type--psychic">Psíquico</li><li class="type type--bug">Inseto</li><li class="type type--rock">Pedra</li><li class="type type--dragon">Dragão</li><li class="type type--fairy">Fada</li></ul></dd></div><div><dt>Resiste muito (¼×)</dt><dd><ul class="types types--sm"><li class="type type--flying">Voador</li><li class="type type--steel">Aço</li></ul></dd></div><div><dt>Imune (0×)</dt><dd><ul class="types types--sm"><li class="type type--poison">Venenoso</li></ul></dd></div></dl>
+          <p class="sd-note sd-note--sm">Pela tabela de tipos, sem contar habilidades.</p>
+        </article>
+        <article class="tile tile--sky sd-card">
+          <h3 class="sd-card__title">Habilidades</h3>
+          <ul class="abilities"><li><span class="abilities__slot">Habilidade</span><b>Levitate</b><p>Flutua: fica imune a golpes do tipo Terrestre.</p></li><li><span class="abilities__slot">Habilidade</span><b>Magnet Pull</b><p>Impede que oponentes do tipo Aço fujam ou sejam trocados.</p></li><li><span class="abilities__slot">Oculta</span><b>Lightning Rod</b><p>Atrai golpes elétricos, fica imune a eles e aumenta o SpA.</p></li></ul>
+        </article>
+        </div>
+        </div>
       </section>
 
-      <aside class="highlight tile tile--indigo sd-soon">
-        <img class="px highlight__icon" src="/img/px/cadeado-aberto.webp" width="16" height="16" alt="">
-        <div>
-          <h2>Ficha completa em breve</h2>
-          <p>Tipo, habilidades, ataques e stats chegam com a Starian Dex completa.</p>
+      <section class="sd-block" aria-labelledby="builds-titulo">
+        <h2 class="subhead" id="builds-titulo">Builds recomendadas</h2>
+        <div class="sd-grid">
+        <article class="tile tile--sky sd-card sd-build">
+          <h3 class="sd-card__title">Utility Scarf</h3>
+          <div class="sd-build__body">
+          <dl class="sd-data sd-build__data"><div><dt>Item</dt><dd><span class="nw">Leftovers</span></dd></div><div><dt>Habilidade</dt><dd><span class="nw">Levitate</span></dd></div><div><dt>EVs</dt><dd><span class="nw">248 HP</span> / <span class="nw">104 SpA</span> / <span class="nw">156 Spe</span></dd></div></dl>
+          <ol class="sd-build__moves"><li><span class="nw">Volt Switch</span></li><li><span class="nw">Thunderbolt</span></li><li><span class="nw">Overheat</span></li><li><span class="nw">Flash Cannon</span> / <span class="nw">Rapid Spin</span></li></ol>
+          </div>
+          <div class="sd-build__foot"><button class="btn btn--ghost btn--sm" type="button" data-copy-build><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar build</span></button></div>
+          <pre class="sd-build__export" hidden>Mouselitte @ Leftovers
+Ability: Levitate
+EVs: 248 HP / 104 SpA / 156 Spe
+Tera Type: Fairy
+- Volt Switch
+- Thunderbolt
+- Overheat
+- Flash Cannon / Rapid Spin</pre>
+        </article>
+        <article class="tile tile--sky sd-card sd-build">
+          <h3 class="sd-card__title">Trapper Utility</h3>
+          <div class="sd-build__body">
+          <dl class="sd-data sd-build__data"><div><dt>Item</dt><dd><span class="nw">Air Balloon</span></dd></div><div><dt>EVs</dt><dd><span class="nw">92 HP</span> / <span class="nw">192 SpA</span> / <span class="nw">224 Spe</span></dd></div></dl>
+          <ol class="sd-build__moves"><li><span class="nw">Overheat</span></li><li><span class="nw">Volt Switch</span></li><li><span class="nw">Rapid Spin</span></li><li><span class="nw">Taunt</span> / <span class="nw">Stealth Rock</span> / <span class="nw">Spikes</span></li></ol>
+          </div>
+          <div class="sd-build__foot"><button class="btn btn--ghost btn--sm" type="button" data-copy-build><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar build</span></button></div>
+          <pre class="sd-build__export" hidden>Mouselitte @ Air Balloon
+EVs: 92 HP / 192 SpA / 224 Spe
+Tera Type: Grass
+- Overheat
+- Volt Switch
+- Rapid Spin
+- Taunt / Stealth Rock / Spikes</pre>
+        </article>
         </div>
-      </aside>
+      </section>
+
+      <section class="sd-block" aria-labelledby="captura-titulo">
+        <h2 class="subhead" id="captura-titulo">Captura e criação</h2>
+        <div class="sd-grid">
+        <article class="tile tile--sky sd-card">
+          <h3 class="sd-card__title">Onde encontrar</h3>
+          <ul class="sd-list"><li>Em construções, altura Y 60 a 80. <b>Níveis 10 a 35</b></li></ul>
+        </article>
+        <article class="tile tile--sky sd-card">
+          <h3 class="sd-card__title">Evolução</h3>
+          <p class="sd-note">Não evolui.</p>
+        </article>
+        <article class="tile tile--sky sd-card sd-card--wide">
+          <h3 class="sd-card__title">Dados</h3>
+          <dl class="sd-tiles"><div><dt>Altura</dt><dd>0,91 m</dd></div><div><dt>Peso</dt><dd>55,0 kg</dd></div><div><dt>Taxa de captura</dt><dd>60</dd></div><div><dt>Crescimento</dt><dd>Médio-rápido</dd></div><div><dt>EVs ao derrotar</dt><dd>1 Def, 2 Spe</dd></div><div><dt>Gênero</dt><dd>87,5% macho</dd></div><div><dt>Grupo de ovo</dt><dd>Amorfo</dd></div><div><dt>Ciclos de ovo</dt><dd>30</dd></div></dl>
+        </article>
+        </div>
+      </section>
+
+      <section class="sd-block" aria-labelledby="golpes-titulo">
+        <h2 class="subhead" id="golpes-titulo">Golpes</h2>
+        <details class="tile tile--sky sd-moves" open>
+          <summary><h3>Por nível <small>19</small></h3></summary>
+          <dl class="lvl-list"><div><dt><small>Nv.</small> 1</dt><dd>Taunt, Supersonic, Thunder Shock, Tackle</dd></div><div><dt><small>Nv.</small> 4</dt><dd>Nuzzle</dd></div><div><dt><small>Nv.</small> 10</dt><dd>Mud Shot</dd></div><div><dt><small>Nv.</small> 13</dt><dd>Charge Beam</dd></div><div><dt><small>Nv.</small> 16</dt><dd>Thunder Wave</dd></div><div><dt><small>Nv.</small> 21</dt><dd>Tri Attack</dd></div><div><dt><small>Nv.</small> 26</dt><dd>Iron Head</dd></div><div><dt><small>Nv.</small> 33</dt><dd>Nasty Plot</dd></div><div><dt><small>Nv.</small> 40</dt><dd>Thunderbolt</dd></div><div><dt><small>Nv.</small> 48</dt><dd>Trick</dd></div><div><dt><small>Nv.</small> 55</dt><dd>Volt Switch</dd></div><div><dt><small>Nv.</small> 60</dt><dd>Shadow Ball</dd></div><div><dt><small>Nv.</small> 63</dt><dd>Self-Destruct</dd></div><div><dt><small>Nv.</small> 67</dt><dd>Flash Cannon</dd></div><div><dt><small>Nv.</small> 75</dt><dd>Wild Charge</dd></div><div><dt><small>Nv.</small> 81</dt><dd>Overheat</dd></div></dl>
+        </details>
+        <details class="tile tile--sky sd-moves">
+          <summary><h3>Por ovo <small>6</small></h3></summary>
+          <ul class="move-list"><li>Curse</li><li>Dazzling Gleam</li><li>Meteor Beam</li><li>Power Gem</li><li>Rapid Spin</li><li>Spikes</li></ul>
+        </details>
+        <details class="tile tile--sky sd-moves">
+          <summary><h3>Por TM <small>43</small></h3></summary>
+          <ul class="move-list"><li>Agility</li><li>Aura Sphere</li><li>Charge</li><li>Charge Beam</li><li>Double-Edge</li><li>Eerie Impulse</li><li>Electric Terrain</li><li>Electro Ball</li><li>Electroweb</li><li>Endure</li><li>Facade</li><li>Flash Cannon</li><li>Helping Hand</li><li>Iron Defense</li><li>Iron Head</li><li>Light Screen</li><li>Metal Claw</li><li>Metal Sound</li><li>Nasty Plot</li><li>Overheat</li><li>Protect</li><li>Reflect</li><li>Rest</li><li>Scary Face</li><li>Sleep Talk</li><li>Smart Strike</li><li>Stealth Rock</li><li>Steel Beam</li><li>Substitute</li><li>Sunny Day</li><li>Super Fang</li><li>Swift</li><li>Take Down</li><li>Tera Blast</li><li>Thunder</li><li>Thunder Fang</li><li>Thunder Wave</li><li>Thunderbolt</li><li>Toxic</li><li>Trailblaze</li><li>U-turn</li><li>Volt Switch</li><li>Wild Charge</li></ul>
+        </details>
+      </section>
 
       <nav class="sd-pager" aria-label="Outros Starians">
         <a class="btn btn--ghost btn--sm" href="/starians/shirlaw" rel="prev"><svg aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg>Shirlaw</a>
@@ -283,8 +371,8 @@
 </footer>
 <!-- /@footer -->
 <!-- @scripts -->
-<script src="/js/space.js?v=50" defer></script>
-<script src="/js/main.js?v=50" defer></script>
+<script src="/js/space.js?v=74" defer></script>
+<script src="/js/main.js?v=74" defer></script>
 <!-- /@scripts -->
 </body>
 </html>

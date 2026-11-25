@@ -78,6 +78,32 @@ window.STARS = {
     return Promise.race([navigator.clipboard.writeText(text), timeout]).catch(legacy);
   };
 
+  /* "Copiar build" (página de cada Starian): copia a build do card no formato do Showdown */
+  $$('[data-copy-build]').forEach(btn => {
+    const label = $('span', btn);
+    const base = label ? label.textContent : '';
+    const box = btn.closest('.sd-build');
+    const pre = box && $('.sd-build__export', box);   /* a build deste card */
+    if (!pre) return;
+    btn.addEventListener('click', () => {
+      copyText(pre.textContent)
+        .then(() => { btn.classList.add('is-done'); if (label) label.textContent = 'Copiado!'; })
+        .catch(() => {
+          /* sem acesso à área de transferência: mostra o texto selecionado para copiar à mão */
+          pre.hidden = false;
+          const r = document.createRange();
+          r.selectNodeContents(pre);
+          const s = getSelection();
+          s.removeAllRanges();
+          s.addRange(r);
+          if (label) label.textContent = 'Selecione e copie';
+        })
+        .finally(() => {
+          setTimeout(() => { btn.classList.remove('is-done'); if (label) label.textContent = base; }, 1800);
+        });
+    });
+  });
+
   $$('[data-copy]').forEach(btn => {
     const label = $('span', btn);
     const base = label ? label.textContent : '';

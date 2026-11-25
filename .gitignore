@@ -3,6 +3,9 @@
 assets/
 # Cópias de outros sites e design systems usados como referência
 bases/
+# StarianBuilder (editor dos Starians: executável, backups e arquivos do jogo, inclusive dos não lançados).
+# O site usa só tools/data/fichas.json, gerado por tools/importar_starianbuilder.py
+starianbuilder/
 
 # ── Sistema e editores ──
 Thumbs.db

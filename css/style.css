@@ -917,6 +917,32 @@ body:has(.lightbox[open]) { overflow: hidden; }
 .prize p { font-size: 1.0625rem; }
 .event__cta { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: var(--s-2); padding: var(--s-3); }
 .event__cta p { font-family: var(--pixel); font-size: 1.5rem; line-height: 1; text-transform: uppercase; color: var(--gold); text-shadow: 2px 2px 0 var(--ink); }
+/* recompensa da fase Beta: render 3D do Verdragu Beta num palco com brilho + texto e as duas recompensas */
+.beta-reward { position: relative; display: grid; gap: var(--s-3); align-items: center; margin-top: var(--grid-y); padding: var(--s-3); overflow: hidden; }
+@media (min-width: 760px) { .beta-reward { grid-template-columns: 15rem minmax(0, 1fr); gap: var(--s-5); padding: var(--s-3) var(--s-5) var(--s-3) var(--s-3); } }
+.beta-reward__art {
+  position: relative;
+  display: grid;
+  place-items: end center;
+  height: 16rem;
+  border-radius: 9px;
+  background:
+    repeating-conic-gradient(from 0deg at 50% 60%, rgb(var(--tint) / .16) 0deg 10deg, transparent 10deg 20deg),
+    radial-gradient(circle at 50% 60%, rgb(var(--tint) / .45), rgba(29, 7, 80, .9) 70%);
+}
+.beta-reward__art img { height: 94%; width: auto; filter: drop-shadow(0 8px 0 rgba(3, 4, 18, .45)); transition: transform .5s var(--ease); }
+.beta-reward:hover .beta-reward__art img { transform: scale(1.04) rotate(-2deg); }
+@media (min-width: 760px) { .beta-reward__art { height: 100%; min-height: 17rem; } }
+.beta-reward__kicker { font-family: var(--pixel); font-size: 1rem; letter-spacing: .06em; text-transform: uppercase; color: var(--accent, var(--frame)); }
+.beta-reward h3 { margin: .25rem 0 .75rem; font-family: var(--pixel); font-size: clamp(1.7rem, 3.5vw, 2.3rem); line-height: 1; text-transform: uppercase; color: var(--gold); text-shadow: 2px 2px 0 var(--ink); }
+.beta-reward__text > p { color: var(--text); line-height: 1.55; max-width: 40rem; }
+.beta-reward b { color: var(--white); }
+.beta-reward__items { display: grid; gap: var(--s-1); margin-top: var(--s-3); }
+@media (min-width: 1000px) { .beta-reward__items { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.beta-reward__items li { display: flex; align-items: center; gap: var(--s-2); padding: .75rem 1rem; border-radius: var(--r); background: rgba(5, 2, 18, .5); box-shadow: inset 0 0 0 2px rgb(var(--tint) / .4); }
+.beta-reward__items img { width: 40px; height: 40px; flex: none; filter: drop-shadow(2px 2px 0 var(--ink)); }
+.beta-reward__items span { display: grid; gap: .125rem; color: var(--muted); font-size: .92rem; line-height: 1.35; }
+.beta-reward__items b { font-family: var(--pixel); font-size: 1.2rem; font-weight: 700; text-transform: uppercase; color: var(--white); }
 .event .info h3 { font-size: 1.25rem; }
 
 /* ══════════ COMUNIDADE ══════════ */
@@ -1079,7 +1105,7 @@ body:has(.lightbox[open]) { overflow: hidden; }
 /* ══════════ PÁGINA DO STARIAN (starian.html) ══════════ */
 .sd-hero { display: grid; gap: 2.5rem; align-items: start; }
 @media (min-width: 900px) { .sd-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 3.5rem; } }
-.sd-art { padding-bottom: .5rem; }
+.sd-art { padding-bottom: 0; overflow: hidden; }
 .sd-art .starian__art img { width: 86%; }
 .sd-name { font-size: clamp(2.8rem, 7vw, 4.5rem); line-height: .95; }
 .sd-badges { margin-top: 1rem; }
@@ -1091,11 +1117,16 @@ body:has(.lightbox[open]) { overflow: hidden; }
 .sd-facts div + div { border-top: 2px dashed rgb(var(--tint) / .35); }
 .sd-facts dt { font-family: var(--pixel); font-size: 1.05rem; text-transform: uppercase; color: var(--accent, var(--frame)); }
 .sd-facts dd { color: var(--white); font-weight: 600; }
-.sd-sprites { display: grid; grid-template-columns: repeat(auto-fill, 9rem); gap: 1.5rem; }
-@media (max-width: 479px) { .sd-sprites { grid-template-columns: repeat(2, minmax(0, 9rem)); } }
-.sd-sprite { display: grid; justify-items: center; gap: .5rem; padding: 1rem; }
-.sd-sprite img { width: 96px; height: 96px; filter: drop-shadow(3px 3px 0 var(--ink)); }
-.sd-sprite figcaption { font-family: var(--pixel); font-size: 1.1rem; text-transform: uppercase; color: var(--accent, var(--frame)); }
+.sd-facts__long dd { font-weight: 500; line-height: 1.6; }   /* texto corrido (Pokédex) */
+@media (max-width: 559px) { .sd-facts .sd-facts__long { grid-template-columns: minmax(0, 1fr); gap: .4rem; } }   /* celular: rótulo em cima, texto com a largura toda */
+/* sprites do jogo: faixa no rodapé do card da arte (rótulo + sprites lado a lado) */
+.sd-art__sprites { display: grid; gap: var(--s-1); padding: var(--s-2) var(--s-3) var(--s-3); border-top: 2px dashed rgb(var(--tint) / .35); margin-top: .5rem; }
+.sd-art__label { font-family: var(--pixel); font-size: 1rem; text-transform: uppercase; color: var(--meta); }
+/* grade que quebra em quantas linhas precisar: 2 ou 8 sprites, cada um com no mínimo 5rem */
+.sd-sprites { display: grid; grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr)); gap: var(--s-1); }
+.sd-sprite { display: grid; justify-items: center; align-content: start; gap: .25rem; padding: .5rem .25rem; border-radius: 8px; background: rgba(5, 2, 18, .45); }
+.sd-sprite img { width: 56px; height: 56px; filter: drop-shadow(3px 3px 0 var(--ink)); }
+.sd-sprite figcaption { font-family: var(--pixel); font-size: .9rem; line-height: 1.05; text-align: center; text-transform: uppercase; color: var(--accent, var(--frame)); overflow-wrap: anywhere; }
 .sd-mini { display: inline-flex; align-items: center; gap: .75rem; padding: .5rem 1rem .5rem .5rem; color: var(--white); font-family: var(--pixel); font-size: 1.2rem; text-transform: uppercase; line-height: 1; transition: transform .25s var(--ease); }
 .sd-mini:hover { transform: translateY(-4px); }
 .sd-mini img { width: 40px; height: 40px; }
@@ -1103,12 +1134,154 @@ body:has(.lightbox[open]) { overflow: hidden; }
 .sd-mini.is-current { --frame: var(--gold); --accent: var(--gold); }
 .sd-family { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
 .sd-family__sep svg { width: 1.4rem; height: 1.4rem; color: var(--gold); display: block; }
+/* topo: arte (com os sprites no rodapé) à esquerda; nome, ficha e linha evolutiva à direita */
+.sd-info .sd-facts { margin: 1.5rem 0 0; }
+.sd-info > .btn-row { margin-top: var(--s-3); }   /* botão de compra respira abaixo da ficha */
+.sd-info .sd-side__block { margin-top: var(--s-4); }
+.sd-side__title { display: flex; align-items: center; gap: 1rem; margin-bottom: var(--s-2); font-family: var(--pixel); font-size: 1.15rem; font-weight: 700; text-transform: uppercase; color: var(--white); text-shadow: 2px 2px 0 var(--ink); }
+.sd-side__title::after { content: ""; flex: 1; height: 4px; border-radius: 2px; background: linear-gradient(90deg, var(--purple), transparent); }
+/* linha evolutiva: cards do mesmo tamanho, numa linha só */
+/* linha evolutiva: grade que se ajusta à quantidade (2 a 5+); cards nunca ficam espremidos */
+.sd-info .sd-family { display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: var(--s-2); }
+.sd-info .sd-family .sd-mini { display: flex; height: 100%; }
+/* celular: card compacto (sprite em cima do nome), 3 por linha */
+@media (max-width: 559px) {
+  .sd-info .sd-family { grid-template-columns: repeat(auto-fill, minmax(6.25rem, 1fr)); gap: var(--s-1); }
+  .sd-info .sd-family .sd-mini { flex-direction: column; justify-content: center; gap: .25rem; padding: .6rem .25rem; text-align: center; font-size: 1rem; }
+  .sd-info .sd-family .sd-mini small { margin-bottom: .125rem; }
+}
+/* desktop: a arte acompanha a rolagem enquanto a coluna de informações for mais longa (sem buraco ao lado) */
+@media (min-width: 900px) { .sd-art { position: sticky; top: 7rem; } }
+.sd-facts .types { gap: .4rem; }
 .sd-soon { margin: 3.5rem 0 0; grid-template-columns: auto 1fr; }
 @media (max-width: 479px) { .sd-soon { gap: 1rem 1.25rem; padding: 1.25rem; } .sd-soon .highlight__icon { width: 48px; height: 48px; } }
 .sd-pager { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; }
 .sd-strip { display: flex; flex-wrap: wrap; gap: 1.5rem; }
 .sd-missing { text-align: center; display: grid; gap: 1rem; justify-items: center; }
 .sd-missing h1 { font-size: clamp(2rem, 5vw, 3rem); }
+
+/* ── Ficha completa (dados do StarianBuilder: tools/data/fichas.json) ── */
+.sd-grid { display: grid; gap: var(--grid-y) var(--grid-x); align-items: stretch; }   /* cards da mesma linha com a mesma altura: sem buracos */
+.sd-stack { display: flex; flex-direction: column; gap: var(--grid-y); }
+.sd-stack > :last-child { flex: 1; }   /* o último card da pilha estica até alinhar com o vizinho */
+@media (min-width: 900px) { .sd-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sd-card--wide { grid-column: 1 / -1; } }
+.sd-card { display: flex; flex-direction: column; gap: var(--s-2); padding: var(--s-3); }
+.sd-card__title { font-family: var(--pixel); font-size: 1.3rem; text-transform: uppercase; color: var(--accent, var(--frame)); text-shadow: 2px 2px 0 var(--ink); }
+.sd-card__title:not(:first-child) { margin-top: var(--s-1); }
+.sd-note { color: var(--muted); }
+.sd-list { display: grid; gap: .5rem; color: var(--text); line-height: 1.5; }
+.sd-list b { color: var(--white); }
+
+/* selos de tipo: cores clássicas, clareadas para o texto escuro passar de 4.5:1 */
+.types { display: flex; flex-wrap: wrap; gap: .5rem; }
+.type { padding: .25rem .75rem; border-radius: 6px; font-family: var(--pixel); font-size: 1.05rem; text-transform: uppercase; color: var(--ink); background: #c6c6a7; box-shadow: 0 0 0 2px var(--ink), 0 3px 0 2px var(--ink); }
+.type--fire { background: #f5ac78; }     .type--water { background: #9db7f5; }   .type--grass { background: #a7db8d; }
+.type--electric { background: #fae078; } .type--ice { background: #bce6e6; }     .type--fighting { background: #e08a85; }
+.type--poison { background: #c183c1; }   .type--ground { background: #ebd69d; }  .type--flying { background: #c6b7f5; }
+.type--psychic { background: #fa92b2; }  .type--bug { background: #c6d16e; }     .type--rock { background: #d1c17d; }
+.type--ghost { background: #a292bc; }    .type--dragon { background: #a99bf7; }  .type--dark { background: #b5a89f; }
+.type--steel { background: #d1d1e0; }    .type--fairy { background: #f4bdc9; }
+.type--cat { background: var(--plum); color: var(--white); }
+
+/* atributos base: número + barra (escala até 180) */
+.stats { display: grid; gap: .5rem; flex: 1; align-content: space-between; }   /* ocupa a altura do card (sem vão no pé) */
+.stats__row { display: grid; grid-template-columns: 6.5rem 2.5rem minmax(0, 1fr); align-items: center; gap: .75rem; }
+.stats__row dt { color: var(--muted); font-size: .95rem; }
+.stats__row dd { display: contents; }
+.stats__num { font-family: var(--pixel); font-size: 1.25rem; color: var(--white); text-align: right; }
+.stats__bar { height: 10px; border-radius: 3px; background: rgba(5, 2, 18, .6); box-shadow: inset 0 0 0 2px var(--ink); position: relative; overflow: hidden; }
+.stats__bar::before { content: ""; position: absolute; inset: 0 auto 0 0; width: min(100%, calc(var(--v) / 180 * 100%)); background: var(--c, var(--gold)); }
+.stats__row--low { --c: var(--ember); } .stats__row--mid { --c: var(--gold); } .stats__row--high { --c: var(--green); } .stats__row--top { --c: var(--sky); }
+.stats__row--total { margin-top: .25rem; padding-top: .5rem; border-top: 2px dashed rgb(var(--tint) / .35); }
+.stats__row--total dt { color: var(--white); font-family: var(--pixel); font-size: 1.1rem; text-transform: uppercase; }
+
+/* habilidades */
+.abilities { display: grid; gap: var(--s-2); }
+.abilities li { display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .75rem; }
+.abilities b { font-family: var(--pixel); font-size: 1.3rem; color: var(--white); text-transform: uppercase; }
+.abilities__slot { font-family: var(--pixel); font-size: .95rem; text-transform: uppercase; color: var(--meta); min-width: 5.5rem; }
+.abilities p { flex-basis: 100%; color: var(--text); line-height: 1.5; }
+
+/* golpe exclusivo */
+.sd-move__name { font-family: var(--pixel); font-size: 1.8rem; line-height: 1; color: var(--gold); text-transform: uppercase; text-shadow: 2px 2px 0 var(--ink); }
+.sd-move__nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-1); }
+.sd-move__nums div { display: grid; gap: .125rem; padding: .5rem; border-radius: 8px; background: rgba(5, 2, 18, .5); text-align: center; }
+.sd-move__nums dt { font-size: .85rem; color: var(--meta); }
+.sd-move__nums dd { font-family: var(--pixel); font-size: 1.4rem; color: var(--white); }
+/* efeito: mesma caixa dos números (Poder, Precisão, PP), sem enfeite, para o card ler como um bloco só */
+.sd-move__desc { display: flex; flex-direction: column; justify-content: center; gap: .35rem; padding: var(--s-2) var(--s-3); border-radius: 8px; background: rgba(5, 2, 18, .5); color: var(--white); line-height: 1.6; }
+.sd-move__label { font-size: .85rem; color: var(--meta); }
+.sd-move { display: grid; gap: var(--s-2); }
+.sd-move__head { display: grid; gap: var(--s-2); }
+@media (min-width: 900px) { .sd-move { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-3); align-items: stretch; } .sd-move__desc { font-size: 1.05rem; } }
+
+/* dados (captura, criação, build) */
+.sd-data { display: grid; }
+.sd-data div { display: grid; grid-template-columns: minmax(8rem, 40%) 1fr; gap: 1rem; padding: .6rem 0; }
+.sd-data div + div { border-top: 2px dashed rgb(var(--tint) / .3); }
+.sd-data dt { color: var(--meta); }
+.sd-data dd { color: var(--white); font-weight: 600; }
+
+/* habilidades sozinhas na linha (sem golpe exclusivo): lado a lado */
+@media (min-width: 900px) { .sd-card--wide .abilities { grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: var(--s-2) var(--s-4); } }
+/* dados em blocos (largura total) */
+.sd-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-1); }
+@media (min-width: 900px) { .sd-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }   /* 8 dados = 4 × 2, sem sobra */
+.sd-tiles div { display: grid; gap: .25rem; padding: .75rem 1rem; border-radius: 8px; background: rgba(5, 2, 18, .5); }
+.sd-tiles dt { font-size: .85rem; color: var(--meta); }
+.sd-tiles dd { font-family: var(--pixel); font-size: 1.3rem; line-height: 1.1; color: var(--white); }
+/* fraquezas e resistências */
+.sd-weak { display: grid; gap: .75rem; }
+.sd-weak div { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: .75rem; align-items: start; }
+@media (max-width: 479px) { .sd-weak div { grid-template-columns: 1fr; gap: .4rem; } }
+.sd-weak dt { padding-top: .2rem; color: var(--text); font-size: .95rem; }
+.types--sm { gap: .4rem; }
+.types--sm .type { padding: .1rem .5rem; font-size: .9rem; }
+.sd-note--sm { font-size: .85rem; color: var(--meta); }
+
+/* golpes */
+.sd-moves + .sd-moves { margin-top: var(--grid-y); }
+.sd-moves summary { display: flex; align-items: center; justify-content: space-between; padding: var(--s-2) var(--s-3); cursor: pointer; list-style: none; }
+.sd-moves summary::-webkit-details-marker { display: none; }
+.sd-moves summary::after { content: "+"; font-family: var(--pixel); font-size: 1.6rem; color: var(--accent, var(--frame)); }
+.sd-moves[open] summary::after { content: "−"; }
+.sd-moves h3 { font-family: var(--pixel); font-size: 1.3rem; text-transform: uppercase; color: var(--white); }
+.sd-moves h3 small { margin-left: .5rem; font-size: .95rem; color: var(--meta); }
+/* espaço interno no próprio card (padding): margem no último filho vazava para fora do <details> */
+.sd-moves[open] { padding-bottom: var(--s-3); }
+.sd-moves > :not(summary) { margin: 0 var(--s-3); }
+.sd-moves summary + * { border-top: 2px dashed rgb(var(--tint) / .3); padding-top: var(--s-1); }
+.sd-table { width: calc(100% - 2 * var(--s-3)); border-collapse: collapse; }
+.sd-table th, .sd-table td { padding: .6rem .75rem; text-align: left; vertical-align: top; border-top: 2px dashed rgb(var(--tint) / .3); }
+.sd-table thead th { border-top: 0; font-family: var(--pixel); font-size: 1rem; text-transform: uppercase; color: var(--meta); }
+.sd-table tbody th { width: 7.5rem; font-family: var(--pixel); font-size: 1.15rem; color: var(--gold); }
+.sd-table td { color: var(--text); line-height: 1.5; }
+/* lista de golpes em colunas (índice): ordem alfabética de cima para baixo, 2 a 4 colunas conforme a largura */
+/* golpes por nível: colunas automáticas (1 no celular, 2–3 no computador), lidas de cima para baixo */
+.lvl-list { columns: 3 15rem; column-gap: var(--s-4); }
+.lvl-list div { break-inside: avoid; display: grid; grid-template-columns: 4.25rem minmax(0, 1fr); gap: .75rem; padding: .55rem 0; border-bottom: 1px solid rgb(var(--tint) / .14); }
+.lvl-list dt { font-family: var(--pixel); font-size: 1.1rem; line-height: 1.3; color: var(--gold); white-space: nowrap; }
+.lvl-list dt small { font-size: .8rem; color: var(--meta); }
+.lvl-list dd { color: var(--text); font-size: .95rem; line-height: 1.45; }
+.move-list { columns: 2 10rem; column-gap: var(--s-4); }
+@media (min-width: 760px) { .move-list { columns: 4 11rem; } }
+.move-list li { break-inside: avoid; display: flex; align-items: center; gap: .6rem; padding: .45rem 0; border-bottom: 1px solid rgb(var(--tint) / .14); color: var(--text); font-size: .95rem; line-height: 1.3; }
+.move-list li::before { content: ""; flex: none; width: 6px; height: 6px; background: var(--accent, var(--frame)); box-shadow: 1px 1px 0 var(--ink); }
+
+/* build recomendada */
+.sd-build__moves { display: grid; gap: .4rem; align-content: start; }   /* um golpe por linha: alternativas longas cabem sem quebrar */
+.sd-build__data div { grid-template-columns: 6.5rem minmax(0, 1fr); }   /* rótulo estreito: sobra mais espaço para o valor */
+.sd-build .nw { display: inline-block; max-width: 100%; }
+@media (max-width: 559px) { .sd-build__data div { grid-template-columns: minmax(0, 1fr); gap: .1rem; } .sd-build__data dt { font-size: .9rem; } }   /* celular: rótulo em cima, valor com a largura toda */   /* cada opção inteira; se faltar espaço quebra na barra */
+.sd-build__body { display: grid; gap: var(--s-2); }
+/* cabeçalho de seção com ação: título + faixa à esquerda, botão à direita (no celular, o botão desce) */
+.sd-block__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-1) var(--s-3); margin: 3rem 0 1.5rem; }
+.sd-block__head .subhead { flex: 1 1 18rem; margin: 0; }
+.sd-build__foot { margin-top: auto; padding-top: var(--s-1); }   /* rodapé do card: os botões dos cards lado a lado ficam na mesma altura */
+.sd-build .btn.is-done, .sd-block__head .btn.is-done { background: var(--green); color: #fff; box-shadow: 0 0 0 3px var(--ink), 0 6px 0 3px var(--ink); }
+.sd-build__export { margin: var(--s-2) 0 0; padding: var(--s-2); border-radius: 8px; background: rgba(5, 2, 18, .7); color: var(--white); font: .9rem/1.5 ui-monospace, Consolas, monospace; white-space: pre-wrap; user-select: all; }
+@media (min-width: 900px) { .sd-build.sd-card--wide .sd-build__body { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-4); align-items: start; } }
+.sd-build__moves li { padding: .45rem .75rem; border-radius: 8px; background: rgba(5, 2, 18, .5); color: var(--white); font-weight: 700; }
 
 .mobile-nav li > a[aria-current] { color: var(--gold); }
 

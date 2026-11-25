@@ -25,9 +25,9 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/jersey-10-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/style.css?v=50">
+<link rel="stylesheet" href="/css/style.css?v=74">
 <script>document.documentElement.classList.add('js');</script>
-<script src="/js/transicoes.js?v=50"></script>
+<script src="/js/transicoes.js?v=74"></script>
 <!-- /@head -->
 <script type="application/ld+json">
 {
@@ -156,11 +156,20 @@
       </nav>
 
       <div class="sd-hero">
-        <figure class="sd-art tile tile--green">
-          <div class="starian__art">
+        <div class="sd-art tile tile--green">
+          <figure class="starian__art">
             <img src="/img/starians/verdragu.webp" width="960" height="960" alt="Arte oficial do Starian Verdragu" fetchpriority="high" decoding="async">
-          </div>
-        </figure>
+          </figure>
+          <!-- sprites do jogo: faixa compacta no rodapé do card da arte -->
+          <section class="sd-art__sprites" aria-labelledby="sprites-titulo">
+            <p class="sd-art__label" id="sprites-titulo">Sprites no jogo</p>
+            <ul class="sd-sprites">
+            <li><figure class="sd-sprite"><img class="px" src="/img/sprites/verdragu.webp" width="32" height="32" alt="Sprite normal de Verdragu" loading="lazy" decoding="async"><figcaption>Normal</figcaption></figure></li>
+            <li><figure class="sd-sprite"><img class="px" src="/img/sprites/shiny/verdragu.webp" width="32" height="32" alt="Sprite shiny de Verdragu" loading="lazy" decoding="async"><figcaption>Shiny</figcaption></figure></li>
+            <li><figure class="sd-sprite"><img class="px" src="/img/sprites/shiny/verdragu-selvagem.webp" width="32" height="32" alt="Sprite selvagem de Verdragu" loading="lazy" decoding="async"><figcaption>Selvagem</figcaption></figure></li>
+            </ul>
+          </section>
+        </div>
 
         <div class="sd-info">
           <p class="eyebrow"><img class="px" src="/img/px/museu.webp" width="16" height="16" alt="">Starian Dex · #007</p>
@@ -172,44 +181,104 @@
           <p class="sd-text">Veja de perto no Museu, no Spawn.</p>
           <dl class="sd-facts tile tile--green">
           <div>
-            <dt>Categoria</dt>
+            <dt>Tipo</dt>
+            <dd><ul class="types types--sm"><li class="type type--dragon">Dragão</li><li class="type type--grass">Planta</li></ul></dd>
+          </div>
+          <div>
+            <dt>Grupo</dt>
             <dd>Comum</dd>
           </div>
+          <div>
+            <dt>Categoria</dt>
+            <dd>Amigo da Floresta</dd>
+          </div>
+          <div class="sd-facts__long">
+            <dt>Descrição</dt>
+            <dd>Conhecido como o amigo da floresta, este dragão verdejante protege a natureza e vive em harmonia com todas as criaturas que habitam nela.</dd>
+          </div>
           </dl>
+
         </div>
       </div>
 
-      <section class="sd-block" aria-labelledby="sprites-titulo">
-        <h2 class="subhead" id="sprites-titulo">Sprites no jogo</h2>
-        <ul class="sd-sprites">
-        <li>
-          <figure class="sd-sprite tile tile--green">
-            <img class="px" src="/img/sprites/verdragu.webp" width="32" height="32" alt="Sprite normal de Verdragu" loading="lazy" decoding="async">
-            <figcaption>Normal</figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure class="sd-sprite tile tile--gold">
-            <img class="px" src="/img/sprites/shiny/verdragu.webp" width="32" height="32" alt="Sprite shiny de Verdragu" loading="lazy" decoding="async">
-            <figcaption>Shiny</figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure class="sd-sprite tile tile--ember">
-            <img class="px" src="/img/sprites/shiny/verdragu-selvagem.webp" width="32" height="32" alt="Sprite selvagem de Verdragu" loading="lazy" decoding="async">
-            <figcaption>Selvagem</figcaption>
-          </figure>
-        </li>
-        </ul>
+      <section class="sd-block" aria-labelledby="batalha-titulo">
+        <h2 class="subhead" id="batalha-titulo">Em batalha</h2>
+        <div class="sd-grid">
+        <article class="tile tile--green sd-card">
+          <h3 class="sd-card__title">Tipo e atributos base</h3>
+          <ul class="types"><li class="type type--dragon">Dragão</li><li class="type type--grass">Planta</li></ul>
+          <dl class="stats"><div class="stats__row stats__row--top"><dt>HP</dt><dd><span class="stats__num">130</span><span class="stats__bar" style="--v:130" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--mid"><dt>Atk</dt><dd><span class="stats__num">65</span><span class="stats__bar" style="--v:65" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--top"><dt>Def</dt><dd><span class="stats__num">125</span><span class="stats__bar" style="--v:125" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--mid"><dt>SpA</dt><dd><span class="stats__num">70</span><span class="stats__bar" style="--v:70" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--mid"><dt>SpD</dt><dd><span class="stats__num">80</span><span class="stats__bar" style="--v:80" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--low"><dt>Spe</dt><dd><span class="stats__num">30</span><span class="stats__bar" style="--v:30" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--total"><dt>Total</dt><dd><span class="stats__num">500</span></dd></div></dl>
+        </article>
+        <div class="sd-stack">
+        <article class="tile tile--green sd-card">
+          <h3 class="sd-card__title">Fraquezas e resistências</h3>
+          <dl class="sd-weak"><div><dt>Muito fraco (4×)</dt><dd><ul class="types types--sm"><li class="type type--ice">Gelo</li></ul></dd></div><div><dt>Fraco (2×)</dt><dd><ul class="types types--sm"><li class="type type--poison">Venenoso</li><li class="type type--flying">Voador</li><li class="type type--bug">Inseto</li><li class="type type--dragon">Dragão</li><li class="type type--fairy">Fada</li></ul></dd></div><div><dt>Resiste (½×)</dt><dd><ul class="types types--sm"><li class="type type--ground">Terrestre</li></ul></dd></div><div><dt>Resiste muito (¼×)</dt><dd><ul class="types types--sm"><li class="type type--water">Água</li><li class="type type--electric">Elétrico</li><li class="type type--grass">Planta</li></ul></dd></div></dl>
+          <p class="sd-note sd-note--sm">Pela tabela de tipos, sem contar habilidades.</p>
+        </article>
+        <article class="tile tile--green sd-card">
+          <h3 class="sd-card__title">Habilidades</h3>
+          <ul class="abilities"><li><span class="abilities__slot">Habilidade</span><b>Strong Soil</b> <span class="badge badge--violet">Exclusiva do Stars</span><p>Ao ser atingido por golpes do tipo terra, um adubo é criado, garantindo imunidade e aumentando a defesa em 1 estágio.</p></li><li><span class="abilities__slot">Habilidade</span><b>Harvest</b><p>Pode recuperar a berry usada ao fim de cada turno.</p></li><li><span class="abilities__slot">Oculta</span><b>Natural Cure</b><p>Cura problemas de status ao sair da batalha.</p></li></ul>
+        </article>
+        </div>
+        </div>
       </section>
 
-      <aside class="highlight tile tile--indigo sd-soon">
-        <img class="px highlight__icon" src="/img/px/cadeado-aberto.webp" width="16" height="16" alt="">
-        <div>
-          <h2>Ficha completa em breve</h2>
-          <p>Tipo, habilidades, ataques e stats chegam com a Starian Dex completa.</p>
+      <section class="sd-block" aria-labelledby="builds-titulo">
+        <h2 class="subhead" id="builds-titulo">Build recomendada</h2>
+        <div class="sd-grid">
+        <article class="tile tile--green sd-card sd-build sd-card--wide">
+          <h3 class="sd-card__title">Tree Wall</h3>
+          <div class="sd-build__body">
+          <dl class="sd-data sd-build__data"><div><dt>Item</dt><dd><span class="nw">Leftovers</span> / <span class="nw">Rocky Helmet</span></dd></div><div><dt>Habilidade</dt><dd><span class="nw">Natural Cure</span> / <span class="nw">Strong Soil</span></dd></div><div><dt>Natureza</dt><dd><span class="nw">Relaxed (+Def −Spe)</span></dd></div><div><dt>EVs</dt><dd><span class="nw">252 HP</span> / <span class="nw">252 Def</span></dd></div></dl>
+          <ol class="sd-build__moves"><li><span class="nw">Knock Off</span></li><li><span class="nw">Leech Seed</span></li><li><span class="nw">Giga Drain</span></li><li><span class="nw">Toxic Spikes</span> / <span class="nw">Protect</span></li></ol>
+          </div>
+          <div class="sd-build__foot"><button class="btn btn--ghost btn--sm" type="button" data-copy-build><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar build</span></button></div>
+          <pre class="sd-build__export" hidden>Verdragu @ Leftovers / Rocky Helmet
+Ability: Natural Cure / Strong Soil
+EVs: 252 HP / 252 Def
+Tera Type: Steel
+Relaxed Nature
+- Knock Off
+- Leech Seed
+- Giga Drain
+- Toxic Spikes / Protect</pre>
+        </article>
         </div>
-      </aside>
+      </section>
+
+      <section class="sd-block" aria-labelledby="captura-titulo">
+        <h2 class="subhead" id="captura-titulo">Captura e criação</h2>
+        <div class="sd-grid">
+        <article class="tile tile--green sd-card">
+          <h3 class="sd-card__title">Onde encontrar</h3>
+          <ul class="sd-list"><li>No chão, em Biomas de Florestas, de dia, com tempo limpo. <b>Níveis 30 a 50</b></li></ul>
+        </article>
+        <article class="tile tile--green sd-card">
+          <h3 class="sd-card__title">Evolução</h3>
+          <p class="sd-note">Não evolui.</p>
+        </article>
+        <article class="tile tile--green sd-card sd-card--wide">
+          <h3 class="sd-card__title">Dados</h3>
+          <dl class="sd-tiles"><div><dt>Altura</dt><dd>4,60 m</dd></div><div><dt>Peso</dt><dd>530,0 kg</dd></div><div><dt>Taxa de captura</dt><dd>25</dd></div><div><dt>Crescimento</dt><dd>Lento</dd></div><div><dt>EVs ao derrotar</dt><dd>3 HP</dd></div><div><dt>Gênero</dt><dd>75% macho</dd></div><div><dt>Grupo de ovo</dt><dd>Planta e Dragão</dd></div><div><dt>Ciclos de ovo</dt><dd>40</dd></div></dl>
+        </article>
+        </div>
+      </section>
+
+      <section class="sd-block" aria-labelledby="golpes-titulo">
+        <h2 class="subhead" id="golpes-titulo">Golpes</h2>
+        <details class="tile tile--green sd-moves" open>
+          <summary><h3>Por nível <small>20</small></h3></summary>
+          <dl class="lvl-list"><div><dt><small>Nv.</small> 1</dt><dd>Grassy Terrain, Spite, Absorb, Stomp</dd></div><div><dt><small>Nv.</small> 4</dt><dd>Leech Seed</dd></div><div><dt><small>Nv.</small> 8</dt><dd>Mega Drain</dd></div><div><dt><small>Nv.</small> 14</dt><dd>Rest</dd></div><div><dt><small>Nv.</small> 17</dt><dd>Bullet Seed</dd></div><div><dt><small>Nv.</small> 21</dt><dd>Dragon Dance</dd></div><div><dt><small>Nv.</small> 27</dt><dd>Double Hit</dd></div><div><dt><small>Nv.</small> 32</dt><dd>Seed Bomb</dd></div><div><dt><small>Nv.</small> 39</dt><dd>Dragon Hammer</dd></div><div><dt><small>Nv.</small> 44</dt><dd>Earth Power</dd></div><div><dt><small>Nv.</small> 51</dt><dd>Megahorn</dd></div><div><dt><small>Nv.</small> 55</dt><dd>Giga Drain</dd></div><div><dt><small>Nv.</small> 60</dt><dd>Dragon Pulse</dd></div><div><dt><small>Nv.</small> 69</dt><dd>Explosion</dd></div><div><dt><small>Nv.</small> 75</dt><dd>Heavy Slam</dd></div><div><dt><small>Nv.</small> 88</dt><dd>Head Smash</dd></div><div><dt><small>Nv.</small> 100</dt><dd>Outrage</dd></div></dl>
+        </details>
+        <details class="tile tile--green sd-moves">
+          <summary><h3>Por ovo <small>4</small></h3></summary>
+          <ul class="move-list"><li>Dragon Tail</li><li>Growth</li><li>Knock Off</li><li>Toxic Spikes</li></ul>
+        </details>
+        <details class="tile tile--green sd-moves">
+          <summary><h3>Por TM <small>46</small></h3></summary>
+          <ul class="move-list"><li>Body Slam</li><li>Breaking Swipe</li><li>Bulldoze</li><li>Bullet Seed</li><li>Close Combat</li><li>Dazzling Gleam</li><li>Double-Edge</li><li>Draco Meteor</li><li>Dragon Claw</li><li>Dragon Dance</li><li>Dragon Pulse</li><li>Earth Power</li><li>Earthquake</li><li>Endure</li><li>Energy Ball</li><li>Facade</li><li>Giga Drain</li><li>Giga Impact</li><li>Grassy Terrain</li><li>Heavy Slam</li><li>Helping Hand</li><li>Hyper Beam</li><li>Leaf Storm</li><li>Light Screen</li><li>Outrage</li><li>Petal Blizzard</li><li>Protect</li><li>Rain Dance</li><li>Reflect</li><li>Rest</li><li>Roar</li><li>Rock Slide</li><li>Scary Face</li><li>Seed Bomb</li><li>Sleep Talk</li><li>Solar Beam</li><li>Solar Blade</li><li>Stomping Tantrum</li><li>Stone Edge</li><li>Substitute</li><li>Sunny Day</li><li>Swift</li><li>Take Down</li><li>Tera Blast</li><li>Toxic</li><li>Trailblaze</li></ul>
+        </details>
+      </section>
 
       <nav class="sd-pager" aria-label="Outros Starians">
         <a class="btn btn--ghost btn--sm" href="/starians/mouselitte" rel="prev"><svg aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg>Mouselitte</a>
@@ -289,8 +358,8 @@
 </footer>
 <!-- /@footer -->
 <!-- @scripts -->
-<script src="/js/space.js?v=50" defer></script>
-<script src="/js/main.js?v=50" defer></script>
+<script src="/js/space.js?v=74" defer></script>
+<script src="/js/main.js?v=74" defer></script>
 <!-- /@scripts -->
 </body>
 </html>

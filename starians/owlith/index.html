@@ -25,9 +25,9 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/jersey-10-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/style.css?v=50">
+<link rel="stylesheet" href="/css/style.css?v=74">
 <script>document.documentElement.classList.add('js');</script>
-<script src="/js/transicoes.js?v=50"></script>
+<script src="/js/transicoes.js?v=74"></script>
 <!-- /@head -->
 <script type="application/ld+json">
 {
@@ -156,11 +156,19 @@
       </nav>
 
       <div class="sd-hero">
-        <figure class="sd-art tile tile--violet">
-          <div class="starian__art">
+        <div class="sd-art tile tile--violet">
+          <figure class="starian__art">
             <img src="/img/starians/owlith.webp" width="960" height="960" alt="Arte oficial do Starian Owlith" fetchpriority="high" decoding="async">
-          </div>
-        </figure>
+          </figure>
+          <!-- sprites do jogo: faixa compacta no rodapé do card da arte -->
+          <section class="sd-art__sprites" aria-labelledby="sprites-titulo">
+            <p class="sd-art__label" id="sprites-titulo">Sprites no jogo</p>
+            <ul class="sd-sprites">
+            <li><figure class="sd-sprite"><img class="px" src="/img/sprites/owlith.webp" width="32" height="32" alt="Sprite normal de Owlith" loading="lazy" decoding="async"><figcaption>Normal</figcaption></figure></li>
+            <li><figure class="sd-sprite"><img class="px" src="/img/sprites/shiny/owlith.webp" width="32" height="32" alt="Sprite shiny de Owlith" loading="lazy" decoding="async"><figcaption>Shiny</figcaption></figure></li>
+            </ul>
+          </section>
+        </div>
 
         <div class="sd-info">
           <p class="eyebrow"><img class="px" src="/img/px/museu.webp" width="16" height="16" alt="">Starian Dex · #004</p>
@@ -172,20 +180,24 @@
           <p class="sd-text">Stats elevados. Habilidade e ataque exclusivos. Não aparece na natureza: só na loja oficial.</p>
           <dl class="sd-facts tile tile--violet">
           <div>
-            <dt>Categoria</dt>
+            <dt>Tipo</dt>
+            <dd><ul class="types types--sm"><li class="type type--psychic">Psíquico</li><li class="type type--flying">Voador</li></ul></dd>
+          </div>
+          <div>
+            <dt>Grupo</dt>
             <dd>Premium</dd>
           </div>
           <div>
-            <dt>Raridade</dt>
-            <dd>Muito raro</dd>
+            <dt>Categoria</dt>
+            <dd>Olhos da Noite</dd>
+          </div>
+          <div class="sd-facts__long">
+            <dt>Descrição</dt>
+            <dd>Abençoada pelas estrelas, esta coruja guarda poderes além da compreensão. Seu olhar místico é capaz de transformar sonhos em realidade.</dd>
           </div>
           <div>
             <dt>IVs</dt>
             <dd>3 IVs perfeitos</dd>
-          </div>
-          <div>
-            <dt>Spawn</dt>
-            <dd>Não tem spawn</dd>
           </div>
           <div>
             <dt>Onde conseguir</dt>
@@ -197,34 +209,90 @@
             <svg aria-hidden="true"><use href="#i-cart"/></svg>Garantir o Owlith
           </a>
         </p>
+
         </div>
       </div>
 
-      <section class="sd-block" aria-labelledby="sprites-titulo">
-        <h2 class="subhead" id="sprites-titulo">Sprites no jogo</h2>
-        <ul class="sd-sprites">
-        <li>
-          <figure class="sd-sprite tile tile--violet">
-            <img class="px" src="/img/sprites/owlith.webp" width="32" height="32" alt="Sprite normal de Owlith" loading="lazy" decoding="async">
-            <figcaption>Normal</figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure class="sd-sprite tile tile--gold">
-            <img class="px" src="/img/sprites/shiny/owlith.webp" width="32" height="32" alt="Sprite shiny de Owlith" loading="lazy" decoding="async">
-            <figcaption>Shiny</figcaption>
-          </figure>
-        </li>
-        </ul>
+      <section class="sd-block" aria-labelledby="batalha-titulo">
+        <h2 class="subhead" id="batalha-titulo">Em batalha</h2>
+        <div class="sd-grid">
+        <article class="tile tile--violet sd-card">
+          <h3 class="sd-card__title">Tipo e atributos base</h3>
+          <ul class="types"><li class="type type--psychic">Psíquico</li><li class="type type--flying">Voador</li></ul>
+          <dl class="stats"><div class="stats__row stats__row--high"><dt>HP</dt><dd><span class="stats__num">101</span><span class="stats__bar" style="--v:101" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--low"><dt>Atk</dt><dd><span class="stats__num">50</span><span class="stats__bar" style="--v:50" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--mid"><dt>Def</dt><dd><span class="stats__num">85</span><span class="stats__bar" style="--v:85" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--top"><dt>SpA</dt><dd><span class="stats__num">121</span><span class="stats__bar" style="--v:121" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--top"><dt>SpD</dt><dd><span class="stats__num">123</span><span class="stats__bar" style="--v:123" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--high"><dt>Spe</dt><dd><span class="stats__num">112</span><span class="stats__bar" style="--v:112" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--total"><dt>Total</dt><dd><span class="stats__num">592</span></dd></div></dl>
+        </article>
+        <div class="sd-stack">
+        <article class="tile tile--violet sd-card">
+          <h3 class="sd-card__title">Fraquezas e resistências</h3>
+          <dl class="sd-weak"><div><dt>Fraco (2×)</dt><dd><ul class="types types--sm"><li class="type type--electric">Elétrico</li><li class="type type--ice">Gelo</li><li class="type type--rock">Pedra</li><li class="type type--ghost">Fantasma</li><li class="type type--dark">Sombrio</li></ul></dd></div><div><dt>Resiste (½×)</dt><dd><ul class="types types--sm"><li class="type type--grass">Planta</li><li class="type type--psychic">Psíquico</li></ul></dd></div><div><dt>Resiste muito (¼×)</dt><dd><ul class="types types--sm"><li class="type type--fighting">Lutador</li></ul></dd></div><div><dt>Imune (0×)</dt><dd><ul class="types types--sm"><li class="type type--ground">Terrestre</li></ul></dd></div></dl>
+          <p class="sd-note sd-note--sm">Pela tabela de tipos, sem contar habilidades.</p>
+        </article>
+        <article class="tile tile--violet sd-card">
+          <h3 class="sd-card__title">Habilidades</h3>
+          <ul class="abilities"><li><span class="abilities__slot">Habilidade</span><b>Magic Guard</b><p>Só recebe dano de golpes diretos.</p></li><li><span class="abilities__slot">Oculta</span><b>Night Guardian</b> <span class="badge badge--violet">Exclusiva do Stars</span><p>Usa o poder da noite para ser imune ao tipo sombrio e se curar desses golpes.</p></li></ul>
+        </article>
+        </div>
+        <article class="tile tile--violet sd-card sd-card--wide">
+          <div class="sd-move">
+          <div class="sd-move__head"><h3 class="sd-card__title">Golpe exclusivo</h3><p class="sd-move__name">Owl Eyes</p><ul class="types"><li class="type type--flying">Voador</li><li class="type type--cat">Especial</li></ul><dl class="sd-move__nums"><div><dt>Poder</dt><dd>90</dd></div><div><dt>Precisão</dt><dd>100%</dd></div><div><dt>PP</dt><dd>5</dd></div></dl></div>
+          <div class="sd-move__desc"><p class="sd-move__label">Efeito</p><p>Owlith utiliza seus olhos para enganar o alvo, causando dano físico ao atacar.</p></div>
+          </div>
+        </article>
+        </div>
       </section>
 
-      <aside class="highlight tile tile--indigo sd-soon">
-        <img class="px highlight__icon" src="/img/px/cadeado-aberto.webp" width="16" height="16" alt="">
-        <div>
-          <h2>Ficha completa em breve</h2>
-          <p>Tipo, habilidades, ataques e stats chegam com a Starian Dex completa.</p>
+      <section class="sd-block" aria-labelledby="builds-titulo">
+        <h2 class="subhead" id="builds-titulo">Build recomendada</h2>
+        <div class="sd-grid">
+        <article class="tile tile--violet sd-card sd-build sd-card--wide">
+          <h3 class="sd-card__title">Calm Mind Sweeper</h3>
+          <div class="sd-build__body">
+          <dl class="sd-data sd-build__data"><div><dt>Item</dt><dd><span class="nw">Leftovers</span> / <span class="nw">Heavy-Duty Boots</span></dd></div><div><dt>Habilidade</dt><dd><span class="nw">Night Guardian</span></dd></div><div><dt>Natureza</dt><dd><span class="nw">Timid (+Spe −Atk)</span> / <span class="nw">Bold (+Def −Atk)</span></dd></div><div><dt>EVs</dt><dd><span class="nw">252 HP</span> / <span class="nw">140 Def</span> / <span class="nw">112 Spe</span></dd></div></dl>
+          <ol class="sd-build__moves"><li><span class="nw">Calm Mind</span></li><li><span class="nw">Stored Power</span></li><li><span class="nw">Owl Eyes</span></li><li><span class="nw">Roost</span> / <span class="nw">Substitute</span></li></ol>
+          </div>
+          <div class="sd-build__foot"><button class="btn btn--ghost btn--sm" type="button" data-copy-build><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar build</span></button></div>
+          <pre class="sd-build__export" hidden>Owlith @ Leftovers / Heavy-Duty Boots
+Ability: Night Guardian
+EVs: 252 HP / 140 Def / 112 Spe
+Tera Type: Steel
+Timid / Bold Nature
+- Calm Mind
+- Stored Power
+- Owl Eyes
+- Roost / Substitute</pre>
+        </article>
         </div>
-      </aside>
+      </section>
+
+      <section class="sd-block" aria-labelledby="captura-titulo">
+        <h2 class="subhead" id="captura-titulo">Captura e criação</h2>
+        <div class="sd-grid">
+        <article class="tile tile--violet sd-card">
+          <h3 class="sd-card__title">Onde encontrar</h3>
+          <p class="sd-note">Não aparece na natureza.</p>
+        </article>
+        <article class="tile tile--violet sd-card">
+          <h3 class="sd-card__title">Evolução</h3>
+          <p class="sd-note">Não evolui.</p>
+        </article>
+        <article class="tile tile--violet sd-card sd-card--wide">
+          <h3 class="sd-card__title">Dados</h3>
+          <dl class="sd-tiles"><div><dt>Altura</dt><dd>1,69 m</dd></div><div><dt>Peso</dt><dd>64,8 kg</dd></div><div><dt>Taxa de captura</dt><dd>15</dd></div><div><dt>Crescimento</dt><dd>Médio-lento</dd></div><div><dt>EVs ao derrotar</dt><dd>3 SpA</dd></div><div><dt>Gênero</dt><dd>12% macho</dd></div><div><dt>Grupo de ovo</dt><dd>Não cruza</dd></div><div><dt>Ciclos de ovo</dt><dd>40</dd></div></dl>
+        </article>
+        </div>
+      </section>
+
+      <section class="sd-block" aria-labelledby="golpes-titulo">
+        <h2 class="subhead" id="golpes-titulo">Golpes</h2>
+        <details class="tile tile--violet sd-moves" open>
+          <summary><h3>Por nível <small>25</small></h3></summary>
+          <dl class="lvl-list"><div><dt><small>Nv.</small> 1</dt><dd>Leer, Charm, Life Dew, Tackle, Baton Pass, Echoed Voice</dd></div><div><dt><small>Nv.</small> 5</dt><dd>Peck</dd></div><div><dt><small>Nv.</small> 10</dt><dd>Confusion</dd></div><div><dt><small>Nv.</small> 14</dt><dd>Tailwind</dd></div><div><dt><small>Nv.</small> 20</dt><dd>Calm Mind</dd></div><div><dt><small>Nv.</small> 24</dt><dd>Heal Bell</dd></div><div><dt><small>Nv.</small> 30</dt><dd>Air Slash</dd></div><div><dt><small>Nv.</small> 33</dt><dd>Hypnosis</dd></div><div><dt><small>Nv.</small> 40</dt><dd>Stored Power</dd></div><div><dt><small>Nv.</small> 46</dt><dd>Defog</dd></div><div><dt><small>Nv.</small> 50</dt><dd>Moonblast</dd></div><div><dt><small>Nv.</small> 53</dt><dd>Aurora Beam</dd></div><div><dt><small>Nv.</small> 60</dt><dd>Psychic</dd></div><div><dt><small>Nv.</small> 67</dt><dd>Roost</dd></div><div><dt><small>Nv.</small> 70</dt><dd>Owl Eyes</dd></div><div><dt><small>Nv.</small> 71</dt><dd>Dark Pulse</dd></div><div><dt><small>Nv.</small> 80</dt><dd>Sky Attack</dd></div><div><dt><small>Nv.</small> 82</dt><dd>Hurricane</dd></div><div><dt><small>Nv.</small> 90</dt><dd>Focus Blast</dd></div><div><dt><small>Nv.</small> 100</dt><dd>Future Sight</dd></div></dl>
+        </details>
+        <details class="tile tile--violet sd-moves">
+          <summary><h3>Por TM <small>49</small></h3></summary>
+          <ul class="move-list"><li>Agility</li><li>Air Cutter</li><li>Air Slash</li><li>Amnesia</li><li>Aura Sphere</li><li>Calm Mind</li><li>Confuse Ray</li><li>Dark Pulse</li><li>Dazzling Gleam</li><li>Disarming Voice</li><li>Double-Edge</li><li>Endure</li><li>Energy Ball</li><li>Expanding Force</li><li>Facade</li><li>Focus Blast</li><li>Future Sight</li><li>Heat Wave</li><li>Helping Hand</li><li>Hex</li><li>Hurricane</li><li>Ice Beam</li><li>Icy Wind</li><li>Imprison</li><li>Light Screen</li><li>Meteor Beam</li><li>Power Gem</li><li>Protect</li><li>Psybeam</li><li>Psych Up</li><li>Psychic</li><li>Psychic Terrain</li><li>Psyshock</li><li>Reflect</li><li>Rest</li><li>Shadow Ball</li><li>Skill Swap</li><li>Sleep Talk</li><li>Stored Power</li><li>Substitute</li><li>Swift</li><li>Take Down</li><li>Tera Blast</li><li>Thunder Wave</li><li>Thunderbolt</li><li>Toxic</li><li>Trick</li><li>Trick Room</li><li>Will-O-Wisp</li></ul>
+        </details>
+      </section>
 
       <nav class="sd-pager" aria-label="Outros Starians">
         <a class="btn btn--ghost btn--sm" href="/starians/lumistar" rel="prev"><svg aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg>Lumistar</a>
@@ -304,8 +372,8 @@
 </footer>
 <!-- /@footer -->
 <!-- @scripts -->
-<script src="/js/space.js?v=50" defer></script>
-<script src="/js/main.js?v=50" defer></script>
+<script src="/js/space.js?v=74" defer></script>
+<script src="/js/main.js?v=74" defer></script>
 <!-- /@scripts -->
 </body>
 </html>

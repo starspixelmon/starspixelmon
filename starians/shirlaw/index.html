@@ -25,9 +25,9 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/jersey-10-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/style.css?v=50">
+<link rel="stylesheet" href="/css/style.css?v=74">
 <script>document.documentElement.classList.add('js');</script>
-<script src="/js/transicoes.js?v=50"></script>
+<script src="/js/transicoes.js?v=74"></script>
 <!-- /@head -->
 <script type="application/ld+json">
 {
@@ -156,11 +156,20 @@
       </nav>
 
       <div class="sd-hero">
-        <figure class="sd-art tile tile--green">
-          <div class="starian__art">
+        <div class="sd-art tile tile--green">
+          <figure class="starian__art">
             <img src="/img/starians/shirlaw.webp" width="960" height="730" alt="Arte oficial do Starian Shirlaw" fetchpriority="high" decoding="async">
-          </div>
-        </figure>
+          </figure>
+          <!-- sprites do jogo: faixa compacta no rodapé do card da arte -->
+          <section class="sd-art__sprites" aria-labelledby="sprites-titulo">
+            <p class="sd-art__label" id="sprites-titulo">Sprites no jogo</p>
+            <ul class="sd-sprites">
+            <li><figure class="sd-sprite"><img class="px" src="/img/sprites/shirlaw.webp" width="32" height="32" alt="Sprite normal de Shirlaw" loading="lazy" decoding="async"><figcaption>Normal</figcaption></figure></li>
+            <li><figure class="sd-sprite"><img class="px" src="/img/sprites/shiny/shirlaw.webp" width="32" height="32" alt="Sprite shiny de Shirlaw" loading="lazy" decoding="async"><figcaption>Shiny</figcaption></figure></li>
+            <li><figure class="sd-sprite"><img class="px" src="/img/sprites/shiny/shirlaw-selvagem.webp" width="32" height="32" alt="Sprite selvagem de Shirlaw" loading="lazy" decoding="async"><figcaption>Selvagem</figcaption></figure></li>
+            </ul>
+          </section>
+        </div>
 
         <div class="sd-info">
           <p class="eyebrow"><img class="px" src="/img/px/museu.webp" width="16" height="16" alt="">Starian Dex · #005</p>
@@ -172,8 +181,20 @@
           <p class="sd-text">Exclusivo do Passe Premium. Por tempo limitado, há a edição Selvagem: 6 IVs perfeitos, poucas unidades, sem troca.</p>
           <dl class="sd-facts tile tile--green">
           <div>
-            <dt>Categoria</dt>
+            <dt>Tipo</dt>
+            <dd><ul class="types types--sm"><li class="type type--normal">Normal</li></ul></dd>
+          </div>
+          <div>
+            <dt>Grupo</dt>
             <dd>Exclusivo do Passe</dd>
+          </div>
+          <div>
+            <dt>Categoria</dt>
+            <dd>Garra Branca</dd>
+          </div>
+          <div class="sd-facts__long">
+            <dt>Descrição</dt>
+            <dd>Extremamente raro e mortal, dizem que suas listras são a última visão de suas vítimas. Pouquíssimos treinadores tiveram o privilégio de encontrar a garra branca.</dd>
           </div>
           <div>
             <dt>Temporada</dt>
@@ -193,40 +214,90 @@
             <svg aria-hidden="true"><use href="#i-cart"/></svg>Ver o Passe Premium
           </a>
         </p>
+
         </div>
       </div>
 
-      <section class="sd-block" aria-labelledby="sprites-titulo">
-        <h2 class="subhead" id="sprites-titulo">Sprites no jogo</h2>
-        <ul class="sd-sprites">
-        <li>
-          <figure class="sd-sprite tile tile--green">
-            <img class="px" src="/img/sprites/shirlaw.webp" width="32" height="32" alt="Sprite normal de Shirlaw" loading="lazy" decoding="async">
-            <figcaption>Normal</figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure class="sd-sprite tile tile--gold">
-            <img class="px" src="/img/sprites/shiny/shirlaw.webp" width="32" height="32" alt="Sprite shiny de Shirlaw" loading="lazy" decoding="async">
-            <figcaption>Shiny</figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure class="sd-sprite tile tile--ember">
-            <img class="px" src="/img/sprites/shiny/shirlaw-selvagem.webp" width="32" height="32" alt="Sprite selvagem de Shirlaw" loading="lazy" decoding="async">
-            <figcaption>Selvagem</figcaption>
-          </figure>
-        </li>
-        </ul>
+      <section class="sd-block" aria-labelledby="batalha-titulo">
+        <h2 class="subhead" id="batalha-titulo">Em batalha</h2>
+        <div class="sd-grid">
+        <article class="tile tile--green sd-card">
+          <h3 class="sd-card__title">Tipo e atributos base</h3>
+          <ul class="types"><li class="type type--normal">Normal</li></ul>
+          <dl class="stats"><div class="stats__row stats__row--high"><dt>HP</dt><dd><span class="stats__num">92</span><span class="stats__bar" style="--v:92" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--high"><dt>Atk</dt><dd><span class="stats__num">110</span><span class="stats__bar" style="--v:110" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--high"><dt>Def</dt><dd><span class="stats__num">99</span><span class="stats__bar" style="--v:99" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--mid"><dt>SpA</dt><dd><span class="stats__num">65</span><span class="stats__bar" style="--v:65" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--low"><dt>SpD</dt><dd><span class="stats__num">55</span><span class="stats__bar" style="--v:55" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--high"><dt>Spe</dt><dd><span class="stats__num">119</span><span class="stats__bar" style="--v:119" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--total"><dt>Total</dt><dd><span class="stats__num">540</span></dd></div></dl>
+        </article>
+        <div class="sd-stack">
+        <article class="tile tile--green sd-card">
+          <h3 class="sd-card__title">Fraquezas e resistências</h3>
+          <dl class="sd-weak"><div><dt>Fraco (2×)</dt><dd><ul class="types types--sm"><li class="type type--fighting">Lutador</li></ul></dd></div><div><dt>Imune (0×)</dt><dd><ul class="types types--sm"><li class="type type--ghost">Fantasma</li></ul></dd></div></dl>
+          <p class="sd-note sd-note--sm">Pela tabela de tipos, sem contar habilidades.</p>
+        </article>
+        <article class="tile tile--green sd-card">
+          <h3 class="sd-card__title">Habilidades</h3>
+          <ul class="abilities"><li><span class="abilities__slot">Habilidade</span><b>Intimidate</b><p>Ao entrar em batalha, reduz o Ataque dos oponentes.</p></li><li><span class="abilities__slot">Oculta</span><b>Strong Jaw</b><p>Fortalece golpes de mordida.</p></li></ul>
+        </article>
+        </div>
+        <article class="tile tile--green sd-card sd-card--wide">
+          <div class="sd-move">
+          <div class="sd-move__head"><h3 class="sd-card__title">Golpe exclusivo</h3><p class="sd-move__name">Tiger Tax</p><ul class="types"><li class="type type--normal">Normal</li><li class="type type--cat">Físico</li></ul><dl class="sd-move__nums"><div><dt>Poder</dt><dd>100</dd></div><div><dt>Precisão</dt><dd>100%</dd></div><div><dt>PP</dt><dd>10</dd></div></dl></div>
+          <div class="sd-move__desc"><p class="sd-move__label">Efeito</p><p>Shirlaw avança ferozmente com suas garras, se curando em metade de todo o dano causado.</p></div>
+          </div>
+        </article>
+        </div>
       </section>
 
-      <aside class="highlight tile tile--indigo sd-soon">
-        <img class="px highlight__icon" src="/img/px/cadeado-aberto.webp" width="16" height="16" alt="">
-        <div>
-          <h2>Ficha completa em breve</h2>
-          <p>Tipo, habilidades, ataques e stats chegam com a Starian Dex completa.</p>
+      <section class="sd-block" aria-labelledby="builds-titulo">
+        <h2 class="subhead" id="builds-titulo">Build recomendada</h2>
+        <div class="sd-grid">
+        <article class="tile tile--green sd-card sd-build sd-card--wide">
+          <h3 class="sd-card__title">Tiger Killer</h3>
+          <div class="sd-build__body">
+          <dl class="sd-data sd-build__data"><div><dt>Item</dt><dd><span class="nw">Life Orb</span> / <span class="nw">Silk Scarf</span></dd></div><div><dt>Habilidade</dt><dd><span class="nw">Strong Jaw</span> / <span class="nw">Intimidate</span></dd></div><div><dt>Natureza</dt><dd><span class="nw">Adamant (+Atk −SpA)</span></dd></div><div><dt>EVs</dt><dd><span class="nw">252 Atk</span> / <span class="nw">252 Spe</span></dd></div></dl>
+          <ol class="sd-build__moves"><li><span class="nw">Tiger Tax</span> / <span class="nw">Close Combat</span></li><li><span class="nw">Swords Dance</span></li><li><span class="nw">Crunch</span> / <span class="nw">Close Combat</span></li><li><span class="nw">Extreme Speed</span></li></ol>
+          </div>
+          <div class="sd-build__foot"><button class="btn btn--ghost btn--sm" type="button" data-copy-build><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar build</span></button></div>
+          <pre class="sd-build__export" hidden>Shirlaw @ Life Orb / Silk Scarf
+Ability: Strong Jaw / Intimidate
+EVs: 252 Atk / 252 Spe
+Tera Type: Normal
+Adamant Nature
+- Tiger Tax / Close Combat
+- Swords Dance
+- Crunch / Close Combat
+- Extreme Speed</pre>
+        </article>
         </div>
-      </aside>
+      </section>
+
+      <section class="sd-block" aria-labelledby="captura-titulo">
+        <h2 class="subhead" id="captura-titulo">Captura e criação</h2>
+        <div class="sd-grid">
+        <article class="tile tile--green sd-card">
+          <h3 class="sd-card__title">Onde encontrar</h3>
+          <p class="sd-note">Não aparece na natureza.</p>
+        </article>
+        <article class="tile tile--green sd-card">
+          <h3 class="sd-card__title">Evolução</h3>
+          <p class="sd-note">Não evolui.</p>
+        </article>
+        <article class="tile tile--green sd-card sd-card--wide">
+          <h3 class="sd-card__title">Dados</h3>
+          <dl class="sd-tiles"><div><dt>Altura</dt><dd>1,35 m</dd></div><div><dt>Peso</dt><dd>150,0 kg</dd></div><div><dt>Taxa de captura</dt><dd>3</dd></div><div><dt>Crescimento</dt><dd>Médio-rápido</dd></div><div><dt>EVs ao derrotar</dt><dd>3 Atk</dd></div><div><dt>Gênero</dt><dd>100% macho</dd></div><div><dt>Grupo de ovo</dt><dd>Não cruza</dd></div><div><dt>Ciclos de ovo</dt><dd>20</dd></div></dl>
+        </article>
+        </div>
+      </section>
+
+      <section class="sd-block" aria-labelledby="golpes-titulo">
+        <h2 class="subhead" id="golpes-titulo">Golpes</h2>
+        <details class="tile tile--green sd-moves" open>
+          <summary><h3>Por nível <small>18</small></h3></summary>
+          <dl class="lvl-list"><div><dt><small>Nv.</small> 1</dt><dd>Tail Whip, Howl, Fake Out, Leer, Tackle</dd></div><div><dt><small>Nv.</small> 6</dt><dd>Quick Attack</dd></div><div><dt><small>Nv.</small> 9</dt><dd>Encore</dd></div><div><dt><small>Nv.</small> 15</dt><dd>Bite</dd></div><div><dt><small>Nv.</small> 20</dt><dd>Roar</dd></div><div><dt><small>Nv.</small> 24</dt><dd>Shadow Claw</dd></div><div><dt><small>Nv.</small> 29</dt><dd>Crunch</dd></div><div><dt><small>Nv.</small> 34</dt><dd>Hyper Voice</dd></div><div><dt><small>Nv.</small> 40</dt><dd>Swords Dance</dd></div><div><dt><small>Nv.</small> 45</dt><dd>Play Rough</dd></div><div><dt><small>Nv.</small> 50</dt><dd>Tiger Tax</dd></div><div><dt><small>Nv.</small> 55</dt><dd>Hyper Fang</dd></div><div><dt><small>Nv.</small> 67</dt><dd>Extreme Speed</dd></div><div><dt><small>Nv.</small> 75</dt><dd>Close Combat</dd></div></dl>
+        </details>
+        <details class="tile tile--green sd-moves">
+          <summary><h3>Por TM <small>40</small></h3></summary>
+          <ul class="move-list"><li>Agility</li><li>Body Slam</li><li>Close Combat</li><li>Crunch</li><li>Double-Edge</li><li>Earthquake</li><li>Encore</li><li>Endure</li><li>Facade</li><li>False Swipe</li><li>Giga Impact</li><li>Hyper Beam</li><li>Hyper Voice</li><li>Ice Fang</li><li>Iron Head</li><li>Lash Out</li><li>Outrage</li><li>Play Rough</li><li>Protect</li><li>Psychic Fangs</li><li>Rest</li><li>Roar</li><li>Scary Face</li><li>Shadow Claw</li><li>Sleep Talk</li><li>Stomping Tantrum</li><li>Stone Edge</li><li>Substitute</li><li>Swift</li><li>Swords Dance</li><li>Take Down</li><li>Taunt</li><li>Tera Blast</li><li>Throat Chop</li><li>Thunder Fang</li><li>Toxic</li><li>Trailblaze</li><li>Trick</li><li>U-turn</li><li>Wild Charge</li></ul>
+        </details>
+      </section>
 
       <nav class="sd-pager" aria-label="Outros Starians">
         <a class="btn btn--ghost btn--sm" href="/starians/owlith" rel="prev"><svg aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg>Owlith</a>
@@ -306,8 +377,8 @@
 </footer>
 <!-- /@footer -->
 <!-- @scripts -->
-<script src="/js/space.js?v=50" defer></script>
-<script src="/js/main.js?v=50" defer></script>
+<script src="/js/space.js?v=74" defer></script>
+<script src="/js/main.js?v=74" defer></script>
 <!-- /@scripts -->
 </body>
 </html>

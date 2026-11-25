@@ -25,9 +25,9 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/jersey-10-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/style.css?v=50">
+<link rel="stylesheet" href="/css/style.css?v=74">
 <script>document.documentElement.classList.add('js');</script>
-<script src="/js/transicoes.js?v=50"></script>
+<script src="/js/transicoes.js?v=74"></script>
 <!-- /@head -->
 <script type="application/ld+json">
 {
@@ -156,11 +156,19 @@
       </nav>
 
       <div class="sd-hero">
-        <figure class="sd-art tile tile--gold">
-          <div class="starian__art">
+        <div class="sd-art tile tile--gold">
+          <figure class="starian__art">
             <img src="/img/starians/lumi.webp" width="960" height="960" alt="Arte oficial do Starian Lumi" fetchpriority="high" decoding="async">
-          </div>
-        </figure>
+          </figure>
+          <!-- sprites do jogo: faixa compacta no rodapé do card da arte -->
+          <section class="sd-art__sprites" aria-labelledby="sprites-titulo">
+            <p class="sd-art__label" id="sprites-titulo">Sprites no jogo</p>
+            <ul class="sd-sprites">
+            <li><figure class="sd-sprite"><img class="px" src="/img/sprites/lumi.webp" width="32" height="32" alt="Sprite normal de Lumi" loading="lazy" decoding="async"><figcaption>Normal</figcaption></figure></li>
+            <li><figure class="sd-sprite"><img class="px" src="/img/sprites/shiny/lumi.webp" width="32" height="32" alt="Sprite shiny de Lumi" loading="lazy" decoding="async"><figcaption>Shiny</figcaption></figure></li>
+            </ul>
+          </section>
+        </div>
 
         <div class="sd-info">
           <p class="eyebrow"><img class="px" src="/img/px/museu.webp" width="16" height="16" alt="">Starian Dex · #001</p>
@@ -173,51 +181,88 @@
           <p class="sd-text">Primeiro da família inicial, ao lado de Luminix e Lumistar.</p>
           <dl class="sd-facts tile tile--gold">
           <div>
-            <dt>Categoria</dt>
+            <dt>Tipo</dt>
+            <dd><ul class="types types--sm"><li class="type type--fire">Fogo</li><li class="type type--fairy">Fada</li></ul></dd>
+          </div>
+          <div>
+            <dt>Grupo</dt>
             <dd>Inicial</dd>
           </div>
           <div>
-            <dt>Linha evolutiva</dt>
-            <dd>Lumi, Luminix e Lumistar</dd>
+            <dt>Categoria</dt>
+            <dd>Estrela</dd>
+          </div>
+          <div class="sd-facts__long">
+            <dt>Descrição</dt>
+            <dd>Sua cabeça estrelada irradia um calor acolhedor. Dizem que abraçar este pequeno leão é como segurar uma estrela cadente.</dd>
           </div>
           </dl>
-        </div>
-      </div>
-
-      <section class="sd-block" aria-labelledby="sprites-titulo">
-        <h2 class="subhead" id="sprites-titulo">Sprites no jogo</h2>
-        <ul class="sd-sprites">
-        <li>
-          <figure class="sd-sprite tile tile--gold">
-            <img class="px" src="/img/sprites/lumi.webp" width="32" height="32" alt="Sprite normal de Lumi" loading="lazy" decoding="async">
-            <figcaption>Normal</figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure class="sd-sprite tile tile--gold">
-            <img class="px" src="/img/sprites/shiny/lumi.webp" width="32" height="32" alt="Sprite shiny de Lumi" loading="lazy" decoding="async">
-            <figcaption>Shiny</figcaption>
-          </figure>
-        </li>
-        </ul>
-      </section>
-
-    <section class="sd-block" aria-labelledby="familia-titulo">
-      <h2 class="subhead" id="familia-titulo">Linha evolutiva</h2>
-      <ol class="sd-family">
+          <section class="sd-side__block" aria-labelledby="familia-titulo">
+            <h2 class="sd-side__title" id="familia-titulo">Linha evolutiva</h2>
+            <ol class="sd-family">
         <li><a class="sd-mini tile tile--gold is-current" href="/starians/lumi" aria-current="page"><img class="px" src="/img/sprites/lumi.webp" width="32" height="32" alt=""><span><small>#001</small>Lumi</span></a></li>
         <li><a class="sd-mini tile tile--gold" href="/starians/luminix"><img class="px" src="/img/sprites/luminix.webp" width="32" height="34" alt=""><span><small>#002</small>Luminix</span></a></li>
         <li><a class="sd-mini tile tile--gold" href="/starians/lumistar"><img class="px" src="/img/sprites/lumistar.webp" width="32" height="32" alt=""><span><small>#003</small>Lumistar</span></a></li>
-      </ol>
-    </section>
-
-      <aside class="highlight tile tile--indigo sd-soon">
-        <img class="px highlight__icon" src="/img/px/cadeado-aberto.webp" width="16" height="16" alt="">
-        <div>
-          <h2>Ficha completa em breve</h2>
-          <p>Tipo, habilidades, ataques e stats chegam com a Starian Dex completa.</p>
+            </ol>
+          </section>
         </div>
-      </aside>
+      </div>
+
+      <section class="sd-block" aria-labelledby="batalha-titulo">
+        <h2 class="subhead" id="batalha-titulo">Em batalha</h2>
+        <div class="sd-grid">
+        <article class="tile tile--gold sd-card">
+          <h3 class="sd-card__title">Tipo e atributos base</h3>
+          <ul class="types"><li class="type type--fire">Fogo</li><li class="type type--fairy">Fada</li></ul>
+          <dl class="stats"><div class="stats__row stats__row--low"><dt>HP</dt><dd><span class="stats__num">47</span><span class="stats__bar" style="--v:47" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--low"><dt>Atk</dt><dd><span class="stats__num">40</span><span class="stats__bar" style="--v:40" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--low"><dt>Def</dt><dd><span class="stats__num">50</span><span class="stats__bar" style="--v:50" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--mid"><dt>SpA</dt><dd><span class="stats__num">68</span><span class="stats__bar" style="--v:68" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--low"><dt>SpD</dt><dd><span class="stats__num">55</span><span class="stats__bar" style="--v:55" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--low"><dt>Spe</dt><dd><span class="stats__num">50</span><span class="stats__bar" style="--v:50" aria-hidden="true"></span></dd></div><div class="stats__row stats__row--total"><dt>Total</dt><dd><span class="stats__num">310</span></dd></div></dl>
+        </article>
+        <div class="sd-stack">
+        <article class="tile tile--gold sd-card">
+          <h3 class="sd-card__title">Fraquezas e resistências</h3>
+          <dl class="sd-weak"><div><dt>Fraco (2×)</dt><dd><ul class="types types--sm"><li class="type type--water">Água</li><li class="type type--poison">Venenoso</li><li class="type type--ground">Terrestre</li><li class="type type--rock">Pedra</li></ul></dd></div><div><dt>Resiste (½×)</dt><dd><ul class="types types--sm"><li class="type type--fire">Fogo</li><li class="type type--grass">Planta</li><li class="type type--ice">Gelo</li><li class="type type--fighting">Lutador</li><li class="type type--dark">Sombrio</li><li class="type type--fairy">Fada</li></ul></dd></div><div><dt>Resiste muito (¼×)</dt><dd><ul class="types types--sm"><li class="type type--bug">Inseto</li></ul></dd></div><div><dt>Imune (0×)</dt><dd><ul class="types types--sm"><li class="type type--dragon">Dragão</li></ul></dd></div></dl>
+          <p class="sd-note sd-note--sm">Pela tabela de tipos, sem contar habilidades.</p>
+        </article>
+        <article class="tile tile--gold sd-card">
+          <h3 class="sd-card__title">Habilidades</h3>
+          <ul class="abilities"><li><span class="abilities__slot">Habilidade</span><b>Blaze</b><p>Com pouca vida, fortalece os golpes do tipo Fogo.</p></li><li><span class="abilities__slot">Oculta</span><b>Radiant Mane</b> <span class="badge badge--violet">Exclusiva do Stars</span><p>Uma juba estrelada que garante proteção contra o primeiro golpe especial e que regenera no sol.</p></li></ul>
+        </article>
+        </div>
+        </div>
+      </section>
+
+      <section class="sd-block" aria-labelledby="captura-titulo">
+        <h2 class="subhead" id="captura-titulo">Captura e criação</h2>
+        <div class="sd-grid">
+        <article class="tile tile--gold sd-card">
+          <h3 class="sd-card__title">Onde encontrar</h3>
+          <ul class="sd-list"><li>No chão, em Biomas Floridos e em Biomas de Mesas, de dia, com tempo limpo. <b>Níveis 5 a 15</b></li></ul>
+        </article>
+        <article class="tile tile--gold sd-card">
+          <h3 class="sd-card__title">Evolução</h3>
+          <ul class="sd-list"><li>Evolui para <b>Luminix</b> (Nível 16)</li></ul>
+        </article>
+        <article class="tile tile--gold sd-card sd-card--wide">
+          <h3 class="sd-card__title">Dados</h3>
+          <dl class="sd-tiles"><div><dt>Altura</dt><dd>0,81 m</dd></div><div><dt>Peso</dt><dd>9,6 kg</dd></div><div><dt>Taxa de captura</dt><dd>45</dd></div><div><dt>Crescimento</dt><dd>Médio-lento</dd></div><div><dt>EVs ao derrotar</dt><dd>1 SpA, 1 SpD</dd></div><div><dt>Gênero</dt><dd>87,5% macho</dd></div><div><dt>Grupo de ovo</dt><dd>Fada e Monstro</dd></div><div><dt>Ciclos de ovo</dt><dd>25</dd></div></dl>
+        </article>
+        </div>
+      </section>
+
+      <section class="sd-block" aria-labelledby="golpes-titulo">
+        <h2 class="subhead" id="golpes-titulo">Golpes</h2>
+        <details class="tile tile--gold sd-moves" open>
+          <summary><h3>Por nível <small>14</small></h3></summary>
+          <dl class="lvl-list"><div><dt><small>Nv.</small> 1</dt><dd>Tackle, Tail Whip</dd></div><div><dt><small>Nv.</small> 3</dt><dd>Ember</dd></div><div><dt><small>Nv.</small> 6</dt><dd>Lick</dd></div><div><dt><small>Nv.</small> 9</dt><dd>Disarming Voice</dd></div><div><dt><small>Nv.</small> 13</dt><dd>Fire Fang</dd></div><div><dt><small>Nv.</small> 15</dt><dd>Fire Spin</dd></div><div><dt><small>Nv.</small> 20</dt><dd>Draining Kiss</dd></div><div><dt><small>Nv.</small> 24</dt><dd>Flamethrower</dd></div><div><dt><small>Nv.</small> 30</dt><dd>Will-O-Wisp</dd></div><div><dt><small>Nv.</small> 34</dt><dd>Psychic</dd></div><div><dt><small>Nv.</small> 40</dt><dd>Flare Blitz</dd></div><div><dt><small>Nv.</small> 45</dt><dd>Moonblast</dd></div><div><dt><small>Nv.</small> 49</dt><dd>Fire Blast</dd></div></dl>
+        </details>
+        <details class="tile tile--gold sd-moves">
+          <summary><h3>Por ovo <small>5</small></h3></summary>
+          <ul class="move-list"><li>Aromatherapy</li><li>Cosmic Power</li><li>Hypnosis</li><li>Magic Coat</li><li>Moonlight</li></ul>
+        </details>
+        <details class="tile tile--gold sd-moves">
+          <summary><h3>Por TM <small>35</small></h3></summary>
+          <ul class="move-list"><li>Acrobatics</li><li>Aerial Ace</li><li>Body Slam</li><li>Charm</li><li>Dazzling Gleam</li><li>Disarming Voice</li><li>Double-Edge</li><li>Draining Kiss</li><li>Endure</li><li>Facade</li><li>Fake Tears</li><li>Fire Blast</li><li>Fire Fang</li><li>Fire Pledge</li><li>Fire Spin</li><li>Flame Charge</li><li>Flamethrower</li><li>Flare Blitz</li><li>Helping Hand</li><li>Magical Leaf</li><li>Protect</li><li>Psychic</li><li>Rest</li><li>Roar</li><li>Scary Face</li><li>Sleep Talk</li><li>Snarl</li><li>Substitute</li><li>Sunny Day</li><li>Swift</li><li>Take Down</li><li>Tera Blast</li><li>Toxic</li><li>Trailblaze</li><li>Will-O-Wisp</li></ul>
+        </details>
+      </section>
 
       <nav class="sd-pager" aria-label="Outros Starians">
         <a class="btn btn--ghost btn--sm" href="/starians/verdragu" rel="prev"><svg aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg>Verdragu</a>
@@ -297,8 +342,8 @@
 </footer>
 <!-- /@footer -->
 <!-- @scripts -->
-<script src="/js/space.js?v=50" defer></script>
-<script src="/js/main.js?v=50" defer></script>
+<script src="/js/space.js?v=74" defer></script>
+<script src="/js/main.js?v=74" defer></script>
 <!-- /@scripts -->
 </body>
 </html>
